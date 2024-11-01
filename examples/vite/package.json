@@ -1,5 +1,6 @@
 {
 	"name": "example-vite",
+	"description": "example-vite",
 	"version": "0.0.0",
 	"private": true,
 	"type": "module",
@@ -11,7 +12,8 @@
 		"container": "portalx container",
 		"page": "portalx page",
 		"eslint": "eslint src",
-		"prettier": "prettier --check src"
+		"prettier": "prettier --check src",
+		"test": "echo 'test'"
 	},
 	"devDependencies": {
 		"@vitejs/plugin-react-swc": "^3.7.1",
