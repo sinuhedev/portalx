@@ -4,11 +4,16 @@ import pluginReact from 'eslint-plugin-react'
 
 export default [
 	{ files: ['**/*.{js,jsx}'] },
+
 	{
 		languageOptions: {
-			globals
+			globals: {
+				...globals.node,
+				...globals.browser
+			}
 		}
 	},
+
 	pluginJs.configs.recommended,
 	pluginReact.configs.flat.recommended,
 	{
@@ -17,8 +22,5 @@ export default [
 			'react/display-name': 0,
 			'no-case-declarations': 0
 		}
-	},
-	{
-		ignores: ['out']
 	}
 ]

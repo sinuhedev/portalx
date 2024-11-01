@@ -1,5 +1,5 @@
 {
-	"name": "test",
+	"name": "example-vite",
 	"version": "0.0.0",
 	"private": true,
 	"type": "module",
@@ -9,16 +9,18 @@
 		"make": "npm run clean && npm install",
 		"component": "portalx component",
 		"container": "portalx container",
-		"page": "portalx page"
+		"page": "portalx page",
+		"eslint": "eslint src",
+		"prettier": "prettier --check src"
 	},
 	"devDependencies": {
-		"@vitejs/plugin-react-swc": "^3.7.0",
-		"eslint-plugin-import": "^2.29.1",
-		"eslint-plugin-react": "^7.35.0",
-		"vite": "^5.4.2"
+		"@vitejs/plugin-react-swc": "^3.7.1",
+		"eslint-plugin-import": "^2.31.0",
+		"eslint-plugin-react": "^7.37.2",
+		"vite": "^5.4.10"
 	},
 	"dependencies": {
-		"portalx": "file:../",
+		"portalx": "file:../../",
 		"react": "^18.3.1",
 		"react-dom": "^18.3.1"
 	}
