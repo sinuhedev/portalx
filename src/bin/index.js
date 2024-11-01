@@ -15,7 +15,7 @@ function createPage(name) {
 		// index.js
 		fs.writeFileSync(
 			`${dirName}/index.jsx`,
-			`import React, { useEffect, useState } from 'react'
+			`import React, { useEffect } from 'react'
 import { useFx, css } from 'portalx'
 import functions from './functions'
 import './style.css'
@@ -65,7 +65,7 @@ function createContainer(name) {
 		// index.js
 		fs.writeFileSync(
 			`${dirName}/index.jsx`,
-			`import React, { useEffect, useState } from 'react'
+			`import React, { useEffect } from 'react'
 import { useFx, css } from 'portalx'
 import functions from './functions'
 import './style.css'

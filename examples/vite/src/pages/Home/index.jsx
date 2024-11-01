@@ -2,12 +2,14 @@ import React, { useEffect } from 'react'
 import './style.css'
 import { useFx, css } from 'portalx'
 import functions from './functions'
+import { sum } from 'util'
 
 const Example = ({ name, className, style }) => {
 	const { state, initialState, fx, context } = useFx(functions)
 
 	useEffect(() => {
 		fx.init()
+		console.info(sum(10, 10))
 	}, [])
 
 	return (
