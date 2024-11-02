@@ -1,10 +1,10 @@
 @import 'animations.css';
 
 :root {
-	--mq-SM: 768;
-	--mq-MD: 992;
-	--mq-LG: 1200;
-	--mq-XL: 1400;
+	--mediaquery-sm: 768;
+	--mediaquery-md: 992;
+	--mediaquery-lg: 1200;
+	--mediaquery-xl: 1400;
 }
 
 @font-face {

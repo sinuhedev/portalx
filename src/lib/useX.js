@@ -7,12 +7,12 @@ import { useState, useEffect } from 'react'
  */
 function useResize () {
   const getResize = () => {
-    const root = getComputedStyle(document.documentElement)
+    const root = window.getComputedStyle(document.documentElement)
     const MAX = {
-      SM: root.getPropertyValue('--mq-SM') || '768',
-      MD: root.getPropertyValue('--mq-MD') || '992',
-      LG: root.getPropertyValue('--mq-LG') || '1200',
-      XL: root.getPropertyValue('--mq-XL') || '1400'
+      SM: root.getPropertyValue('--mediaquery-sm') || '768',
+      MD: root.getPropertyValue('--mediaquery-md') || '992',
+      LG: root.getPropertyValue('--mediaquery-lg') || '1200',
+      XL: root.getPropertyValue('--mediaquery-xl') || '1400'
     }
 
     const self = {
