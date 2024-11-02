@@ -8,10 +8,10 @@
 		"start": "vite --mode localhost",
 		"clean": "rm -fr node_modules package-lock.json",
 		"make": "npm run clean && npm install",
+		"eslint": "eslint src",
 		"component": "portalx component",
 		"container": "portalx container",
 		"page": "portalx page",
-		"eslint": "eslint src",
 		"test": "echo 'test'"
 	},
 	"devDependencies": {
