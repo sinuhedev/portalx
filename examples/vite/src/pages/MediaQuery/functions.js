@@ -1,4 +1,4 @@
 const initialState = {
 }
 
-export default {initialState}
+export default { initialState }

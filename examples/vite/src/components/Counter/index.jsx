@@ -3,32 +3,34 @@ import './style.css'
 import { css, startViewTransition } from 'portalx'
 
 export default ({
-	children,
-	name,
-	value,
-	type,
-	className,
-	style,
-	readOnly,
-	disabled,
-	I18n,
-	onChange
+  children,
+  name,
+  value,
+  type,
+  className,
+  style,
+  readOnly,
+  disabled,
+  I18n,
+  onChange
 }) => {
-	const self = useRef()
+  const self = useRef()
 
-	return (
-		<article
-			className={css('Counter-component', className)}
-			style={style}
-			name={name}>
-			<button
-				onClick={e => {
-					startViewTransition(() => onChange(e), self, 'count')
-				}}>
-				Increment
-			</button>
+  return (
+    <article
+      className={css('Counter-component', className)}
+      style={style}
+      name={name}
+    >
+      <button
+        onClick={e => {
+          startViewTransition(() => onChange(e), self, 'count')
+        }}
+      >
+        Increment
+      </button>
 
-			<label ref={self}>{value}</label>
-		</article>
-	)
+      <label ref={self}>{value}</label>
+    </article>
+  )
 }

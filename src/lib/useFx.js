@@ -4,102 +4,104 @@ import { useResize, useQueryString } from './useX'
 /**
  * set
  */
-function setMergeValue(target, source) {
-	// in array return all source
-	if (Array.isArray(target)) return source
+function setMergeValue (target, source) {
+  // in array return all source
+  if (Array.isArray(target)) return source
 
-	const isObject = obj => obj && typeof obj === 'object'
-	const output = { ...target }
+  const isObject = obj => obj && typeof obj === 'object'
+  const output = { ...target }
 
-	// merge
-	Object.keys(source).forEach(key => {
-		if (isObject(target[key]) && isObject(source[key]))
-			output[key] = setMergeValue(target[key], source[key])
-		else output[key] = structuredClone(source[key])
-	})
+  // merge
+  Object.keys(source).forEach(key => {
+    if (isObject(target[key]) && isObject(source[key])) {
+      output[key] = setMergeValue(target[key], source[key])
+    } else output[key] = structuredClone(source[key])
+  })
 
-	return output
+  return output
 }
 
-function setValue(state, payload, value) {
-	const paths = payload.split('.')
+function setValue (state, payload, value) {
+  const paths = payload.split('.')
 
-	/**
-	 * one level
-	 */
-	if (paths.length === 1) {
-		// set Object and exist Object
-		if (typeof value == 'object' && Object.keys(value).length)
-			return { ...state, [payload]: { ...state[payload], ...value } }
+  /**
+   * one level
+   */
+  if (paths.length === 1) {
+    // set Object and exist Object
+    if (typeof value === 'object' && Object.keys(value).length) {
+      return { ...state, [payload]: { ...state[payload], ...value } }
+    }
 
-		// set Value
-		return {
-			...state,
-			[payload]: value
-		}
-	}
+    // set Value
+    return {
+      ...state,
+      [payload]: value
+    }
+  }
 
-	/**
-	 * multi level
-	 */
-	const stateClone = structuredClone(state)
-	const finalPath = paths.pop()
-	const stateRef = paths.reduce((ac, e) => ac[e], stateClone)
-	stateRef[finalPath] = value
+  /**
+   * multi level
+   */
+  const stateClone = structuredClone(state)
+  const finalPath = paths.pop()
+  const stateRef = paths.reduce((ac, e) => ac[e], stateClone)
+  stateRef[finalPath] = value
 
-	return stateClone
+  return stateClone
 }
 
 /**
  * useFxReducer
  */
-function useFxReducer(initialState) {
-	const reducer = (state, action) => {
-		const { type, payload } = action
+function useFxReducer (initialState) {
+  const reducer = (state, action) => {
+    const { type, payload } = action
 
-		switch (type) {
-			case 'set':
-				// Merge only item
-				if (Object.keys(payload).length === 1) {
-					const key = Object.keys(payload)[0]
-					return setValue(state, key, payload[key])
-				}
+    switch (type) {
+      case 'set':
+        // Merge only item
+        if (Object.keys(payload).length === 1) {
+          const key = Object.keys(payload)[0]
+          return setValue(state, key, payload[key])
+        }
 
-				// Merge all json
-				return setMergeValue(state, payload)
+        // Merge all json
+        return setMergeValue(state, payload)
 
-			case 'show':
-				return setValue(state, payload, true)
+      case 'show':
+        return setValue(state, payload, true)
 
-			case 'hide':
-				return setValue(state, payload, false)
+      case 'hide':
+        return setValue(state, payload, false)
 
-			case 'change':
-				const { name, value, checked, type } = payload.target
-				const valueOrChecked = type === 'checkbox' ? checked : value
+      case 'change':
+        return setValue(
+          state,
+          payload.target.name,
+          payload.target.type === 'checkbox' ? payload.target.checked : payload.target.value
+        )
 
-				return setValue(state, name, valueOrChecked)
+      case 'reset':
+        // value reset
+        if (payload) {
+          const paths = Array.isArray(payload) ? payload : [payload]
 
-			case 'reset':
-				// value reset
-				if (payload) {
-					const paths = Array.isArray(payload) ? payload : [payload]
+          return paths.reduce((ac, path) => {
+            const value = path.split('.').reduce((ac, e) => ac[e], initialState)
+            return setValue(ac, path, value)
+          }, state)
+        }
 
-					return paths.reduce((ac, path) => {
-						const value = path.split('.').reduce((ac, e) => ac[e], initialState)
-						return setValue(ac, path, value)
-					}, state)
-				}
+        // all reset
+        return initialState
 
-				// all reset
-				return initialState
+      default:
+        return state
+    }
+  }
 
-			default:
-				return state
-		}
-	}
-
-	return useReducer(reducer, initialState)
+  return useReducer(reducer, initialState)
 }
 
 /**
@@ -110,52 +112,53 @@ let context = null
 /**
  * useFx
  */
-function useFx(functions = { initialState: {} }, props = { isContext: false }) {
-	// hooks
-	const qs = useQueryString()
-	const resize = useResize()
+function useFx (functions = { initialState: {} }, props = { isContext: false }) {
+  // hooks
+  const qs = useQueryString()
+  const resize = useResize()
 
-	// reducer
-	const [state, dispatch] = useFxReducer(functions.initialState)
+  // reducer
+  const [state, dispatch] = useFxReducer(functions.initialState)
 
-	// Common actions
-	const commonActions = ['set', 'show', 'hide', 'change', 'reset'].reduce(
-		(ac, e) => {
-			ac[e] = payload => dispatch({ type: e, payload })
-			return ac
-		},
-		{}
-	)
+  // Common actions
+  const commonActions = ['set', 'show', 'hide', 'change', 'reset'].reduce(
+    (ac, e) => {
+      ac[e] = payload => dispatch({ type: e, payload })
+      return ac
+    },
+    {}
+  )
 
-	// Actions
-	const actions = Object.keys(functions).reduce((ac, e) => {
-		if (functions[e] instanceof Function)
-			ac[e] = payload =>
-				functions[e]({
-					...commonActions,
-					state,
-					payload,
-					//
-					...(props.isContext ? {} : { context }),
-					...(props.isContext ? {} : context.state?.extraFunctions)
-				})
-		return ac
-	}, {})
+  // Actions
+  const actions = Object.keys(functions).reduce((ac, e) => {
+    if (functions[e] instanceof Function) {
+      ac[e] = payload =>
+        functions[e]({
+          ...commonActions,
+          state,
+          payload,
+          //
+          ...(props.isContext ? {} : { context }),
+          ...(props.isContext ? {} : context.state?.extraFunctions)
+        })
+    }
+    return ac
+  }, {})
 
-	// State and Actions
-	const stateAndActions = {
-		initialState: functions.initialState,
-		state,
-		fx: { ...commonActions, ...actions },
-		qs,
-		resize,
-		//
-		...(props.isContext ? {} : { context })
-	}
+  // State and Actions
+  const stateAndActions = {
+    initialState: functions.initialState,
+    state,
+    fx: { ...commonActions, ...actions },
+    qs,
+    resize,
+    //
+    ...(props.isContext ? {} : { context })
+  }
 
-	if (props.isContext) context = stateAndActions
+  if (props.isContext) context = stateAndActions
 
-	return stateAndActions
+  return stateAndActions
 }
 
 export default useFx

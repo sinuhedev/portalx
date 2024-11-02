@@ -7,37 +7,38 @@ import { flushSync } from 'react-dom'
  * @returns
  */
 const href = (href, params = {}) =>
-	href + '?' + new URLSearchParams(params).toString()
+  href + '?' + new URLSearchParams(params).toString()
 
 /**
  * css
  * @param  {...any} classNames
  * @returns
  */
-function css(...classNames) {
-	classNames = classNames.filter(x => x !== undefined)
+function css (...classNames) {
+  classNames = classNames.filter(x => x !== undefined)
 
-	const objStr = obj => {
-		let classNames = ''
+  const objStr = obj => {
+    let classNames = ''
 
-		for (const o in obj) {
-			if (obj[o]) {
-				if (classNames) classNames += ' '
-				classNames += o
-			}
-		}
+    for (const o in obj) {
+      if (obj[o]) {
+        if (classNames) classNames += ' '
+        classNames += o
+      }
+    }
 
-		return classNames
-	}
+    return classNames
+  }
 
-	if (classNames.length === 1) classNames = ['', ...classNames]
+  if (classNames.length === 1) classNames = ['', ...classNames]
 
-	return classNames.reduce((accumulator, currentValue) => {
-		if (typeof currentValue === 'string')
-			return accumulator + ' ' + currentValue
-		else if (typeof currentValue === 'object')
-			return accumulator + ' ' + objStr(currentValue)
-	})
+  return classNames.reduce((accumulator, currentValue) => {
+    if (typeof currentValue === 'string') {
+      return accumulator + ' ' + currentValue
+    } else if (typeof currentValue === 'object') {
+      return accumulator + ' ' + objStr(currentValue)
+    }
+  })
 }
 
 /**
@@ -48,26 +49,27 @@ function css(...classNames) {
  * @param {*} locale
  * @returns
  */
-function i18n(value, args = [], i18nFile, locale) {
-	if (!value) return ''
+function i18n (value, args = [], i18nFile, locale) {
+  if (!value) return ''
 
-	try {
-		const localeIndex = i18nFile.locales.indexOf(locale)
+  try {
+    const localeIndex = i18nFile.locales.indexOf(locale)
 
-		let text = value.split('.').reduce((ac, el) => ac[el], i18nFile)
-		text = text[localeIndex]
+    let text = value.split('.').reduce((ac, el) => ac[el], i18nFile)
+    text = text[localeIndex]
 
-		if (args)
-			text = text.replace(
-				/([{}])\\1|[{](.*?)(?:!(.+?))?[}]/g,
-				(match, literal, number) => args[number] || match
-			)
+    if (args) {
+      text = text.replace(
+        /([{}])\\1|[{](.*?)(?:!(.+?))?[}]/g,
+        (match, literal, number) => args[number] || match
+      )
+    }
 
-		return text
-	} catch (e) {
-		console.error('Error in [il8n] => ' + value)
-		return value
-	}
+    return text
+  } catch (e) {
+    console.error('Error in [il8n] => ' + value)
+    return value
+  }
 }
 
 /**
@@ -77,20 +79,19 @@ function i18n(value, args = [], i18nFile, locale) {
  * @param {*} viewTransitionName
  * @returns
  */
-function startViewTransition(
-	fun = () => {},
-	ref = null,
-	viewTransitionName = ''
+function startViewTransition (
+  fun = () => {},
+  ref = null,
+  viewTransitionName = ''
 ) {
-	if (!document.startViewTransition) return fun()
-	;(async () => {
-		if (ref && ref.current)
-			ref.current.style.viewTransitionName = viewTransitionName
+  if (!document.startViewTransition) return fun()
+  ;(async () => {
+    if (ref && ref.current) { ref.current.style.viewTransitionName = viewTransitionName }
 
-		await document.startViewTransition(() => flushSync(() => fun())).finished
+    await document.startViewTransition(() => flushSync(() => fun())).finished
 
-		if (ref && ref.current) ref.current.style.viewTransitionName = ''
-	})()
+    if (ref && ref.current) ref.current.style.viewTransitionName = ''
+  })()
 }
 
 export { href, css, i18n, startViewTransition }

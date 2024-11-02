@@ -7,6 +7,7 @@
 }
 
 @media (prefers-reduced-motion) {
+
 	::view-transition-group(*),
 	::view-transition-old(*),
 	::view-transition-new(*) {
@@ -29,10 +30,12 @@
 	height: 100%;
 	width: 100%;
 }
+
 ::view-transition-new(count) {
 	--scale-start: 0;
 	transform-origin: 50% 0;
 }
+
 ::view-transition-old(count) {
 	--scale-end: 0;
 	transform-origin: 50% 100%;
@@ -42,6 +45,7 @@
 	0% {
 		scale: 1 var(--scale-start, 1);
 	}
+
 	100% {
 		scale: 1 var(--scale-end, 1);
 	}
@@ -56,10 +60,12 @@
 	height: 100%;
 	width: 100%;
 }
+
 ::view-transition-new(count2) {
 	--scale-start: 0;
 	transform-origin: 10% 1000;
 }
+
 ::view-transition-old(count2) {
 	--scale-end: 0;
 	transform-origin: 10% 0%;
@@ -69,6 +75,7 @@
 	0% {
 		scale: 1 var(--scale-start, 1);
 	}
+
 	100% {
 		scale: 1 var(--scale-end, 1);
 	}

@@ -12,7 +12,6 @@
 		"container": "portalx container",
 		"page": "portalx page",
 		"eslint": "eslint src",
-		"prettier": "prettier --check src",
 		"test": "echo 'test'"
 	},
 	"devDependencies": {

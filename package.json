@@ -12,24 +12,26 @@
 		"type": "git",
 		"url": "git+https://github.com/sinuhedev/portalx.git"
 	},
+	"type": "module",
 	"main": "src/lib/index.js",
 	"bin": {
 		"portalx": "src/bin/index.js"
 	},
-	"type": "module",
+	"eslintConfig": {
+		"extends": "./node_modules/standard/eslintrc.json"
+	},
+	"scripts": {
+		"start": "echo 'go to examples'",
+		"clean": "rm -fr node_modules package-lock.json",
+		"make": "npm run clean && npm install",
+		"eslint": "eslint src"
+	},
 	"peerDependencies": {
 		"react": "^18.0.0",
 		"react-dom": "^18.0.0"
 	},
 	"devDependencies": {
-		"@eslint/js": "^9.14.0",
-		"eslint-plugin-import": "^2.31.0",
-		"eslint-plugin-react": "^7.37.2",
-		"globals": "^15.11.0"
+		"standard": "*"
 	},
-	"scripts": {
-		"start": "echo 'go to examples'",
-		"clean": "rm -fr node_modules package-lock.json",
-		"make": "npm run clean && npm install"
-	}
+	"dependencies": {}
 }
