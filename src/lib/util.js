@@ -38,6 +38,7 @@ function css (...classNames) {
     } else if (typeof currentValue === 'object') {
       return accumulator + ' ' + objStr(currentValue)
     }
+    return accumulator
   })
 }
 
