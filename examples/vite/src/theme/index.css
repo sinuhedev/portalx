@@ -1,18 +1,25 @@
-@import 'animations.css';
+@import './bootstrap.scss';
+@import './animations.css';
 
-:root {
-	--mediaquery-sm: 768;
-	--mediaquery-md: 992;
-	--mediaquery-lg: 1200;
-	--mediaquery-xl: 1400;
-}
-
+/**
+ * Fonts
+ */
 @font-face {
 	font-family: Roboto;
 	font-style: normal;
 	font-display: swap;
 	font-weight: bold;
 	src: url('assets/fonts/Roboto-Regular.ttf');
+}
+
+/**
+ * Media query
+ */
+:root {
+	--mediaquery-sm: 768;
+	--mediaquery-md: 992;
+	--mediaquery-lg: 1200;
+	--mediaquery-xl: 1400;
 }
 
 /**
@@ -36,18 +43,4 @@
 	::-webkit-scrollbar-corner {
 		background-color: transparent;
 	}
-}
-
-body {
-	font-family: 'Roboto';
-	background-color: #333;
-	color: gray;
-}
-
-a {
-	color: #488ac7;
-}
-
-.m-2 {
-	margin: 20px;
 }

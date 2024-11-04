@@ -65,9 +65,9 @@ export default ({ className, style}) => {
   const { state, fx } = useFx(functions)
 
   return (
-    <main className={css( '${containerName}' , className, '')} style={style}>
+    <article className={css( '${containerName}' , className, '')} style={style}>
       ${containerName}
-    </main>
+    </article>
   )
 }
 `)

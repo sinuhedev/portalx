@@ -17,7 +17,7 @@ const Example = ({ name, className, style }) => {
       <div>
         <div>
           <p>set</p>
-          <button onClick={() => fx.set({ setNameValue: 'set 1 level' })}>
+          <button className='btn  btn-primary ' onClick={() => fx.set({ setNameValue: 'set 1 level' })}>
             set Value
           </button>
           <button
@@ -69,8 +69,8 @@ const Example = ({ name, className, style }) => {
 
         <div>
           <p>Simple actions/Reducer:</p>
-          <button onClick={fx.increment}>+</button>
-          <button onClick={fx.decrement}>-</button>
+          <button onClick={e => fx.increment(e)}>+</button>
+          <button onClick={e => fx.decrement(e)}>-</button>
 
           <button
             onClick={() =>

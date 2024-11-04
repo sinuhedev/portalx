@@ -7,7 +7,7 @@ export default ({ className, style }) => {
   const { initialState, state, fx } = useFx(functions)
 
   return (
-    <section
+    <article
       className={css('UserContainer-container', className, 'container')}
       style={style}
     >
@@ -91,6 +91,6 @@ export default ({ className, style }) => {
           </pre>
         </article>
       </section>
-    </section>
+    </article>
   )
 }
