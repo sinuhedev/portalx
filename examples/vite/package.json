@@ -6,16 +6,16 @@
 	"type": "module",
 	"scripts": {
 		"start": "vite --mode localhost",
-		"clean": "rm -fr node_modules package-lock.json",
+		"clean": "rm -fr .coverage node_modules out package-lock.json",
 		"make": "npm run clean && npm install",
-		"build": "vite build",
 		"component": "portalx component",
 		"container": "portalx container",
 		"page": "portalx page",
+		"build": "vite build",
 		"eslint": "eslint src",
+		"coverage": "vitest --coverage --silent",
 		"test": "vitest --silent",
-		"test:name": "vitest --testNamePattern",
-		"coverage": "vitest --coverage --silent"
+		"test:name": "vitest --testNamePattern"
 	},
 	"devDependencies": {
 		"@vitejs/plugin-react": "^4.3.3",
