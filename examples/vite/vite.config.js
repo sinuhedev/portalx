@@ -1,13 +1,18 @@
 import { defineConfig } from 'vite'
+import autoprefixer from 'autoprefixer'
 import react from '@vitejs/plugin-react'
 
 const CWD = process.cwd()
+const host = '0.0.0.0'
+const port = 3000
 
-export default defineConfig(() => {
+export default defineConfig(args => {
+  console.info(args)
+
   return {
     server: {
-      host: '0.0.0.0',
-      port: 3000
+      host,
+      port
     },
 
     base: '',
@@ -25,6 +30,36 @@ export default defineConfig(() => {
       }
     },
 
-    plugins: [react()]
+    build: {
+      outDir: '../out',
+      assetsDir: 'assets',
+      emptyOutDir: true
+    },
+
+    css: {
+      postcss: {
+        plugins: [autoprefixer]
+      }
+    },
+
+    plugins: [
+      react()
+    ],
+
+    test: {
+      root: './',
+      watch: false,
+      environment: 'jsdom',
+      include: ['test/**/*.js', 'test/**/*.jsx'],
+      coverage: {
+        all: true,
+        reportsDirectory: '.coverage',
+        include: ['src/**/*.js', 'src/**/*.jsx'],
+        exclude: [
+          'src/index.jsx'
+        ]
+      }
+    }
+
   }
 })
