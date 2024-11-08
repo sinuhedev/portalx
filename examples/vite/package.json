@@ -11,7 +11,7 @@
 		"component": "portalx component",
 		"container": "portalx container",
 		"page": "portalx page",
-		"build": "vite build",
+		"build": "vite build --mode",
 		"eslint": "eslint src",
 		"coverage": "vitest --coverage --silent",
 		"test": "vitest --silent",

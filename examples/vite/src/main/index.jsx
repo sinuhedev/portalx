@@ -2,12 +2,18 @@ import React, { useEffect, useRef } from 'react'
 import { useFx, startViewTransition } from 'portalx'
 import { Icon, I18n, Translate } from 'components'
 import functions from './functions'
+import { env } from 'util'
 
 const Main = () => {
   const { state, fx, qs } = useFx(functions, { isContext: true })
 
   const Page = state.page.content
   const page = useRef()
+
+  // env
+  useEffect(() => {
+    console.log(env)
+  }, [])
 
   // services
   useEffect(() => {
