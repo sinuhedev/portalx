@@ -140,5 +140,6 @@ switch (CMD) {
     break
 
   default:
+    console.info('portalx')
     break
 }
