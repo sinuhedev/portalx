@@ -6,12 +6,12 @@
 	"type": "module",
 	"scripts": {
 		"start": "vite --mode localhost",
+		"build": "vite build --mode",
 		"clean": "rm -fr .coverage node_modules out package-lock.json",
 		"make": "npm run clean && npm install",
 		"component": "portalx component",
 		"container": "portalx container",
 		"page": "portalx page",
-		"build": "vite build --mode",
 		"eslint": "eslint src",
 		"coverage": "vitest --coverage --silent",
 		"test": "vitest --silent",
