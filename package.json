@@ -1,6 +1,9 @@
 {
 	"name": "portalx",
 	"description": "portalx",
+	"keywords": [
+		"react"
+	],
 	"version": "0.17.29",
 	"license": "MIT",
 	"author": {
@@ -34,5 +37,6 @@
 	},
 	"devDependencies": {
 		"standard": "^17.1.2"
-	}
+	},
+	"dependencies": {}
 }
