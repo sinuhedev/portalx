@@ -1,8 +1,5 @@
-.git
-.gitignore
-
 examples
 
+.git
+.gitignore
 .vscode
-.prettierrc
-eslint.config.js
