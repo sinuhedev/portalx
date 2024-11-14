@@ -11,6 +11,6 @@ npm start
 
 ## env
 ```.env
-.env                # loaded in all cases
-.env.[mode]         # only loaded in specified mode
+.env        # loaded in all cases
+.env.[mode] # only loaded in specified mode [localhost,test,development,production]
 ```
