@@ -6,7 +6,7 @@ import { env } from 'util'
 
 let HOLAAAA
 
-const App = () => {
+const Pages = () => {
   const { state, fx, qs } = useFx(functions, { isContext: true })
 
   const Page = state.page.content
@@ -84,4 +84,4 @@ const App = () => {
   )
 }
 
-export default App
+export default Pages

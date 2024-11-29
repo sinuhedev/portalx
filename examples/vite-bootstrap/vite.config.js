@@ -67,7 +67,8 @@ export default defineConfig(({ mode }) => {
         reportsDirectory: '.coverage',
         include: ['src/**/*.js', 'src/**/*.jsx'],
         exclude: [
-          'src/index.jsx'
+          'src/index.jsx',
+          'src/assets/i18n'
         ]
       }
     }
