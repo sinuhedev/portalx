@@ -46,6 +46,36 @@ export default {initialState}`)
   }
 }
 
+function createComponent (name) {
+  const dirName = `./src/components/${name}`
+
+  if (fs.existsSync(dirName)) { console.error(`Error: Can't create '${dirName}' component : File exists`) } else {
+    fs.mkdirSync(dirName, { recursive: true })
+
+    const componentName = name.replaceAll('/', '') + '-component'
+
+    // index.js
+    fs.writeFileSync(`${dirName}/index.jsx`, `
+import React, { useEffect, useState } from 'react'
+import './style.css'
+import { css } from 'portalx'
+
+export default ({ children, name, value, type, className, style, readOnly, disabled }) => {
+  return (
+    <article className={css('${componentName}', className)} style={style} name={name}>
+      ${componentName}
+    </article>
+  )
+}`)
+
+    // style.scss
+    fs.writeFileSync(`${dirName}/style.css`,
+      `.${componentName}  {
+}`
+    )
+  }
+}
+
 function createContainer (name) {
   const dirName = `./src/containers/${name}`
 
@@ -86,36 +116,6 @@ export default {initialState}`)
   }
 }
 
-function createComponent (name) {
-  const dirName = `./src/components/${name}`
-
-  if (fs.existsSync(dirName)) { console.error(`Error: Can't create '${dirName}' component : File exists`) } else {
-    fs.mkdirSync(dirName, { recursive: true })
-
-    const componentName = name.replaceAll('/', '') + '-component'
-
-    // index.js
-    fs.writeFileSync(`${dirName}/index.jsx`, `
-import React, { useEffect, useState } from 'react'
-import './style.css'
-import { css } from 'portalx'
-
-export default ({ children, name, value, type, className, style, readOnly, disabled }) => {
-  return (
-    <article className={css('${componentName}', className)} style={style} name={name}>
-      ${componentName}
-    </article>
-  )
-}`)
-
-    // style.scss
-    fs.writeFileSync(`${dirName}/style.css`,
-      `.${componentName}  {
-}`
-    )
-  }
-}
-
 /**
  * run template
  */
@@ -129,14 +129,14 @@ switch (CMD) {
     else console.warn('npm run page <PageName>')
     break
 
-  case 'container':
-    if (FILE_NAME) createContainer(FILE_NAME)
-    else console.warn('npm run container <ContainerName>')
-    break
-
   case 'component':
     if (FILE_NAME) createComponent(FILE_NAME)
     else console.warn('npm run component <ComponentName>')
+    break
+
+  case 'container':
+    if (FILE_NAME) createContainer(FILE_NAME)
+    else console.warn('npm run container <ContainerName>')
     break
 
   default:
