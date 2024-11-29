@@ -4,6 +4,8 @@ import { Icon, I18n, Translate } from 'components'
 import functions from './functions'
 import { env } from 'util'
 
+let HOLAAAA
+
 const App = () => {
   const { state, fx, qs } = useFx(functions, { isContext: true })
 

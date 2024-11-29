@@ -12,7 +12,7 @@
 		"component": "portalx component",
 		"container": "portalx container",
 		"page": "portalx page",
-		"eslint": "eslint src",
+		"eslint": "standard src",
 		"test": "vitest",
 		"test:name": "vitest --testNamePattern",
 		"test:silent": "vitest --silent",
