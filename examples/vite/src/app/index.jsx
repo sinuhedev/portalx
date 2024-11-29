@@ -4,7 +4,7 @@ import { Icon, I18n, Translate } from 'components'
 import functions from './functions'
 import { env } from 'util'
 
-const Main = () => {
+const App = () => {
   const { state, fx, qs } = useFx(functions, { isContext: true })
 
   const Page = state.page.content
@@ -82,4 +82,4 @@ const Main = () => {
   )
 }
 
-export default Main
+export default App
