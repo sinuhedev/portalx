@@ -1,6 +1,6 @@
 {
-	"name": "example-vite",
-	"description": "example-vite",
+	"name": "vite-bootstrap",
+	"description": "vite-bootstrap",
 	"version": "0.0.0",
 	"private": true,
 	"type": "module",
