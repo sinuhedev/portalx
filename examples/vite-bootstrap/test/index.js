@@ -8,5 +8,5 @@ test('hi', () => {
 })
 
 test('env', () => {
-  console.info(env.VITE_TITLE)
+  console.info(env.WEB_TITLE)
 })

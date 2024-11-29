@@ -1,37 +1,8 @@
-import fs from 'node:fs'
+import { version } from './package.json'
 import { execSync } from 'node:child_process'
-import { defineConfig, loadEnv } from 'vite'
+import { defineConfig } from 'vite'
 import autoprefixer from 'autoprefixer'
 import react from '@vitejs/plugin-react'
-
-function getVersion (mode) {
-  const { version } = JSON.parse(fs.readFileSync('./package.json'))
-
-  const date = new Date()
-  const monthNames = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec']
-  const releaseDate = (
-    ('0' + date.getDate()).slice(-2) +
-      '/' +
-      monthNames[date.getMonth()] +
-      '/' +
-      date.getFullYear() +
-      ' ' +
-      (date.getHours() < 10 ? '0' + date.getHours() : date.getHours()) +
-      ':' +
-      (date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()) +
-      ':' +
-      (date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds())
-  )
-
-  let gitHash = ''
-  try {
-    gitHash = (execSync('git rev-parse --short HEAD') + '').replace(/\n|\r/g, '')
-  } catch (e) {
-    console.error(e)
-  }
-
-  return `version=${version}, env=${mode}, release-date=${releaseDate}, git-hash=${gitHash}`
-}
 
 export default defineConfig(({ mode }) => {
   const CWD = process.cwd()
@@ -43,6 +14,7 @@ export default defineConfig(({ mode }) => {
     },
 
     base: '',
+    envPrefix: 'WEB_',
     envDir: CWD,
     root: CWD + '/src',
     publicDir: CWD + '/public',
@@ -73,7 +45,14 @@ export default defineConfig(({ mode }) => {
       {
         name: 'html',
         transformIndexHtml (html) {
-          return html.replaceAll('%VERSION%', getVersion(mode))
+          let gitHash = ''
+          try {
+            gitHash = (execSync('git rev-parse --short HEAD') + '').replace(/\n|\r/g, '')
+          } catch (e) {
+            console.error(e)
+          }
+
+          return html.replaceAll('%VERSION%', `version=${version}, env=${mode}, release-date=${new Date()}, git-hash=${gitHash}`)
         }
       }
     ],
@@ -82,7 +61,6 @@ export default defineConfig(({ mode }) => {
       root: './',
       watch: false,
       environment: 'jsdom',
-      env: loadEnv('test', CWD),
       include: ['test/**/*.js', 'test/**/*.jsx'],
       coverage: {
         all: true,
