@@ -1,0 +1,52 @@
+.MediaQuery {
+	.css-container {
+		@container style(--mq-landscape: true) {
+			.landscape {
+				color: #5ba15f;
+				font-weight: 400;
+			}
+		}
+
+		@container style(--mq-portrait: true) {
+			.portrait {
+				color: #5ba15f;
+				font-weight: 400;
+			}
+		}
+
+		@container style(--mq-sm: true) {
+			.sm {
+				color: #5ba15f;
+				font-weight: 400;
+			}
+		}
+
+		@container style(--mq-md: true) {
+			.md {
+				color: #5ba15f;
+				font-weight: 400;
+			}
+		}
+
+		@container style(--mq-lg: true) {
+			.lg {
+				color: #5ba15f;
+				font-weight: 400;
+			}
+		}
+
+		@container style(--mq-xl: true) {
+			.xl {
+				color: #5ba15f;
+				font-weight: 400;
+			}
+		}
+
+		@container style(--mq-xxl: true) {
+			.xxl {
+				color: #5ba15f;
+				font-weight: 400;
+			}
+		}
+	}
+}

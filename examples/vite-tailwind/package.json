@@ -1,0 +1,34 @@
+{
+	"name": "vite-tailwind",
+	"description": "vite-tailwind",
+	"version": "0.0.0",
+	"private": true,
+	"type": "module",
+	"scripts": {
+		"start": "vite --mode localhost",
+		"clean": "rm -fr .coverage node_modules out package-lock.json",
+		"make": "npm run clean && npm install",
+		"build": "vite build --mode",
+		"component": "portalx component",
+		"container": "portalx container",
+		"page": "portalx page",
+		"eslint": "standard src",
+		"test": "vitest",
+		"test:name": "vitest --testNamePattern",
+		"test:silent": "vitest --silent",
+		"test:coverage": "vitest --silent --coverage"
+	},
+	"devDependencies": {
+		"@vitejs/plugin-react": "^4.3.4",
+		"@vitest/coverage-v8": "^2.1.8",
+		"autoprefixer": "^10.4.20",
+		"jsdom": "^25.0.1",
+		"vite": "^6.0.2",
+		"vitest": "^2.1.8"
+	},
+	"dependencies": {
+		"portalx": "file:../../",
+		"react": "^18.3.1",
+		"react-dom": "^18.3.1"
+	}
+}
