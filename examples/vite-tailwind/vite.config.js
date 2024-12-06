@@ -3,6 +3,7 @@ import { execSync } from 'node:child_process'
 import { defineConfig } from 'vite'
 import autoprefixer from 'autoprefixer'
 import react from '@vitejs/plugin-react'
+import tailwindcss from '@tailwindcss/vite'
 
 export default defineConfig(({ mode }) => {
   const CWD = process.cwd()
@@ -42,6 +43,7 @@ export default defineConfig(({ mode }) => {
 
     plugins: [
       react(),
+      tailwindcss(),
       {
         name: 'html',
         transformIndexHtml (html) {
