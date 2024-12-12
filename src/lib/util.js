@@ -86,6 +86,7 @@ function startViewTransition (
   viewTransitionName = ''
 ) {
   if (!document.startViewTransition) return fun()
+
   ;(async () => {
     if (ref && ref.current) { ref.current.style.viewTransitionName = viewTransitionName }
 
