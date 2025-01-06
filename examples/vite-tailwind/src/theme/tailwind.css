@@ -2,70 +2,12 @@
 
 @layer theme, base, components, utilities;
 
-@layer theme {
-  :root {
-    --font-sans: 'Robot';
-    --font-serif: ui-serif, Georgia, Cambria, 'Times New Roman', Times, serif;
-    --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono',
-      'Courier New', monospace;
-
-
-    --color-current: red;
-
-    /* ... */
-  }
-}
-
 @layer base {
+  html {
+    font-family: Roboto;
+  }
 
   body {
     @apply bg-sky-500/100;
-  }
-
-  h1 {
-    @apply text-8xl;
-    color: var(--color-current);
-  }
-
-  *,
-  ::after,
-  ::before,
-  ::backdrop,
-  ::file-selector-button {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    border: 0 solid;
-  }
-
-
-  button {
-    color: red;
-  }
-
-  /* ... */
-}
-
-@layer utilities {
-  .pointer-events-none {
-    pointer-events: none;
-  }
-
-  .visibility-hidden {
-    visibility: hidden;
-  }
-
-  /* ... */
-
-  .focus\:outline:focus {
-    outline-width: 1px;
-  }
-
-  @media (width >=40rem) {
-    @media (hover: hover) {
-      .sm\:hover\:opacity-100:hover {
-        opacity: 100%;
-      }
-    }
   }
 }
