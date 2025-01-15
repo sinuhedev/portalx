@@ -8,6 +8,6 @@
   }
 
   body {
-    @apply bg-sky-500/100;
+    @apply bg-slate-800 text-sky-400/50;
   }
 }
