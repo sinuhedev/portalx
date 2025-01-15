@@ -23,8 +23,11 @@ const MediaQuery = ({ name, className, style }) => {
       </div>
 
       <div>
-        <p>{resize.device}</p>
+        <pre style={{ margin: '0 50px 0 50px' }}>
+          resize = {JSON.stringify(resize, undefined, 2)}
+        </pre>
       </div>
+
     </main>
   )
 }
