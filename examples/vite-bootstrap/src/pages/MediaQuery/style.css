@@ -1,48 +1,48 @@
 .MediaQuery {
 	.css-container {
-		@container style(--mq-landscape: true) {
+		@media (orientation: landscape) {
 			.landscape {
 				color: #5ba15f;
 				font-weight: 400;
 			}
 		}
 
-		@container style(--mq-portrait: true) {
+		@media (orientation: portrait) {
 			.portrait {
 				color: #5ba15f;
 				font-weight: 400;
 			}
 		}
 
-		@container style(--mq-sm: true) {
+		@container style(--sm: true) {
 			.sm {
 				color: #5ba15f;
 				font-weight: 400;
 			}
 		}
 
-		@container style(--mq-md: true) {
+		@container style(--md: true) {
 			.md {
 				color: #5ba15f;
 				font-weight: 400;
 			}
 		}
 
-		@container style(--mq-lg: true) {
+		@container style(--lg: true) {
 			.lg {
 				color: #5ba15f;
 				font-weight: 400;
 			}
 		}
 
-		@container style(--mq-xl: true) {
+		@container style(--xl: true) {
 			.xl {
 				color: #5ba15f;
 				font-weight: 400;
 			}
 		}
 
-		@container style(--mq-xxl: true) {
+		@container style(--xxl: true) {
 			.xxl {
 				color: #5ba15f;
 				font-weight: 400;

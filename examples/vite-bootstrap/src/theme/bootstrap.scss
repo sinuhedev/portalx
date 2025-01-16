@@ -91,3 +91,68 @@ $table-hover-color: rgba($body-color, 1);
 $table-hover-bg: unset;
 
 @import 'bootstrap/scss/bootstrap';
+
+/**
+ * Media query
+ */
+
+:root {
+  --sm: false;
+  --md: false;
+  --lg: false;
+  --xl: false;
+  --xxl: false;
+}
+
+@include media-breakpoint-only(sm) {
+  :root {
+    --sm: true;
+  }
+}
+
+@include media-breakpoint-only(md) {
+  :root {
+    --md: true;
+  }
+}
+
+@include media-breakpoint-only(lg) {
+  :root {
+    --lg: true;
+  }
+}
+
+@include media-breakpoint-only(xl) {
+  :root {
+    --xl: true;
+  }
+}
+
+@include media-breakpoint-only(xxl) {
+  :root {
+    --xxl: true;
+  }
+}
+
+/**
+ * Cursor type
+ */
+$cursors: // General
+  auto, default, none,
+  //Links & status
+  pointer,
+  progress, wait, cell, crosshair, text,
+  // Drag & drop
+  copy,
+  move, not-allowed, grabbing,
+  // Resizing & scrolling
+  all-scroll,
+  col-resize, row-resize, n-resize, e-resize, s-resize, w-resize, ne-resize,
+  nw-resize, se-resize, sw-resize, ew-resize, ns-resize, nesw-resize,
+  nwse-resize;
+
+@each $cursor in $cursors {
+  .c-#{$cursor} {
+    cursor: #{$cursor} !important;
+  }
+}
