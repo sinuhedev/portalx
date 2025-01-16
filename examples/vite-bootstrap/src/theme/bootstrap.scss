@@ -104,6 +104,12 @@ $table-hover-bg: unset;
   --xxl: false;
 }
 
+@include media-breakpoint-down(sm) {
+  :root {
+    --sm: true;
+  }
+}
+
 @include media-breakpoint-only(sm) {
   :root {
     --sm: true;
