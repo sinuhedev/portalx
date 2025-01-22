@@ -17,6 +17,8 @@ const URLSearchParams = ({ name, className, style }) => {
       <br />
       <a href={href('#/URLSearchParams', { id: 4000 })}>Link id=4000</a>
       <br />
+      <a href={href('#/URLSearchParams', { user: 'Maceda' })}>Link user=Maceda</a>
+      <br />
       <br />
       <pre style={{ margin: '0 50px 0 50px' }}>
         {JSON.stringify(qs, undefined, 2)}

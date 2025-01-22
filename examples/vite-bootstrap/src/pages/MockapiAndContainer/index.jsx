@@ -9,7 +9,6 @@ const MockapiAndContainer = ({ name, className, style }) => {
 
   return (
     <main className={css(name, className, '')} style={style}>
-      <div>********************</div>
       <UserContainer />
     </main>
   )
