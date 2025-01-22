@@ -13,6 +13,7 @@ function useResize () {
       height: window.innerHeight,
       landscape: window.matchMedia('(orientation: landscape)').matches,
       portrait: window.matchMedia('(orientation: portrait)').matches,
+      xs: style.getPropertyValue('--xs'),
       sm: style.getPropertyValue('--sm'),
       md: style.getPropertyValue('--md'),
       lg: style.getPropertyValue('--lg'),

@@ -14,6 +14,13 @@
 			}
 		}
 
+		@container style(--xs: true) {
+			.xs {
+				color: #5ba15f;
+				font-weight: 400;
+			}
+		}
+
 		@container style(--sm: true) {
 			.sm {
 				color: #5ba15f;

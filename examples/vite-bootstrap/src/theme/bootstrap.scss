@@ -93,10 +93,33 @@ $table-hover-bg: unset;
 @import 'bootstrap/scss/bootstrap';
 
 /**
+ * Cursor type
+ */
+$cursors: // General
+  auto, default, none,
+  //Links & status
+  pointer,
+  progress, wait, cell, crosshair, text,
+  // Drag & drop
+  copy,
+  move, not-allowed, grabbing,
+  // Resizing & scrolling
+  all-scroll,
+  col-resize, row-resize, n-resize, e-resize, s-resize, w-resize, ne-resize,
+  nw-resize, se-resize, sw-resize, ew-resize, ns-resize, nesw-resize,
+  nwse-resize;
+
+@each $cursor in $cursors {
+  .cursor-#{$cursor} {
+    cursor: #{$cursor};
+  }
+}
+
+/**
  * Media query
  */
-
 :root {
+  --xs: false;
   --sm: false;
   --md: false;
   --lg: false;
@@ -106,7 +129,7 @@ $table-hover-bg: unset;
 
 @include media-breakpoint-down(sm) {
   :root {
-    --sm: true;
+    --xs: true;
   }
 }
 
@@ -137,28 +160,5 @@ $table-hover-bg: unset;
 @include media-breakpoint-only(xxl) {
   :root {
     --xxl: true;
-  }
-}
-
-/**
- * Cursor type
- */
-$cursors: // General
-  auto, default, none,
-  //Links & status
-  pointer,
-  progress, wait, cell, crosshair, text,
-  // Drag & drop
-  copy,
-  move, not-allowed, grabbing,
-  // Resizing & scrolling
-  all-scroll,
-  col-resize, row-resize, n-resize, e-resize, s-resize, w-resize, ne-resize,
-  nw-resize, se-resize, sw-resize, ew-resize, ns-resize, nesw-resize,
-  nwse-resize;
-
-@each $cursor in $cursors {
-  .c-#{$cursor} {
-    cursor: #{$cursor} !important;
   }
 }
