@@ -11,3 +11,26 @@
     @apply bg-slate-800 text-sky-400/50;
   }
 }
+
+
+@layer utilities {
+
+  /**
+   * Media query
+   */
+  :root {
+    --xs: false;
+    --sm: false;
+    --md: false;
+    --lg: false;
+    --xl: false;
+    --xxl: false;
+  }
+
+  @screen sm {
+    :root {
+      --sm: true;
+    }
+  }
+
+}

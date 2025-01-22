@@ -13,16 +13,6 @@
 }
 
 /**
- * Media query
- */
-:root {
-	--mediaquery-sm: 768;
-	--mediaquery-md: 992;
-	--mediaquery-lg: 1200;
-	--mediaquery-xl: 1400;
-}
-
-/**
  * Scrollbar
  */
 @media (pointer: fine) {
