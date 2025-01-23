@@ -11,8 +11,8 @@ function createPage (name) {
     const pageName = name.replaceAll('/', '')
 
     // index.js
-    fs.writeFileSync(`${dirName}/index.jsx`, `
-import React, { useEffect } from 'react'
+    fs.writeFileSync(`${dirName}/index.jsx`,
+`import React, { useEffect } from 'react'
 import { useFx, css } from 'portalx'
 import functions from './functions'
 import './style.css'
@@ -31,18 +31,17 @@ export default ${pageName}
 `)
 
     // style.scss
-    fs.writeFileSync(`
-${dirName}/style.css`,
-      `.${pageName}  {
+    fs.writeFileSync(`${dirName}/style.css`,
+`.${pageName} {
 }`)
 
     // function.js
-    fs.writeFileSync(`
-${dirName}/functions.js`,
-      `const initialState = {
+    fs.writeFileSync(`${dirName}/functions.js`,
+`const initialState = {
 }
 
-export default {initialState}`)
+export default { initialState }
+`)
   }
 }
 
@@ -55,8 +54,8 @@ function createComponent (name) {
     const componentName = name.replaceAll('/', '') + '-component'
 
     // index.js
-    fs.writeFileSync(`${dirName}/index.jsx`, `
-import React, { useEffect, useState } from 'react'
+    fs.writeFileSync(`${dirName}/index.jsx`,
+`import React, { useEffect, useState } from 'react'
 import './style.css'
 import { css } from 'portalx'
 
@@ -66,11 +65,12 @@ export default ({ children, name, value, type, className, style, readOnly, disab
       ${componentName}
     </article>
   )
-}`)
+}
+`)
 
     // style.scss
     fs.writeFileSync(`${dirName}/style.css`,
-      `.${componentName}  {
+`.${componentName}  {
 }`
     )
   }
@@ -85,17 +85,17 @@ function createContainer (name) {
     const containerName = name.replaceAll('/', '') + '-container'
 
     // index.js
-    fs.writeFileSync(`${dirName}/index.jsx`, `
-import React, { useEffect } from 'react'
+    fs.writeFileSync(`${dirName}/index.jsx`,
+`import React, { useEffect } from 'react'
 import { useFx, css } from 'portalx'
 import functions from './functions'
 import './style.css'
 
-export default ({ className, style}) => {
+export default ({ className, style }) => {
   const { state, fx } = useFx(functions)
 
   return (
-    <article className={css( '${containerName}' , className, '')} style={style}>
+    <article className={css('${containerName}', className, '')} style={style}>
       ${containerName}
     </article>
   )
@@ -103,16 +103,17 @@ export default ({ className, style}) => {
 `)
 
     // style.scss
-    fs.writeFileSync(`${dirName}/style.css`, `
-.${containerName}  {
+    fs.writeFileSync(`${dirName}/style.css`,
+`.${containerName}  {
 }`)
 
     // function.js
-    fs.writeFileSync(`${dirName}/functions.js`, `
-const initialState = {
+    fs.writeFileSync(`${dirName}/functions.js`,
+`const initialState = {
 }
 
-export default {initialState}`)
+export default { initialState }
+`)
   }
 }
 

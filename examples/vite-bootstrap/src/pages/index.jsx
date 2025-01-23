@@ -33,6 +33,7 @@ const Pages = () => {
       <div style={{ display: 'flex', gap: '20px' }}>
         <Icon value='globe' />
         <Translate name='i18n' onChange={e => fx.change(e)} value={state.i18n} />
+        <I18n value='page.name' args={['Sinuhe', 'Maceda', 'Bouchan']} />
 
         <button onClick={e => fx.increment(e)}>increment</button>
         {'  '}
@@ -43,7 +44,6 @@ const Pages = () => {
         {state.num}
         {'  '}
         {state.loading ? <span> Loading... </span> : <span> View.. </span>}
-        <I18n value='page.name' args={['Sinuhe', 'Maceda', 'Bouchan']} />
       </div>
 
       <br />
