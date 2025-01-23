@@ -4,7 +4,7 @@ import functions from './functions'
 import { Counter, Counter2 } from 'components'
 import './style.css'
 
-const CounterPage = ({ name, className, style, resize, queryString }) => {
+const CounterPage = ({ name, className, style }) => {
   const { state, fx } = useFx(functions)
 
   return (

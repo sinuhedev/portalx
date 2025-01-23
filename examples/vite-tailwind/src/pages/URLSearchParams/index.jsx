@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from 'react'
-import { useFx, css, href } from 'portalx'
+import { useFx, css, href, useQueryString } from 'portalx'
 import functions from './functions'
 import './style.css'
 
 const URLSearchParams = ({ name, className, style }) => {
-  const { state, fx, qs } = useFx(functions)
+  const { state, fx } = useFx(functions)
+  const qs = useQueryString()
 
   useEffect(() => {
     console.info(qs)
@@ -16,6 +17,8 @@ const URLSearchParams = ({ name, className, style }) => {
       <br />
       <br />
       <a href={href('#/URLSearchParams', { id: 4000 })}>Link id=4000</a>
+      <br />
+      <a href={href('#/URLSearchParams', { user: 'Maceda' })}>Link user=Maceda</a>
       <br />
       <br />
       <pre style={{ margin: '0 50px 0 50px' }}>

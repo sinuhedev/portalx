@@ -1,5 +1,5 @@
 import React, { useEffect, useRef } from 'react'
-import { useFx, startViewTransition } from 'portalx'
+import { useFx, startViewTransition, useQueryString } from 'portalx'
 import { Icon, I18n, Translate } from 'components'
 import functions from './functions'
 import { env } from 'util'
@@ -7,7 +7,8 @@ import { env } from 'util'
 let HOLAAAA
 
 const Pages = () => {
-  const { state, fx, qs } = useFx(functions, { isContext: true })
+  const { state, fx } = useFx(functions, { isContext: true })
+  const qs = useQueryString()
 
   const Page = state.page.content
   const page = useRef()
