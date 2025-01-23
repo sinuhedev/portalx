@@ -1,9 +1,9 @@
 import { useReducer } from 'react'
 
 /**
- * set
+ * set*
  */
-function setMergeValue (target, source) {
+function setMerge (target, source) {
   // in array return all source
   if (Array.isArray(target)) return source
 
@@ -13,7 +13,7 @@ function setMergeValue (target, source) {
   // merge
   Object.keys(source).forEach(key => {
     if (isObject(target[key]) && isObject(source[key])) {
-      output[key] = setMergeValue(target[key], source[key])
+      output[key] = setMerge(target[key], source[key])
     } else output[key] = structuredClone(source[key])
   })
 
@@ -66,7 +66,7 @@ function useFxReducer (initialState) {
         }
 
         // Merge all json
-        return setMergeValue(state, payload)
+        return setMerge(state, payload)
 
       case 'show':
         return setValue(state, payload, true)
