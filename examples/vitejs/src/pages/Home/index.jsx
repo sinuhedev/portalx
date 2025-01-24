@@ -16,7 +16,7 @@ const Home = ({ name, className, style }) => {
       <div>
         <div>
           <p>set</p>
-          <button className='btn  btn-primary ' onClick={() => fx.set({ setNameValue: 'set 1 level' })}>
+          <button className='' onClick={() => fx.set({ setNameValue: 'set 1 level' })}>
             set Value
           </button>
           <button
