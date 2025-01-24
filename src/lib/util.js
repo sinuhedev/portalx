@@ -15,31 +15,16 @@ const href = (href, params = {}) =>
  * @returns
  */
 function css (...classNames) {
-  classNames = classNames.filter(x => x !== undefined)
-
-  const objStr = obj => {
-    let classNames = ''
-
-    for (const o in obj) {
-      if (obj[o]) {
-        if (classNames) classNames += ' '
-        classNames += o
+  return classNames.filter(e => e).reduce((accumulator, currentValue) => {
+    if (typeof currentValue === 'string') {
+      return accumulator + currentValue + ' '
+    } else if (!Array.isArray(currentValue) && typeof currentValue === 'object') {
+      for (const e in currentValue) {
+        if (currentValue[e]) return accumulator + e + ' '
       }
     }
-
-    return classNames
-  }
-
-  if (classNames.length === 1) classNames = ['', ...classNames]
-
-  return classNames.reduce((accumulator, currentValue) => {
-    if (typeof currentValue === 'string') {
-      return accumulator + ' ' + currentValue
-    } else if (typeof currentValue === 'object') {
-      return accumulator + ' ' + objStr(currentValue)
-    }
     return accumulator
-  })
+  }, '').trim()
 }
 
 /**

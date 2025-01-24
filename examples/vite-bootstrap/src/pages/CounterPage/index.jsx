@@ -8,8 +8,15 @@ const CounterPage = ({ name, className, style }) => {
   const { state, fx } = useFx(functions)
 
   return (
-    <main className={css(name, className, '')} style={style}>
+    <main className={css(name, className, '', 'class-test', {}, null, true, false, [], { 'css-false': false }, undefined, { 'css-true': true })} style={style}>
       CounterPage
+
+      <div className={css(null)} />
+      <div className={css(undefined)} />
+      <div className={css([])} />
+      <div className={css({})} />
+      <div className={css()} />
+
       <Counter
         value={state.count}
         onChange={() => {
