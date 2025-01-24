@@ -13,8 +13,7 @@ const Home = ({ name, className, style }) => {
   return (
     <main className={css(name, className, 'container')} style={style}>
       <Icon value='globe' />
-
-      <Translate name='i18n' onChange={e => fx.change(e)} value={state.i18n} />
+      <Translate />
       <I18n value='page.name' args={['Sinuhe', 'Maceda', 'Bouchan']} />
 
       <div>

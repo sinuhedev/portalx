@@ -4,8 +4,6 @@ import { Icon, I18n, Translate } from 'components'
 import functions from './functions'
 import { env } from 'util'
 
-let HOLAAAA
-
 const App = () => {
   const { state, fx, qs } = useFx(functions, { isContext: true })
 
@@ -31,7 +29,7 @@ const App = () => {
     <>
       <div style={{ display: 'flex', gap: '20px' }}>
         <Icon value='globe' />
-        <Translate name='i18n' onChange={e => fx.change(e)} value={state.i18n} />
+        <Translate />
         <I18n value='page.name' args={['Sinuhe', 'Maceda', 'Bouchan']} />
 
         <button onClick={e => fx.increment(e)}>increment</button>

@@ -1,8 +1,8 @@
-import api from 'services/api'
-import { http } from 'portalx'
+import { env } from 'util'
 
 const initialState = {
-  page: { name: '', content: null }
+  page: { name: '', content: null },
+  i18n: env.WEB_CURRENT_LOCALE
 }
 
 async function getPage ({ payload, set }) {

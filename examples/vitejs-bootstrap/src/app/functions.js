@@ -1,6 +1,8 @@
+import { env } from 'util'
+
 const initialState = {
   page: { name: '', content: null },
-  i18n: null
+  i18n: env.WEB_CURRENT_LOCALE
 }
 
 async function getPage ({ payload, set }) {
