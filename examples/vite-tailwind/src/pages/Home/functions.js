@@ -43,6 +43,5 @@ function init ({ context }) {
 export default {
   initialState,
   increment,
-  decrement,
-  init
+  decrement
 }

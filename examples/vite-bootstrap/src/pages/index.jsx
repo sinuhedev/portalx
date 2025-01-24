@@ -52,6 +52,9 @@ const Pages = () => {
         <a href='#/' className='m-2'>
           Home
         </a>
+        <a href='#/ContextPage' className='m-2'>
+          ContextPage
+        </a>
         <a href='#/Mockapi' className='m-2'>
           Mockapi
         </a>

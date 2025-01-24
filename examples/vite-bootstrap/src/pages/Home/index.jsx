@@ -4,11 +4,10 @@ import { useFx, css } from 'portalx'
 import functions from './functions'
 import { sum } from 'util'
 
-const Example = ({ name, className, style }) => {
+const Home = ({ name, className, style }) => {
   const { state, initialState, fx, context } = useFx(functions)
 
   useEffect(() => {
-    fx.init()
     console.info(sum(10, 10))
   }, [])
 
@@ -182,4 +181,4 @@ const Example = ({ name, className, style }) => {
   )
 }
 
-export default Example
+export default Home

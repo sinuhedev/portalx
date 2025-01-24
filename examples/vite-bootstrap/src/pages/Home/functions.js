@@ -36,13 +36,8 @@ function decrement ({ state, set }) {
   set({ channel: state.channel - 1 })
 }
 
-function init ({ context }) {
-  context.fx.set({ num: 300 })
-}
-
 export default {
   initialState,
   increment,
-  decrement,
-  init
+  decrement
 }

@@ -133,8 +133,7 @@ function useFx (functions = { initialState: {} }, props = { isContext: false }) 
           state,
           payload,
           //
-          ...(props.isContext ? {} : { context }),
-          ...(props.isContext ? {} : context.state?.extraFunctions)
+          ...(props.isContext ? {} : { context, ...context.state?.extraFunctions })
         })
     }
     return ac
