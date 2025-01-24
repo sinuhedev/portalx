@@ -27,7 +27,7 @@
 		"start": "echo 'go to examples'",
 		"clean": "rm -fr node_modules package-lock.json",
 		"make": "npm run clean && npm install",
-		"eslint": "eslint src",
+		"eslint": "standard src",
 		"test": "echo 'test'",
 		"test:portalx": "src/bin/index.js"
 	},
