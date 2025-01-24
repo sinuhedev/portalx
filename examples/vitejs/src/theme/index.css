@@ -1,0 +1,98 @@
+@import './animations.css';
+
+
+:root {
+	--primary-color: #344188;
+	--link: #5fac9f;
+	--body-bg: #282c34;
+	--body-color: #a8a8a8;
+}
+
+/**
+ * Fonts
+ */
+@font-face {
+	font-family: Roboto;
+	font-style: normal;
+	font-display: swap;
+	font-weight: bold;
+	src: url('assets/fonts/Roboto-Regular.ttf');
+}
+
+/**
+ * Scrollbar
+ */
+@media (pointer: fine) {
+	::-webkit-scrollbar {
+		width: 16px;
+		height: 16px;
+	}
+
+	::-webkit-scrollbar-thumb {
+		border-radius: 20px;
+		background-color: var(--primary-color);
+		background-clip: content-box;
+		border: 3px solid transparent;
+	}
+
+	::-webkit-scrollbar,
+	::-webkit-scrollbar-track,
+	::-webkit-scrollbar-corner {
+		background-color: transparent;
+	}
+}
+
+
+/**
+ * Media query
+ */
+:root {
+	--xs: false;
+	--sm: false;
+	--md: false;
+	--lg: false;
+	--xl: false;
+	--xxl: false;
+
+	@media (width < 576px) {
+		--xs: true;
+	}
+
+	@media (576px <=width < 768px) {
+		--sm: true;
+	}
+
+	@media (768px <=width < 992px) {
+		--md: true;
+	}
+
+	@media (992px <=width < 1200px) {
+		--lg: true;
+	}
+
+	@media (1200px <=width < 1400px) {
+		--xl: true;
+	}
+
+	@media (1400px <=width) {
+		--xxl: true;
+	}
+}
+
+/**
+ * html
+ */
+
+html,
+body {
+	background-color: var(--body-bg);
+	color: var(--body-color);
+}
+
+a {
+	color: var(--link);
+}
+
+.m-2 {
+	margin-right: 20px;
+}
