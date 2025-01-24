@@ -1,31 +1,6 @@
 const initialState = {
-  channel: 7,
-  msg: 'https://sinuhe.dev',
-  data: { user: 'Sinuhe MB' },
-  myArray: ['A', 'B', 'C'],
-  setNameValue: 'name value',
-  form: {
-    funny: false,
-    gender: 'M',
-    name: {
-      firstName: 'Sinuhe',
-      lastName: 'Maceda'
-    },
-    year: 33,
-    moreArray: [[[50, 40, 10]]]
-  },
-  ls: {
-    users: [
-      {
-        name: 'sinuhe',
-        year: 33
-      },
-      {
-        name: 'alberto',
-        year: 20
-      }
-    ]
-  }
+  channel: 5,
+  i18n: null
 }
 
 function increment ({ state, set }) {

@@ -1,16 +1,6 @@
-import api from 'services/api'
-import { http } from 'portalx'
-
 const initialState = {
   page: { name: '', content: null },
-  i18n: null,
-  loading: false,
-  //
-  num: 0,
-  //
-  extraFunctions: {
-    api: {}
-  }
+  i18n: null
 }
 
 async function getPage ({ payload, set }) {
@@ -42,53 +32,7 @@ async function getPage ({ payload, set }) {
   set({ page: { name, content: page.default } })
 }
 
-function setServices ({ set, show, hide }) {
-  const headers = {}
-
-  const apiServices = {}
-  for (const e in api.services) {
-    const service = api.services[e].match(/\S+/g)
-    const method = service[0].toLowerCase()
-    const url = api.url + service[1]
-
-    apiServices[e] = async (payload = {}) => {
-      const path = payload?.path ?? {}
-      const body = payload?.body ?? {}
-      const loading = payload?.loading ?? true
-
-      if (loading) show('loading')
-
-      const response = await http[method](url, path, body, headers)
-
-      if (loading) hide('loading')
-
-      if (response.ok) return response
-      else throw response
-    }
-  }
-
-  set({
-    extraFunctions: { api: apiServices }
-  })
-}
-
-function increment ({ state, set }) {
-  set({ num: state.num + 1 })
-}
-
-function decrement ({ state, set }) {
-  set({ num: state.num - 1 })
-}
-
-function zero ({ payload, set }) {
-  set({ num: payload.value })
-}
-
 export default {
   initialState,
-  getPage,
-  setServices,
-  increment,
-  decrement,
-  zero
+  getPage
 }
