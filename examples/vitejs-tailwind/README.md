@@ -1,4 +1,4 @@
-# vite-bootstrap
+# vitejs-tailwind
 
 ## To start
 
