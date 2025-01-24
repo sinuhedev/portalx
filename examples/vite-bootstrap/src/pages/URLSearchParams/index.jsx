@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { useFx, css, href, useQueryString } from 'portalx'
+import { useFx, css, href } from 'portalx'
 import functions from './functions'
 import './style.css'
 
 const URLSearchParams = ({ name, className, style }) => {
-  const { state, fx } = useFx(functions)
-  const qs = useQueryString()
+  const { state, fx, qs } = useFx(functions)
 
   useEffect(() => {
     console.info(qs)

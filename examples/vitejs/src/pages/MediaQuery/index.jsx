@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react'
-import { useFx, css, useResize } from 'portalx'
+import { useFx, css } from 'portalx'
 import functions from './functions'
 import './style.css'
 
 const MediaQuery = ({ name, className, style }) => {
-  const { state, fx } = useFx(functions)
-  const resize = useResize()
+  const { state, fx, resize } = useFx(functions)
 
   return (
     <main className={css(name, className, '')} style={style}>

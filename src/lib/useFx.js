@@ -1,4 +1,5 @@
 import { useReducer } from 'react'
+import { useResize, useQueryString } from './useX'
 
 /**
  * set*
@@ -112,6 +113,10 @@ let context = null
  * useFx
  */
 function useFx (functions = { initialState: {} }, props = { isContext: false }) {
+  // hooks
+  const qs = useQueryString()
+  const resize = useResize()
+
   // reducer
   const [state, dispatch] = useFxReducer(functions.initialState)
 
@@ -144,6 +149,9 @@ function useFx (functions = { initialState: {} }, props = { isContext: false }) 
     initialState: functions.initialState,
     state,
     fx: { ...commonActions, ...actions },
+    //
+    qs,
+    resize,
     //
     ...(props.isContext ? {} : { context })
   }
