@@ -35,22 +35,18 @@ const MediaQuery = ({ name, className, style }) => {
       <br />
       <br />
 
-      <div className='container text-center'>
-        <div className='row'>
-          <div className='col-6'>col-6</div>
-          <div className='col-6'>col-6</div>
-        </div>
+      <div className='grid grid-cols-12'>
+        <div className='col-span-6'>col-span-6</div>
+        <div className='col-span-6'>col-span-6</div>
       </div>
 
       <br />
       <br />
       <br />
 
-      <div className='container text-center'>
-        <div className='row'>
-          <div className='col-sm-6'>col-sm-6</div>
-          <div className='col-sm-6'>col-sm-6</div>
-        </div>
+      <div className='grid grid-cols-12'>
+        <div className='col-span-12 md:col-span-6'>col-span-12 md:col-span-6</div>
+        <div className='col-span-12 md:col-span-6'>col-span-12 md:col-span-6</div>
       </div>
 
     </main>

@@ -2,22 +2,23 @@
 
 @layer theme, base, components, utilities;
 
-@layer base {
-  html {
-    font-family: Roboto;
-  }
+@theme {
+  --font-sans: "Roboto";
+  --body-bg: #282c34;
+  --body-color: #a8a8a8;
+}
 
+@layer base {
   body {
-    @apply bg-slate-800 text-sky-400/50;
+    background-color: theme(body-bg);
+    color: theme(body-color);
   }
 }
 
-
+/**
+ * Media query
+ */
 @layer utilities {
-
-  /**
-   * Media query
-   */
   :root {
     --xs: false;
     --sm: false;
@@ -27,10 +28,40 @@
     --xxl: false;
   }
 
-  @screen sm {
+
+  @media (width <theme(breakpoint-sm)) {
+    :root {
+      --xs: true;
+    }
+  }
+
+  @media (width >=theme(breakpoint-sm)) and (width <theme(breakpoint-md)) {
     :root {
       --sm: true;
     }
   }
 
+  @media (width >=theme(breakpoint-md)) and (width <theme(breakpoint-lg)) {
+    :root {
+      --md: true;
+    }
+  }
+
+  @media (width >=theme(breakpoint-lg)) and (width <theme(breakpoint-xl)) {
+    :root {
+      --lg: true;
+    }
+  }
+
+  @media (width >=theme(breakpoint-xl)) and (width <theme(breakpoint-2xl)) {
+    :root {
+      --xl: true;
+    }
+  }
+
+  @media (width >=theme(breakpoint-2xl)) {
+    :root {
+      --xxl: true;
+    }
+  }
 }
