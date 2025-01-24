@@ -6,7 +6,7 @@ import { env } from 'util'
 
 let HOLAAAA
 
-const Pages = () => {
+const App = () => {
   const { state, fx } = useFx(functions, { isContext: true })
   const qs = useQueryString()
 
@@ -88,4 +88,4 @@ const Pages = () => {
   )
 }
 
-export default Pages
+export default App
