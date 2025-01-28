@@ -3,7 +3,7 @@ import { useFx, startViewTransition } from 'portalx'
 import functions from './functions'
 
 const App = () => {
-  const { state, fx, qs } = useFx(functions, { isContext: true })
+  const { state, fx, qs } = useFx(functions, true)
 
   const Page = state.page.content
   const page = useRef()

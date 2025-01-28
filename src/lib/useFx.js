@@ -112,7 +112,7 @@ let context = null
 /**
  * useFx
  */
-function useFx (functions = { initialState: {} }, props = { isContext: false }) {
+function useFx (functions = { initialState: {} }, isContext = false) {
   // hooks
   const qs = useQueryString()
   const resize = useResize()
@@ -121,13 +121,10 @@ function useFx (functions = { initialState: {} }, props = { isContext: false }) 
   const [state, dispatch] = useFxReducer(functions.initialState)
 
   // Common actions
-  const commonActions = ['set', 'show', 'hide', 'change', 'reset'].reduce(
-    (ac, e) => {
-      ac[e] = payload => dispatch({ type: e, payload })
-      return ac
-    },
-    {}
-  )
+  const commonActions = ['set', 'show', 'hide', 'change', 'reset'].reduce((ac, e) => {
+    ac[e] = payload => dispatch({ type: e, payload })
+    return ac
+  }, {})
 
   // Actions
   const actions = Object.keys(functions).reduce((ac, e) => {
@@ -138,7 +135,7 @@ function useFx (functions = { initialState: {} }, props = { isContext: false }) 
           state,
           payload,
           //
-          ...(props.isContext ? {} : { context, ...context.state?.services })
+          ...(isContext ? {} : { context, ...context.state?.services })
         })
     }
     return ac
@@ -153,10 +150,10 @@ function useFx (functions = { initialState: {} }, props = { isContext: false }) 
     qs,
     resize,
     //
-    ...(props.isContext ? {} : { context })
+    ...(isContext ? {} : { context })
   })
 
-  if (props.isContext) context = stateAndActions
+  if (isContext) context = stateAndActions
 
   return stateAndActions
 }

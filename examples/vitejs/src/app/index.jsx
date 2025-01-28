@@ -5,7 +5,7 @@ import functions from './functions'
 import { env } from 'util'
 
 const App = () => {
-  const { state, fx, qs } = useFx(functions, { isContext: true })
+  const { state, fx, qs } = useFx(functions, true)
 
   const Page = state.page.content
   const page = useRef()
