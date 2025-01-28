@@ -1,6 +1,5 @@
 const initialState = {
   channel: 7
-
 }
 
 function increment ({ state, set }) {
