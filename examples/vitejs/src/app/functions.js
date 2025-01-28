@@ -9,7 +9,7 @@ const initialState = {
   //
   num: 0,
   //
-  extraFunctions: {
+  services: {
     api: {}
   }
 }
@@ -47,8 +47,8 @@ function setServices ({ set, show, hide }) {
   const headers = {}
 
   const apiServices = {}
-  for (const e in api.services) {
-    const service = api.services[e].match(/\S+/g)
+  for (const e in api.methods) {
+    const service = api.methods[e].match(/\S+/g)
     const method = service[0].toLowerCase()
     const url = api.url + service[1]
 
@@ -69,7 +69,7 @@ function setServices ({ set, show, hide }) {
   }
 
   set({
-    extraFunctions: { api: apiServices }
+    services: { api: apiServices }
   })
 }
 

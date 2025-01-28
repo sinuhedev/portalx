@@ -138,14 +138,14 @@ function useFx (functions = { initialState: {} }, props = { isContext: false }) 
           state,
           payload,
           //
-          ...(props.isContext ? {} : { context, ...context.state?.extraFunctions })
+          ...(props.isContext ? {} : { context, ...context.state?.services })
         })
     }
     return ac
   }, {})
 
   // State and Actions
-  const stateAndActions = {
+  const stateAndActions = Object.freeze({
     initialState: functions.initialState,
     state,
     fx: { ...commonActions, ...actions },
@@ -154,7 +154,7 @@ function useFx (functions = { initialState: {} }, props = { isContext: false }) 
     resize,
     //
     ...(props.isContext ? {} : { context })
-  }
+  })
 
   if (props.isContext) context = stateAndActions
 
