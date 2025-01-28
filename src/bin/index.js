@@ -59,7 +59,7 @@ function createComponent (name) {
 import './style.css'
 import { css } from 'portalx'
 
-export default ({ children, name, value, type, className, style, readOnly, disabled }) => {
+export default ({ children, name, value, type, className, style, readOnly, disabled, onClick = () => {} }) => {
   return (
     <article className={css('${componentName}', className)} style={style} name={name}>
       ${componentName}
@@ -91,7 +91,7 @@ import { useFx, css } from 'portalx'
 import functions from './functions'
 import './style.css'
 
-export default ({ className, style }) => {
+export default ({ children, name, value, type, className, style, readOnly, disabled, onClick = () => {} }) => {
   const { state, fx } = useFx(functions)
 
   return (
