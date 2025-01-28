@@ -1,6 +1,5 @@
 const initialState = {
-  channel: 5,
-  i18n: null
+  channel: 5
 }
 
 function increment ({ state, set }) {

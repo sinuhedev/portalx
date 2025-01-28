@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import './style.css'
 import { useFx, css } from 'portalx'
-import { Icon, I18n, Translate } from 'components'
+import { Icon, I18n, Translate, Button } from 'components'
 import functions from './functions'
 
 const Home = ({ name, className, style }) => {
@@ -16,10 +16,11 @@ const Home = ({ name, className, style }) => {
       <Translate />
       <I18n value='page.name' args={['Sinuhe', 'Maceda', 'Bouchan']} />
 
-      <div>
-        <p>Simple actions/Reducer:</p>
-        <button className='btn btn-primary' onClick={e => fx.increment(e)}>+</button>
-        <button onClick={e => fx.decrement(e)}>-</button>
+      <p>Simple actions/Reducer:</p>
+
+      <div className='d-flex '>
+        <Button onClick={e => fx.increment(e)}>+</Button>
+        <Button onClick={e => fx.decrement(e)}>-</Button>
       </div>
 
       <div style={{ display: 'flex' }}>
