@@ -1,4 +1,4 @@
-import api from 'services/api'
+import API from 'services/api'
 import { http } from 'portalx'
 import { env } from 'util'
 
@@ -6,12 +6,11 @@ const initialState = {
   page: { name: '', content: null },
   i18n: env.WEB_CURRENT_LOCALE,
   loading: false,
-  //
-  num: 0,
-  //
   services: {
     api: {}
-  }
+  },
+  //
+  num: 0
 }
 
 async function getPage ({ payload, set }) {
@@ -46,13 +45,13 @@ async function getPage ({ payload, set }) {
 function setServices ({ set, show, hide }) {
   const headers = {}
 
-  const apiServices = {}
-  for (const e in api.methods) {
-    const service = api.methods[e].match(/\S+/g)
+  const api = {}
+  for (const e in API.methods) {
+    const service = API.methods[e].match(/\S+/g)
     const method = service[0].toLowerCase()
-    const url = api.url + service[1]
+    const url = API.url + service[1]
 
-    apiServices[e] = async (payload = {}) => {
+    api[e] = async (payload = {}) => {
       const path = payload?.path ?? {}
       const body = payload?.body ?? {}
       const loading = payload?.loading ?? true
@@ -69,7 +68,7 @@ function setServices ({ set, show, hide }) {
   }
 
   set({
-    services: { api: apiServices }
+    services: { api }
   })
 }
 
