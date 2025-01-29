@@ -1,0 +1,82 @@
+/**
+ * View transitions
+ */
+
+:root {
+	view-transition-name: none;
+}
+
+@media (prefers-reduced-motion) {
+
+	::view-transition-group(*),
+	::view-transition-old(*),
+	::view-transition-new(*) {
+		animation: none !important;
+	}
+}
+
+/* fade */
+
+::view-transition-old(fade),
+::view-transition-new(fade) {
+	animation-duration: 0.3s;
+}
+
+/* count */
+
+::view-transition-new(count),
+::view-transition-old(count) {
+	animation: scale 0.25s;
+	height: 100%;
+	width: 100%;
+}
+
+::view-transition-new(count) {
+	--scale-start: 0;
+	transform-origin: 50% 0;
+}
+
+::view-transition-old(count) {
+	--scale-end: 0;
+	transform-origin: 50% 100%;
+}
+
+@keyframes scale {
+	0% {
+		scale: 1 var(--scale-start, 1);
+	}
+
+	100% {
+		scale: 1 var(--scale-end, 1);
+	}
+}
+
+/* count2 */
+
+::view-transition-new(count2),
+::view-transition-old(count2) {
+	animation-duration: 1s;
+	animation: scale 0.25s;
+	height: 100%;
+	width: 100%;
+}
+
+::view-transition-new(count2) {
+	--scale-start: 0;
+	transform-origin: 10% 1000;
+}
+
+::view-transition-old(count2) {
+	--scale-end: 0;
+	transform-origin: 10% 0%;
+}
+
+@keyframes scale {
+	0% {
+		scale: 1 var(--scale-start, 1);
+	}
+
+	100% {
+		scale: 1 var(--scale-end, 1);
+	}
+}

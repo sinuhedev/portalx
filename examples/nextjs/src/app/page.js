@@ -1,9 +1,9 @@
-function App () {
+function Home () {
   console.info(process.env.NODE_ENV)
 
   return (
-    <div>....App....</div>
+    <div>....Home....</div>
   )
 }
 
-export default App
+export default Home

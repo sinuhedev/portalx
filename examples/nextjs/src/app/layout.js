@@ -16,6 +16,8 @@ function Layout ({ children }) {
           <Link href='/'>Home</Link>
           {'   '}
           <Link href='/demo'>Demo</Link>
+          {'   '}
+          <Link href='/no'>no</Link>
         </div>
         <br />
         {children}
