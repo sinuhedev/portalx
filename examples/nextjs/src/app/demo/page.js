@@ -1,0 +1,23 @@
+'use client'
+
+import './style.css'
+
+function Demo () {
+  function onClick () {
+    console.info('onclick')
+  }
+
+  return (
+    <div className='demo'>
+      Demo
+
+      <h1>{process.env.NEXT_PUBLIC_ANALYTICS_ID}</h1>
+
+      <button onClick={onClick}>hola</button>
+
+      <p className='dem'>hola</p>
+    </div>
+  )
+}
+
+export default Demo
