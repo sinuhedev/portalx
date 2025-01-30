@@ -1,10 +1,11 @@
 import API from 'services/api'
 import { http } from 'portalx'
 import { env } from 'util'
+import i18nFile from 'assets/i18n'
 
 const initialState = {
   page: { name: '', content: null },
-  i18n: env.WEB_CURRENT_LOCALE,
+  i18n: i18nFile.defaultLocale,
   loading: false,
   services: {
     api: {}

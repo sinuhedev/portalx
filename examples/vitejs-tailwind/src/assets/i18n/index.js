@@ -1,5 +1,6 @@
 export default {
   locales: ['EN', 'ES'],
+  defaultLocale: 'EN',
 
   ui: {
     back: ['Back', 'Regresar'],
