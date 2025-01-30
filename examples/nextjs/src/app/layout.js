@@ -10,8 +10,6 @@ function Layout ({ children }) {
       </head>
       <body className=''>
         <p>ENV: {process.env.NODE_ENV}</p>
-        <br />
-        <br />
         <div>
           <Link href='/'>Home</Link>
           {'   '}
