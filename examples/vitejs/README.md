@@ -13,5 +13,5 @@ node --run start
 ## env
 ```.env
 .env        # loaded in all cases
-.env.[mode] # only loaded in specified mode [localhost,test,development,production]
+.env.[mode] # only loaded in specified mode [ development, test, production ]
 ```
