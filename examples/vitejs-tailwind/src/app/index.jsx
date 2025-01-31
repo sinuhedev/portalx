@@ -1,9 +1,14 @@
 import React, { useEffect, useRef } from 'react'
-import { useFx, startViewTransition } from 'portalx'
+import { useFx, startViewTransition, useLocation, useResize } from 'portalx'
+import { Link } from 'components'
 import functions from './functions'
 
 const Pages = () => {
-  const { state, fx, qs } = useFx(functions, true)
+  const { state, fx } = useFx(functions, true)
+
+  // hooks
+  const qs = useLocation()
+  const resize = useResize()
 
   const Page = state.page.content
   const page = useRef()
@@ -17,20 +22,27 @@ const Pages = () => {
     <>
 
       <div>
-        <a href='#/' className='m-2'>
+        <Link href='#/' className='m-2'>
           Home
-        </a>
+        </Link>
 
-        <a href='#/MediaQuery' className='m-2'>
+        <Link href='#/MediaQuery' className='m-2'>
           MediaQuery
-        </a>
-        <a href='#/NO' className='m-2'>
+        </Link>
+        <Link href='#/NO' className='m-2'>
           NO
-        </a>
+        </Link>
       </div>
 
       <div ref={page}>
-        {Page && <Page name={state.page.name} className='m-2' style={{}} />}
+        {Page &&
+          <Page
+            name={state.page.name}
+            className='m-2'
+            style={{}}
+            qs={qs}
+            resize={resize}
+          />}
       </div>
     </>
   )

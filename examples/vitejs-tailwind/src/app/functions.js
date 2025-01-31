@@ -8,7 +8,7 @@ const initialState = {
 async function getPage ({ payload, set }) {
   const { hash } = payload
 
-  let page = ['/', ''].includes(hash) ? 'Home' : hash
+  let page = ['#/', ''].includes(hash) ? 'Home' : hash.substring(2)
   let name = page.replaceAll('/', '')
 
   try {

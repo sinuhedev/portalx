@@ -35,22 +35,19 @@ function useResize () {
 }
 
 /**
- * useQueryString
+ * useLocation
  * @returns
  */
-function useQueryString () {
+function useLocation () {
   const getLocation = () => {
-    const { hash } = window.location
+    const hashAndQueryString = window.location.hash.split('?')
+
     const queryString = Object.fromEntries(
-      new URLSearchParams(hash.split('?')[1])
+      new URLSearchParams(hashAndQueryString[1])
     )
 
-    let myHash = '/'
-    if (['#/', ''].includes(hash)) myHash = '/'
-    else myHash = hash.split('#/')[1].split('?')[0]
-
     return {
-      hash: myHash,
+      hash: hashAndQueryString[0],
       ...queryString
     }
   }
@@ -67,4 +64,4 @@ function useQueryString () {
   return path
 }
 
-export { useResize, useQueryString }
+export { useResize, useLocation }

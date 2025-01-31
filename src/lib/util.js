@@ -1,15 +1,6 @@
 import { flushSync } from 'react-dom'
 
 /**
- * href
- * @param {*} href
- * @param {*} params
- * @returns
- */
-const href = (href, params = {}) =>
-  href + '?' + new URLSearchParams(params).toString()
-
-/**
  * css
  * @param  {...any} classNames
  * @returns
@@ -81,4 +72,4 @@ function startViewTransition (
   })()
 }
 
-export { href, css, i18n, startViewTransition }
+export { css, i18n, startViewTransition }

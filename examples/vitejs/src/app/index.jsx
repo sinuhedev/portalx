@@ -1,11 +1,15 @@
 import React, { useEffect, useRef } from 'react'
-import { useFx, startViewTransition } from 'portalx'
-import { Icon, I18n, Translate } from 'components'
+import { useFx, startViewTransition, useLocation, useResize } from 'portalx'
+import { Icon, I18n, Translate, Link } from 'components'
 import functions from './functions'
 import { env } from 'util'
 
 const App = () => {
-  const { state, fx, qs } = useFx(functions, true)
+  const { state, fx } = useFx(functions, true)
+
+  // hooks
+  const qs = useLocation()
+  const resize = useResize()
 
   const Page = state.page.content
   const page = useRef()
@@ -46,40 +50,47 @@ const App = () => {
       <br />
 
       <div>
-        <a href='#/' className='m-2'>
+        <Link href='#/' className='m-2'>
           Home
-        </a>
-        <a href='#/ContextPage' className='m-2'>
+        </Link>
+        <Link href='#/ContextPage' className='m-2'>
           ContextPage
-        </a>
-        <a href='#/Mockapi' className='m-2'>
+        </Link>
+        <Link href='#/Mockapi' className='m-2'>
           Mockapi
-        </a>
-        <a href='#/MockapiAndContainer' className='m-2'>
+        </Link>
+        <Link href='#/MockapiAndContainer' className='m-2'>
           MockapiAndContainers
-        </a>
-        <a href='#/URLSearchParams?id=20&user=Sinuhe' className='m-2'>
+        </Link>
+        <Link href='#/URLSearchParams?id=20&user=Sinuhe' className='m-2'>
           URLSearchParams
-        </a>
-        <a href='#/SubPage/Hello' className='m-2'>
+        </Link>
+        <Link href='#/SubPage/Hello' className='m-2'>
           SubPage/Hello
-        </a>
-        <a href='#/Translate' className='m-2'>
+        </Link>
+        <Link href='#/Translate' className='m-2'>
           Translate
-        </a>
-        <a href='#/CounterPage' className='m-2'>
+        </Link>
+        <Link href='#/CounterPage' className='m-2'>
           CounterPage
-        </a>
-        <a href='#/MediaQuery' className='m-2'>
+        </Link>
+        <Link href='#/MediaQuery' className='m-2'>
           MediaQuery
-        </a>
-        <a href='#/NO' className='m-2'>
+        </Link>
+        <Link href='#/NO' className='m-2'>
           NO
-        </a>
+        </Link>
       </div>
 
       <div ref={page}>
-        {Page && <Page name={state.page.name} className='m-2' style={{}} />}
+        {Page &&
+          <Page
+            name={state.page.name}
+            className='m-2'
+            style={{}}
+            qs={qs}
+            resize={resize}
+          />}
       </div>
     </>
   )
