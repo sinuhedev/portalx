@@ -1,7 +1,13 @@
+'use client'
+
 import 'theme/index.css'
 import Link from 'next/link'
+import { useFx } from 'portalx'
+import functions from './functions'
 
 function Layout ({ children }) {
+  const { state, fx } = useFx(functions, true)
+
   return (
     <html>
       <head>
@@ -9,7 +15,22 @@ function Layout ({ children }) {
         <link rel='shortcut icon' href='logo.svg' />
       </head>
       <body className=''>
-        <p>ENV: {process.env.NODE_ENV}</p>
+
+        <div style={{ display: 'flex', gap: '20px' }}>
+
+          <button onClick={e => fx.increment(e)}>increment</button>
+          {'  '}
+          <button onClick={e => fx.decrement(e)}>decrement</button>
+          {'  '}
+          <button onClick={() => fx.zero({ value: 0 })}>zero</button>
+          {'  '}
+          {state.num}
+          {'  '}
+          {state.loading ? <span> Loading... </span> : <span> View.. </span>}
+        </div>
+
+        <br />
+
         <div>
           <Link href='/'>Home</Link>
           {'   '}
