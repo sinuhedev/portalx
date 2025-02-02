@@ -2,7 +2,6 @@ import React, { useEffect, useRef } from 'react'
 import { useFx, startViewTransition, useLocation, useResize } from 'portalx'
 import { Icon, Icons, I18n, Translate, Link } from 'components'
 import functions from './functions'
-import { env } from 'util'
 
 export default function App () {
   const { state, fx } = useFx(functions, true)
@@ -13,11 +12,6 @@ export default function App () {
 
   const Page = state.page.content
   const page = useRef()
-
-  // env
-  useEffect(() => {
-    console.log(env)
-  }, [])
 
   // services
   useEffect(() => {
@@ -51,8 +45,11 @@ export default function App () {
       <br />
 
       <div>
-        <Link href='#/' className='m-2'>
+        <Link href='/' className='m-2'>
           Home
+        </Link>
+        <Link href='#/Env' className='m-2'>
+          Env
         </Link>
         <Link href='#/ContextPage' className='m-2'>
           ContextPage

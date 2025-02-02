@@ -21,7 +21,7 @@ export default function App () {
   return (
     <>
       <div>
-        <Link href='#/' className='m-2'>
+        <Link href='/' className='m-2'>
           Home
         </Link>
 

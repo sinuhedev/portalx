@@ -1,6 +1,5 @@
 import API from 'services/api'
 import { http } from 'portalx'
-import { env } from 'util'
 
 const initialState = {
   page: { name: '', content: null },
