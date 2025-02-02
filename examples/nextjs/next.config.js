@@ -7,12 +7,12 @@ module.exports = {
         permanent: true
       }
     ]
-  },
-
-  eslint: {
-    ignoreDuringBuilds: true
-  },
-  devIndicators: {
-    appIsrStatus: false
   }
+
+  // eslint: {
+  //   ignoreDuringBuilds: true
+  // },
+  // devIndicators: {
+  //   appIsrStatus: false
+  // }
 }

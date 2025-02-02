@@ -28,6 +28,7 @@ function css (...classNames) {
  */
 function i18n (value, args = [], i18nFile, locale) {
   if (!value) return ''
+  if (!i18nFile.locales.includes(locale))locale = i18nFile.defaultLocale
 
   try {
     const localeIndex = i18nFile.locales.indexOf(locale)
