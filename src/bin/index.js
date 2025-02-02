@@ -17,7 +17,7 @@ import { useFx, css } from 'portalx'
 import functions from './functions'
 import './style.css'
 
-const ${pageName} = ({ name, className, style}) => {
+export default function ${pageName} ({ name, className, style}) {
   const { state, fx } = useFx(functions)
 
   return (
@@ -26,8 +26,6 @@ const ${pageName} = ({ name, className, style}) => {
     </main>
   )
 }
-
-export default ${pageName}
 `)
 
     // style.scss
