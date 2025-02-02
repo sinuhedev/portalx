@@ -10,7 +10,7 @@ function createPage (name) {
 
     const pageName = name.replaceAll('/', '')
 
-    // index.js
+    // index.jsx
     fs.writeFileSync(`${dirName}/index.jsx`,
 `import React, { useEffect } from 'react'
 import { useFx, css } from 'portalx'
@@ -28,7 +28,7 @@ export default function ${pageName} ({ name, className, style}) {
 }
 `)
 
-    // style.scss
+    // style.sss
     fs.writeFileSync(`${dirName}/style.css`,
 `.${pageName} {
 }`)
@@ -51,7 +51,7 @@ function createComponent (name) {
 
     const componentName = name.replaceAll('/', '') + '-component'
 
-    // index.js
+    // index.jsx
     fs.writeFileSync(`${dirName}/index.jsx`,
 `import React, { useEffect, useState } from 'react'
 import './style.css'
@@ -66,7 +66,7 @@ export default ({ children, name, value, type, className, style, readOnly, disab
 }
 `)
 
-    // style.scss
+    // style.css
     fs.writeFileSync(`${dirName}/style.css`,
 `.${componentName}  {
 }`
@@ -82,7 +82,7 @@ function createContainer (name) {
 
     const containerName = name.replaceAll('/', '') + '-container'
 
-    // index.js
+    // index.jsx
     fs.writeFileSync(`${dirName}/index.jsx`,
 `import React, { useEffect } from 'react'
 import { useFx, css } from 'portalx'
@@ -100,7 +100,7 @@ export default ({ children, name, value, type, className, style, readOnly, disab
 }
 `)
 
-    // style.scss
+    // style.css
     fs.writeFileSync(`${dirName}/style.css`,
 `.${containerName}  {
 }`)
@@ -114,6 +114,82 @@ export default { initialState }
 `)
   }
 }
+
+function createNextPage (name) {
+  const dirName = `./src/app/${name}`
+
+  if (fs.existsSync(dirName)) { console.error(`Error: Can't create '${dirName}' page : File exists`) } else {
+    fs.mkdirSync(dirName, { recursive: true })
+
+    const pageName = name.replaceAll('/', '')
+
+    // page.js
+    fs.writeFileSync(`${dirName}/page.js`,
+`'use client'
+
+import { useEffect } from 'react'
+import { useFx, css } from 'portalx'
+import functions from './functions'
+import './style.css'
+
+export default function ${pageName} () {
+  const { state, fx } = useFx(functions)
+
+  return (
+    <main className={css('${pageName}', '')}>
+      ${pageName}
+    </main>
+  )
+}
+`)
+
+    // style.css
+    fs.writeFileSync(`${dirName}/style.css`,
+`.${pageName} {
+}`)
+
+    // function.js
+    fs.writeFileSync(`${dirName}/functions.js`,
+`const initialState = {
+}
+
+export default { initialState }
+`)
+  }
+}
+
+function createNextComponent (name) {
+  const dirName = `./src/components/${name}`
+
+  if (fs.existsSync(dirName)) { console.error(`Error: Can't create '${dirName}' component : File exists`) } else {
+    fs.mkdirSync(dirName, { recursive: true })
+
+    const componentName = name.replaceAll('/', '') + '-component'
+
+    // index.js
+    fs.writeFileSync(`${dirName}/index.js`,
+`import { useEffect, useState } from 'react'
+import './style.css'
+import { css } from 'portalx'
+
+export default ({ children, name, value, type, className, style, readOnly, disabled, onClick = () => {} }) => {
+  return (
+    <article className={css('${componentName}', className)} style={style} name={name}>
+      ${componentName}
+    </article>
+  )
+}
+`)
+
+    // style.css
+    fs.writeFileSync(`${dirName}/style.css`,
+`.${componentName}  {
+}`
+    )
+  }
+}
+
+function createNextContainer (name) {}
 
 /**
  * run template
@@ -135,6 +211,21 @@ switch (CMD) {
 
   case 'container':
     if (FILE_NAME) createContainer(FILE_NAME)
+    else console.warn('npm run container <ContainerName>')
+    break
+
+  case 'next:page':
+    if (FILE_NAME) createNextPage(FILE_NAME)
+    else console.warn('npm run page <PageName>')
+    break
+
+  case 'next:component':
+    if (FILE_NAME) createNextComponent(FILE_NAME)
+    else console.warn('npm run component <ComponentName>')
+    break
+
+  case 'next:container':
+    if (FILE_NAME) createNextContainer(FILE_NAME)
     else console.warn('npm run container <ContainerName>')
     break
 
