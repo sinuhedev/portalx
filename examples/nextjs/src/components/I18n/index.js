@@ -4,7 +4,7 @@ import './style.css'
 
 const I18n = ({ value, args = [] }) => {
   const { context } = useFx()
-  return i18n(value, args, i18nFile, context.state.i18n ?? i18nFile.defaultLocale)
+  return i18n(value, args, i18nFile, context.state.i18n)
 }
 
 const Translate = ({ className, style }) => {

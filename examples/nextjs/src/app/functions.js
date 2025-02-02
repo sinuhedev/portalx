@@ -14,10 +14,11 @@ function init ({ set }) {
 }
 
 function changeI18n ({ set, payload }) {
+  const { value } = payload.target
   set({
-    i18n: payload.target.value
+    i18n: value
   })
-  window.localStorage.setItem('i18n', payload.target.value)
+  window.localStorage.setItem('i18n', value)
 }
 
 function increment ({ state, set }) {

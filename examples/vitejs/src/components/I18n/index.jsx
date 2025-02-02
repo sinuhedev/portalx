@@ -15,11 +15,8 @@ const Translate = ({ className, style }) => {
     <article className={css('Translate-component', className)} style={style}>
       <select
         name='i18n'
-        value={window.localStorage.getItem('i18n') ?? context.state.i18n}
-        onChange={e => {
-          context.fx.change(e)
-          window.localStorage.setItem('i18n', e.target.value)
-        }}
+        value={context.state.i18n}
+        onChange={e => context.fx.changeI18n(e)}
       >
         {i18nFile.locales.map(e => (
           <option key={e} value={e}>

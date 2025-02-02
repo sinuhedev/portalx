@@ -1,11 +1,18 @@
 import { env } from 'util'
-import i18nFile from 'assets/i18n'
 
 const initialState = {
   page: { name: '', content: null },
-  i18n: i18nFile.defaultLocale
+  i18n: window.localStorage.getItem('i18n') ?? ''
 }
 
+function changeI18n ({ set, payload }) {
+  const { value } = payload.target
+  set({
+    i18n: value
+  })
+
+  window.localStorage.setItem('i18n', value)
+}
 async function getPage ({ payload, set }) {
   const { hash } = payload
 
@@ -17,18 +24,18 @@ async function getPage ({ payload, set }) {
 
     switch (path.length) {
       case 1:
-        page = await import(`../pages/${path[0]}/index.jsx`)
+        page = await import(`./${path[0]}/index.jsx`)
         break
       case 2:
-        page = await import(`../pages/${path[0]}/${path[1]}/index.jsx`)
+        page = await import(`./${path[0]}/${path[1]}/index.jsx`)
         break
       case 3:
-        page = await import(`../pages/${path[0]}/${path[1]}/${path[2]}/index.jsx`)
+        page = await import(`./${path[0]}/${path[1]}/${path[2]}/index.jsx`)
         break
     }
   } catch (e) {
     console.error(e)
-    page = await import('../pages/Http/NotFound/index.jsx')
+    page = await import('./Http/NotFound/index.jsx')
     name = 'NotFound'
   }
 
@@ -37,5 +44,6 @@ async function getPage ({ payload, set }) {
 
 export default {
   initialState,
+  changeI18n,
   getPage
 }

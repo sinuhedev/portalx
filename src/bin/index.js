@@ -3,7 +3,7 @@
 import fs from 'node:fs'
 
 function createPage (name) {
-  const dirName = `./src/pages/${name}`
+  const dirName = `./src/app/${name}`
 
   if (fs.existsSync(dirName)) { console.error(`Error: Can't create '${dirName}' page : File exists`) } else {
     fs.mkdirSync(dirName, { recursive: true })

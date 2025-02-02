@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { useFx, startViewTransition, useLocation, useResize } from 'portalx'
-import { Icon, I18n, Translate, Link } from 'components'
+import { Icon, Icons, I18n, Translate, Link } from 'components'
 import functions from './functions'
 import { env } from 'util'
 
@@ -31,6 +31,7 @@ const App = () => {
 
   return (
     <>
+
       <div style={{ display: 'flex', gap: '20px' }}>
         <Icon value='globe' />
         <Translate />
@@ -92,6 +93,8 @@ const App = () => {
             resize={resize}
           />}
       </div>
+
+      <Icons />
     </>
   )
 }

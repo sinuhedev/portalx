@@ -28,7 +28,7 @@ function setValue (state, payload, value) {
    */
   if (paths.length === 1) {
     // set Object and exist Object
-    if (typeof value === 'object' && Object.keys(value).length) {
+    if (value && typeof value === 'object' && Object.keys(value).length) {
       return { ...state, [payload]: { ...state[payload], ...value } }
     }
 

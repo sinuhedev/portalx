@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
 import { useFx, startViewTransition, useLocation, useResize } from 'portalx'
-import { Link } from 'components'
+import { Link, Icons } from 'components'
 import functions from './functions'
 
 const App = () => {
@@ -45,6 +45,7 @@ const App = () => {
             resize={resize}
           />}
       </div>
+      <Icons />
     </>
   )
 }
