@@ -3,7 +3,7 @@ import { useFx, startViewTransition, useLocation, useResize } from 'portalx'
 import { Link, Icons } from 'components'
 import functions from './functions'
 
-const App = () => {
+export default function App () {
   const { state, fx } = useFx(functions, true)
 
   // hooks
@@ -49,5 +49,3 @@ const App = () => {
     </>
   )
 }
-
-export default App

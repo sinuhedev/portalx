@@ -4,7 +4,7 @@ import functions from './functions'
 import { Counter, Counter2 } from 'components'
 import './style.css'
 
-const CounterPage = ({ name, className, style }) => {
+export default function ({ name, className, style }) {
   const { state, fx } = useFx(functions)
 
   return (
@@ -34,5 +34,3 @@ const CounterPage = ({ name, className, style }) => {
     </main>
   )
 }
-
-export default CounterPage

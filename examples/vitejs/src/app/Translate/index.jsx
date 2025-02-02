@@ -4,7 +4,7 @@ import { useFx } from 'portalx'
 import './style.css'
 import { I18n } from 'components'
 
-const Translate = ({ name, className, style }) => {
+export default function Translate ({ name, className, style }) {
   const { state, fx } = useFx(functions)
 
   return (
@@ -28,5 +28,3 @@ const Translate = ({ name, className, style }) => {
     </div>
   )
 }
-
-export default Translate

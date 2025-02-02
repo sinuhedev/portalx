@@ -4,7 +4,7 @@ import { Icon, Icons, I18n, Translate, Link } from 'components'
 import functions from './functions'
 import { env } from 'util'
 
-const App = () => {
+export default function App () {
   const { state, fx } = useFx(functions, true)
 
   // hooks
@@ -98,5 +98,3 @@ const App = () => {
     </>
   )
 }
-
-export default App

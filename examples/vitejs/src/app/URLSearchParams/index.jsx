@@ -4,7 +4,7 @@ import functions from './functions'
 import { Link } from 'components'
 import './style.css'
 
-const URLSearchParams = ({ name, className, style, qs }) => {
+export default function URLSearchParams ({ name, className, style, qs }) {
   const { state, fx } = useFx(functions)
 
   useEffect(() => {
@@ -31,5 +31,3 @@ const URLSearchParams = ({ name, className, style, qs }) => {
     </main>
   )
 }
-
-export default URLSearchParams

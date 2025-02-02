@@ -3,7 +3,7 @@ import { useFx, css } from 'portalx'
 import functions from './functions'
 import './style.css'
 
-const ContextPage = ({ name, className, style }) => {
+export default function ContextPage ({ name, className, style }) {
   const { state, fx, context } = useFx(functions)
 
   useEffect(() => {
@@ -25,5 +25,3 @@ const ContextPage = ({ name, className, style }) => {
     </main>
   )
 }
-
-export default ContextPage

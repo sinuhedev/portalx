@@ -4,7 +4,7 @@ import { useFx, css } from 'portalx'
 import { Icon, I18n, Translate, Button } from 'components'
 import functions from './functions'
 
-const Home = ({ name, className, style }) => {
+export default function Home ({ name, className, style }) {
   const { state, initialState, fx, context } = useFx(functions)
 
   return (
@@ -28,5 +28,3 @@ const Home = ({ name, className, style }) => {
     </main>
   )
 }
-
-export default Home

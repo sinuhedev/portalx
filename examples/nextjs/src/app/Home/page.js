@@ -1,18 +1,22 @@
-import React, { useEffect } from 'react'
+'use client'
+
+import { useEffect } from 'react'
 import './style.css'
 import { useFx, css } from 'portalx'
 import functions from './functions'
 import { sum } from 'util'
 
-export default function Home ({ name, className, style }) {
+export default function Home (a) {
   const { state, initialState, fx, context } = useFx(functions)
 
   useEffect(() => {
     console.info(sum(10, 10))
   }, [])
 
+  console.info(a)
+
   return (
-    <main className={css(name, className, 'container')} style={style}>
+    <main className={css('home', 'container')}>
       <div>
         <div>
           <p>set</p>

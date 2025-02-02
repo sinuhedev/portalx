@@ -4,7 +4,7 @@ import functions from './functions'
 import { UserContainer } from 'containers'
 import './style.css'
 
-const MockapiAndContainer = ({ name, className, style }) => {
+export default function MockapiAndContainer ({ name, className, style }) {
   const { initialState, state, fx } = useFx(functions)
 
   return (
@@ -13,5 +13,3 @@ const MockapiAndContainer = ({ name, className, style }) => {
     </main>
   )
 }
-
-export default MockapiAndContainer

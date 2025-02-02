@@ -3,7 +3,7 @@ import { useFx, css } from 'portalx'
 import functions from './functions'
 import './style.css'
 
-const MediaQuery = ({ name, className, style, resize }) => {
+export default function MediaQuery ({ name, className, style, resize }) {
   const { state, fx } = useFx(functions)
 
   return (
@@ -51,5 +51,3 @@ const MediaQuery = ({ name, className, style, resize }) => {
     </main>
   )
 }
-
-export default MediaQuery

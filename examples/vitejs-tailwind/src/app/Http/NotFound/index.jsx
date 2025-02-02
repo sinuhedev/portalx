@@ -2,7 +2,7 @@ import React from 'react'
 import { css } from 'portalx'
 import './style.css'
 
-const HttpNotFound = ({ name, className, style }) => {
+export default function HttpNotFound ({ name, className, style }) {
   return (
     <main
       className={css(name, className, 'd-flex justify-content-center')}
@@ -18,5 +18,3 @@ const HttpNotFound = ({ name, className, style }) => {
     </main>
   )
 }
-
-export default HttpNotFound
