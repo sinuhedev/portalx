@@ -1,11 +1,11 @@
 import React, { useEffect, useRef } from 'react'
-import { useFx, ContextFx, startViewTransition, useLocation, useResize } from 'portalx'
+import { useFx, Portalx, startViewTransition, useLocation, useResize } from 'portalx'
 import { Link, Icons } from 'components'
 import functions from './functions'
 
 export default function App () {
-  const context = useFx(functions)
-  const { state, fx } = context
+  const portalx = useFx(functions)
+  const { state, fx } = portalx
 
   // hooks
   const qs = useLocation()
@@ -21,7 +21,7 @@ export default function App () {
 
   return (
     <>
-      <ContextFx value={context}>
+      <Portalx value={portalx}>
         <div>
           <Link href='/' className='m-2'>
             /
@@ -48,7 +48,7 @@ export default function App () {
             />}
         </div>
         <Icons />
-      </ContextFx>
+      </Portalx>
     </>
   )
 }

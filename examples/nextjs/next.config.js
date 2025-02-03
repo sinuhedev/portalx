@@ -1,4 +1,8 @@
 module.exports = {
+  devIndicators: {
+    appIsrStatus: false
+  }
+
   // async redirects () {
   //   return [
   //     {
@@ -12,7 +16,4 @@ module.exports = {
   // eslint: {
   //   ignoreDuringBuilds: true
   // },
-  // devIndicators: {
-  //   appIsrStatus: false
-  // }
 }

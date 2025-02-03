@@ -3,13 +3,13 @@
 import { cloneElement, useEffect } from 'react'
 import 'theme/index.css'
 import Link from 'next/link'
-import { useFx, ContextFx } from 'portalx'
+import { useFx, Portalx } from 'portalx'
 import functions from './functions'
 import { Icon, Icons, I18n, Translate } from 'components'
 
 function Layout ({ children }) {
-  const context = useFx(functions)
-  const { state, fx } = context
+  const portalx = useFx(functions)
+  const { state, fx } = portalx
 
   useEffect(() => {
     fx.init()
@@ -23,7 +23,7 @@ function Layout ({ children }) {
       </head>
       <body className=''>
 
-        <ContextFx value={context}>
+        <Portalx value={portalx}>
 
           <Icons />
 
@@ -86,7 +86,7 @@ function Layout ({ children }) {
           <br />
           {cloneElement(children, { newProp: 'value' })}
 
-        </ContextFx>
+        </Portalx>
 
       </body>
     </html>
