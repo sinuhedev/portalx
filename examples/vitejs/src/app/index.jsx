@@ -4,7 +4,7 @@ import { Icon, Icons, I18n, Translate, Link } from 'components'
 import functions from './functions'
 
 export default function App () {
-  const context = useFx(functions, true)
+  const context = useFx(functions)
   const { state, fx } = context
   // hooks
   const qs = useLocation()
@@ -48,7 +48,7 @@ export default function App () {
           <Link href='/' className='m-2'>
             /
           </Link>
-          <Link href='#/' className='m-2'>
+          <Link href='#/Home' className='m-2'>
             Home
           </Link>
           <Link href='#/Env' className='m-2'>

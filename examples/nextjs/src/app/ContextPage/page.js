@@ -5,10 +5,8 @@ import { useFx, css } from 'portalx'
 import functions from './functions'
 import './style.css'
 
-export default function ContextPage (props) {
+export default function ContextPage () {
   const { state, fx, context } = useFx(functions)
-
-  console.info(props.newProp)
 
   useEffect(() => {
     fx.init()

@@ -1,10 +1,11 @@
 import React, { useEffect, useRef } from 'react'
-import { useFx, startViewTransition, useLocation, useResize } from 'portalx'
+import { useFx, ContextFx, startViewTransition, useLocation, useResize } from 'portalx'
 import { Link, Icons } from 'components'
 import functions from './functions'
 
 export default function App () {
-  const { state, fx } = useFx(functions, true)
+  const context = useFx(functions)
+  const { state, fx } = context
 
   // hooks
   const qs = useLocation()
@@ -20,32 +21,36 @@ export default function App () {
 
   return (
     <>
-      <div>
-        <Link href='/' className='m-2'>
-          Home
-        </Link>
+      <ContextFx value={context}>
+        <div>
+          <Link href='/' className='m-2'>
+            /
+          </Link>
+          <Link href='#/Home' className='m-2'>
+            Home
+          </Link>
+          <Link href='#/MediaQuery' className='m-2'>
+            MediaQuery
+          </Link>
 
-        <Link href='#/MediaQuery' className='m-2'>
-          MediaQuery
-        </Link>
+          <Link href='#/NO' className='m-2'>
+            NO
+          </Link>
 
-        <Link href='#/NO' className='m-2'>
-          NO
-        </Link>
+        </div>
 
-      </div>
-
-      <div ref={page}>
-        {Page &&
-          <Page
-            name={state.page.name}
-            className='m-2'
-            style={{}}
-            qs={qs}
-            resize={resize}
-          />}
-      </div>
-      <Icons />
+        <div ref={page}>
+          {Page &&
+            <Page
+              name={state.page.name}
+              className='m-2'
+              style={{}}
+              qs={qs}
+              resize={resize}
+            />}
+        </div>
+        <Icons />
+      </ContextFx>
     </>
   )
 }
