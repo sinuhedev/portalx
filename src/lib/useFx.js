@@ -1,4 +1,4 @@
-import { useReducer } from 'react'
+import { useReducer, createContext, use } from 'react'
 
 /**
  * set*
@@ -104,16 +104,19 @@ function useFxReducer (initialState) {
 }
 
 /**
- * Context
+ * Create context
  */
-let context = null
+const ContextFx = createContext()
 
 /**
  * useFx
  */
-function useFx (functions = { initialState: {} }, isContext = false) {
+function useFx (functions = { initialState: {} }) {
   // reducer
   const [state, dispatch] = useFxReducer(functions.initialState)
+
+  // context
+  const context = use(ContextFx)
 
   // Common actions
   const commonActions = ['set', 'show', 'hide', 'change', 'reset'].reduce((ac, e) => {
@@ -130,24 +133,21 @@ function useFx (functions = { initialState: {} }, isContext = false) {
           state,
           payload,
           //
-          ...(isContext ? {} : { context, ...context.state?.services })
+          context,
+          ...context?.state?.services
         })
     }
     return ac
   }, {})
 
-  // State and Actions
-  const stateAndActions = Object.freeze({
+  // Context, State and Actions
+  return Object.freeze({
     initialState: functions.initialState,
     state,
     fx: { ...commonActions, ...actions },
     //
-    ...(isContext ? {} : { context })
+    context
   })
-
-  if (isContext) context = stateAndActions
-
-  return stateAndActions
 }
 
-export default useFx
+export { useFx, ContextFx }
