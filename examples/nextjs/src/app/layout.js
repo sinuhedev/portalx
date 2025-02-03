@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import { cloneElement, useEffect } from 'react'
 import 'theme/index.css'
 import Link from 'next/link'
 import { useFx } from 'portalx'
@@ -43,14 +43,40 @@ function Layout ({ children }) {
         <br />
 
         <div>
-          <Link href='/'>Home</Link>
-          {'   '}
-          <Link href='/Demo'>Demo</Link>
-          {'   '}
-          <Link href='/no'>no</Link>
+          <Link href='/' className='m-2'>
+            Home
+          </Link>
+          <Link href='/Env' className='m-2'>
+            Env
+          </Link>
+          <Link href='/ContextPage' className='m-2'>
+            ContextPage
+          </Link>
+          <Link href='/Mockapi' className='m-2'>
+            Mockapi
+          </Link>
+          <Link href='/MockapiAndContainer' className='m-2'>
+            MockapiAndContainers
+          </Link>
+          <Link href='/URLSearchParams?id=20&user=Sinuhe' className='m-2'>
+            URLSearchParams
+          </Link>
+          <Link href='/SubPage/Hello' className='m-2'>
+            SubPage/Hello
+          </Link>
+          <Link href='/Translate' className='m-2'>
+            Translate
+          </Link>
+          <Link href='/CounterPage' className='m-2'>
+            CounterPage
+          </Link>
+          <Link href='/MediaQuery' className='m-2'>
+            MediaQuery
+          </Link>
+          <Link href='/NO'>NO</Link>
         </div>
         <br />
-        {children}
+        {cloneElement(children, { newProp: 'value' })}
       </body>
     </html>
   )

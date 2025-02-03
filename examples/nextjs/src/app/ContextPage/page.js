@@ -1,0 +1,29 @@
+'use client'
+
+import { useEffect } from 'react'
+import { useFx, css } from 'portalx'
+import functions from './functions'
+import './style.css'
+
+export default function ContextPage (props) {
+  const { state, fx, context } = useFx(functions)
+
+  console.info(props.newProp)
+
+  useEffect(() => {
+    fx.init()
+  }, [])
+
+  return (
+    <main className={css('ContextPage', '')}>
+      <br />
+      <button onClick={e => context.fx.increment(e)}>increment</button>
+      {'  '}
+      <button onClick={e => context.fx.decrement(e)}>decrement</button>
+      {'  '}
+      <button onClick={() => context.fx.zero({ value: 0 })}>zero</button>
+      {'  '}
+      {context.state.num}
+    </main>
+  )
+}
