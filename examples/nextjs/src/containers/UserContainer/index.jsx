@@ -1,15 +1,16 @@
-'use client'
-
-import { useEffect } from 'react'
+import React from 'react'
 import { useFx, css } from 'portalx'
 import functions from './functions'
 import './style.css'
 
-export default function Mockapi () {
+export default ({ className, style }) => {
   const { initialState, state, fx } = useFx(functions)
 
   return (
-    <main className={css('Mockapi', 'container')}>
+    <article
+      className={css('UserContainer-container', className, 'container')}
+      style={style}
+    >
       <div>
         <button onClick={() => fx.reset(['users', 'user'])}>Reset</button>
 
@@ -66,7 +67,7 @@ export default function Mockapi () {
             type='text'
             name='form.id'
             value={state.form.id}
-            onChange={evt => fx.change(evt)}
+            onChange={e => fx.change(e)}
           />
         </div>
         <div>
@@ -75,7 +76,7 @@ export default function Mockapi () {
             type='text'
             name='form.name'
             value={state.form.name}
-            onChange={evt => fx.change(evt)}
+            onChange={e => fx.change(e)}
           />
         </div>
       </div>
@@ -90,6 +91,6 @@ export default function Mockapi () {
           </pre>
         </article>
       </section>
-    </main>
+    </article>
   )
 }

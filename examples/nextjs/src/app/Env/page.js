@@ -10,14 +10,14 @@ export default function Env () {
 
   // env
   useEffect(() => {
-    console.log(process.env.WEB_TITLE)
+    console.log(process.env.NEXT_PUBLIC_TITLE)
   }, [])
 
   return (
     <main className={css('Env', '')}>
       Env
 
-      <h1>{process.env.NEXT_PUBLIC_HELLO}</h1>
+      <h1>{process.env.NEXT_PUBLIC_TITLE}</h1>
 
     </main>
   )

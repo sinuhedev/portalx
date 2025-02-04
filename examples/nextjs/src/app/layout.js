@@ -15,10 +15,15 @@ function Layout ({ children }) {
     fx.init()
   }, [])
 
+  // services
+  useEffect(() => {
+    fx.setServices()
+  }, [])
+
   return (
     <html>
       <head>
-        <title>{process.env.WEB_TITLE}</title>
+        <title>{process.env.NEXT_PUBLIC_TITLE}</title>
         <link rel='shortcut icon' href='logo.svg' />
       </head>
       <body className=''>
@@ -47,7 +52,6 @@ function Layout ({ children }) {
           <br />
 
           <div>
-
             <Link href='/' className='m-2'>
               /
             </Link>
@@ -83,8 +87,10 @@ function Layout ({ children }) {
             </Link>
             <Link href='/NO'>NO</Link>
           </div>
+
           <br />
-          {cloneElement(children, { newProp: 'value' })}
+
+          {children}
 
         </Portalx>
 
