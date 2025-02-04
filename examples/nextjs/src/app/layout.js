@@ -1,6 +1,6 @@
 'use client'
 
-import { cloneElement, useEffect } from 'react'
+import { useEffect, Suspense } from 'react'
 import 'theme/index.css'
 import Link from 'next/link'
 import { useFx, Portalx } from 'portalx'
@@ -90,7 +90,9 @@ function Layout ({ children }) {
 
           <br />
 
-          {children}
+          <Suspense fallback={<div />}>
+            {children}
+          </Suspense>
 
         </Portalx>
 

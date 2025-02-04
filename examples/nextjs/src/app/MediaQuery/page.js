@@ -1,7 +1,7 @@
 'use client'
 
-import { useEffect } from 'react'
-import { useFx, css, useResize } from 'portalx'
+import { useFx, css } from 'portalx'
+import { useResize } from '../../util'
 import functions from './functions'
 import './style.css'
 

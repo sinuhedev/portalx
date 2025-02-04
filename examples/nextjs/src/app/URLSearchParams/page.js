@@ -7,7 +7,7 @@ import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
 import './style.css'
 
-export default function URLSearchParams (a) {
+export default function URLSearchParams () {
   const { state, fx } = useFx(functions)
   const searchParams = useSearchParams()
 
