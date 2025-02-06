@@ -2,7 +2,7 @@ import api from 'services/api'
 
 const initialState = {
   page: { name: '', content: null },
-  i18n: window.localStorage.getItem('i18n') ?? '',
+  i18n: window.localStorage.getItem('i18n'),
   loading: false,
   services: {
     api: {}
@@ -16,7 +16,6 @@ function changeI18n ({ set, payload }) {
   set({
     i18n: value
   })
-
   window.localStorage.setItem('i18n', value)
 }
 

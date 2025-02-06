@@ -11,7 +11,7 @@ const initialState = {
 
 function init ({ set }) {
   set({
-    i18n: window.localStorage.getItem('i18n') ?? ''
+    i18n: window.localStorage.getItem('i18n')
   })
 }
 

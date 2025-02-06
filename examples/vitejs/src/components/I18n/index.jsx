@@ -7,12 +7,12 @@ import './style.css'
 const I18n = ({ value, args = [] }) => {
   if (!value) return ''
 
+  const { context } = useFx()
+
+  const locale = i18nFile.locales.includes(context.state.i18n) ? context.state.i18n : i18nFile.defaultLocale
+  const localeIndex = i18nFile.locales.indexOf(locale)
+
   try {
-    const { context } = useFx()
-
-    const locale = i18nFile.locales.includes(context.state.i18n) ? context.state.i18n : i18nFile.defaultLocale
-    const localeIndex = i18nFile.locales.indexOf(locale)
-
     let text = value.split('.').reduce((ac, el) => ac[el], i18nFile)
     text = text[localeIndex]
 
