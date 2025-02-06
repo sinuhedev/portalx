@@ -1,10 +1,5 @@
 /**
  * get
- * @param {*} url
- * @param {*} path
- * @param {*} body
- * @param {*} headers
- * @returns
  */
 async function get (url = '', path = {}, body = {}, headers = {}) {
   // path
@@ -49,11 +44,6 @@ async function get (url = '', path = {}, body = {}, headers = {}) {
 
 /**
  * post
- * @param {*} url
- * @param {*} path
- * @param {*} body
- * @param {*} headers
- * @returns
  */
 async function post (url = '', path = {}, body = {}, headers = {}) {
   // path
@@ -94,11 +84,6 @@ async function post (url = '', path = {}, body = {}, headers = {}) {
 
 /**
  * put
- * @param {*} url
- * @param {*} path
- * @param {*} body
- * @param {*} headers
- * @returns
  */
 async function put (url = '', path = {}, body = {}, headers = {}) {
   // path
@@ -139,11 +124,6 @@ async function put (url = '', path = {}, body = {}, headers = {}) {
 
 /**
  * delete
- * @param {*} url
- * @param {*} path
- * @param {*} body
- * @param {*} headers
- * @returns
  */
 async function _delete (url = '', path = {}, body = {}, headers = {}) {
   // path

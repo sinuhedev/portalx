@@ -9,7 +9,7 @@ const initialState = {
 
 async function getUser ({ payload, set, api }) {
   try {
-    const { data } = await api.getUsers({ path: { id: payload } })
+    const { data } = await api.getUser({ path: { id: payload } })
     set({ users: data, user: {} })
   } catch (e) {
     console.error(e)

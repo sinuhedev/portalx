@@ -8,7 +8,9 @@ export default function Mockapi ({ name, className, style }) {
 
   return (
     <main className={css(name, className, 'container')} style={style}>
+
       <div>
+
         <button onClick={() => fx.reset(['users', 'user'])}>Reset</button>
 
         <button
@@ -58,6 +60,9 @@ export default function Mockapi ({ name, className, style }) {
       </div>
 
       <div>
+
+        <h1>Mockapi</h1>
+
         <div>
           id:{' '}
           <input
