@@ -1,11 +1,35 @@
 import React from 'react'
-import { useFx, i18n, css } from 'portalx'
+import { useFx, css } from 'portalx'
 import i18nFile from 'assets/i18n'
 import './style.css'
 
+function i18n (value, args = [], locale) {
+  if (!value) return ''
+  if (!i18nFile.locales.includes(locale))locale = i18nFile.defaultLocale
+
+  try {
+    const localeIndex = i18nFile.locales.indexOf(locale)
+
+    let text = value.split('.').reduce((ac, el) => ac[el], i18nFile)
+    text = text[localeIndex]
+
+    if (args) {
+      text = text.replace(
+        /([{}])\\1|[{](.*?)(?:!(.+?))?[}]/g,
+        (match, literal, number) => args[number] || match
+      )
+    }
+
+    return text
+  } catch (e) {
+    console.error('Error in [il8n] => ' + value)
+    return value
+  }
+}
+
 const I18n = ({ value, args = [] }) => {
   const { context } = useFx()
-  return i18n(value, args, i18nFile, context.state.i18n)
+  return i18n(value, args, context.state.i18n)
 }
 
 const Translate = ({ className, style }) => {

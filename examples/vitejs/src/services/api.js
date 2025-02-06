@@ -1,32 +1,13 @@
 import { env } from 'util'
-import { http } from 'portalx'
+import http from './http'
 
-const methods = {
-  getUser: 'GET /user/:id',
-  createUser: 'POST /user',
-  updateUser: 'PUT /user/:id',
-  deleteUser: 'DELETE /user/:id'
-}
+const API = env.WEB_API
 
 export default () => {
-  const headers = {}
-
-  const api = {}
-  for (const e in methods) {
-    const service = methods[e].match(/\S+/g)
-    const method = service[0].toLowerCase()
-    const url = env.WEB_API + service[1]
-
-    api[e] = async (payload = {}) => {
-      const path = payload?.path ?? {}
-      const body = payload?.body ?? {}
-
-      const response = await http[method](url, path, body, headers)
-
-      if (response.ok) return response
-      else throw response
-    }
+  return {
+    getUser: (p) => http.get(API + '/user/:id', p.path, p.body),
+    createUser: (p) => http.post(API + '/user', p.path, p.body),
+    updateUser: (p) => http.put(API + '/user/:id', p.path, p.body),
+    deleteUser: (p) => http.delete(API + '/user/:id', p.path, p.body)
   }
-
-  return api
 }

@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useFx, css, startViewTransition } from 'portalx'
+import { useFx, css } from 'portalx'
 import functions from './functions'
 import { Counter, Counter2 } from 'components'
 import './style.css'
