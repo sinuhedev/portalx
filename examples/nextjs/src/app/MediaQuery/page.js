@@ -2,7 +2,7 @@
 
 import { useFx } from 'portalx'
 import functions from './functions'
-import { useResize, css } from '../../util'
+import { useResize, css } from 'lib'
 import './style.css'
 
 export default function MediaQuery () {

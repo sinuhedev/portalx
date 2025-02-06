@@ -1,7 +1,7 @@
 import React from 'react'
 import { useFx } from 'portalx'
 import functions from './functions'
-import { css } from '../../util'
+import { css } from 'lib'
 import './style.css'
 
 export default ({ className, style }) => {

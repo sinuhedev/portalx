@@ -1,25 +1,5 @@
 {
   "compilerOptions": {
     "baseUrl": "src",
-    // "paths": {
-    //   "assets/*": [
-    //     "./*"
-    //   ],
-    //   "components/*": [
-    //     "./*"
-    //   ],
-    //   "containers/*": [
-    //     "./*"
-    //   ],
-    //   "services/*": [
-    //     "./*"
-    //   ],
-    //   "theme/*": [
-    //     "./*"
-    //   ],
-    //   "util/*": [
-    //     "./*"
-    //   ],
-    // }
   }
 }
