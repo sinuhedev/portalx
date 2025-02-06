@@ -1,5 +1,5 @@
 import { test } from 'vitest'
-import { sum, env } from 'util'
+import { sum, env } from 'utils'
 
 let a
 

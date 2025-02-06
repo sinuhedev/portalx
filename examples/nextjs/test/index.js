@@ -1,5 +1,5 @@
 import { test } from 'vitest'
-import { sum } from 'util'
+import { sum } from 'utils'
 
 test('env', () => {
   console.info(process.env.WEB_TITLE)
