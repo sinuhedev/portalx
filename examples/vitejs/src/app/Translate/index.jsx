@@ -3,12 +3,13 @@ import functions from './functions'
 import { useFx } from 'portalx'
 import './style.css'
 import { I18n } from 'components'
+import { css } from 'util'
 
 export default function Translate ({ name, className, style }) {
   const { state, fx } = useFx(functions)
 
   return (
-    <div className='Translate'>
+    <main className={css(name, className, '')} style={style}>
       <I18n value='page.name' args={['Sinuhe', 'Maceda', 'Bouchan']} />
 
       <ul>
@@ -25,6 +26,6 @@ export default function Translate ({ name, className, style }) {
           <I18n value='page.module.block.docker' />
         </li>
       </ul>
-    </div>
+    </main>
   )
 }

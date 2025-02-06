@@ -1,6 +1,7 @@
 import React from 'react'
-import { useFx, css } from 'portalx'
+import { useFx } from 'portalx'
 import functions from './functions'
+import { css } from 'util'
 import './style.css'
 
 export default function SubPageHello ({ name, className, style }) {

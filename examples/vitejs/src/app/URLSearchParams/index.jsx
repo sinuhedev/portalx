@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
-import { useFx, css } from 'portalx'
+import { useFx } from 'portalx'
 import functions from './functions'
 import { Link } from 'components'
+import { css } from 'util'
 import './style.css'
 
 export default function URLSearchParams ({ name, className, style, qs }) {
