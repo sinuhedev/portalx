@@ -23,7 +23,7 @@ export default function App () {
   return (
     <>
       <Portalx value={portalx}>
-        <div>
+        <div className='m-5'>
           <Link href='/' className='m-2'>
             /
           </Link>

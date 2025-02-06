@@ -12,7 +12,6 @@ export default function Home ({ name, className, style }) {
     <main className={css(name, className, 'container')} style={style}>
 
       <div>
-        <p>Simple actions/Reducer:</p>
         <Button onClick={e => fx.increment(e)}>+</Button>
         <Button onClick={e => fx.decrement(e)}>-</Button>
       </div>

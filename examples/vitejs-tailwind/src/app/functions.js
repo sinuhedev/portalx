@@ -1,15 +1,5 @@
 const initialState = {
-  page: { name: '', content: null },
-  i18n: window.localStorage.getItem('i18n') ?? ''
-}
-
-function changeI18n ({ set, payload }) {
-  const { value } = payload.target
-  set({
-    i18n: value
-  })
-
-  window.localStorage.setItem('i18n', value)
+  page: { name: '', content: null }
 }
 
 async function getPage ({ payload, set }) {
@@ -43,7 +33,6 @@ async function getPage ({ payload, set }) {
 
 export default {
   initialState,
-  changeI18n,
   getPage
 
 }

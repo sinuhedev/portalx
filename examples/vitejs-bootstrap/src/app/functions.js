@@ -1,18 +1,7 @@
-import { env } from 'utils'
-
 const initialState = {
-  page: { name: '', content: null },
-  i18n: window.localStorage.getItem('i18n') ?? ''
+  page: { name: '', content: null }
 }
 
-function changeI18n ({ set, payload }) {
-  const { value } = payload.target
-  set({
-    i18n: value
-  })
-
-  window.localStorage.setItem('i18n', value)
-}
 async function getPage ({ payload, set }) {
   const { hash } = payload
 
@@ -44,6 +33,5 @@ async function getPage ({ payload, set }) {
 
 export default {
   initialState,
-  changeI18n,
   getPage
 }

@@ -14,8 +14,6 @@ export default function Home ({ name, className, style }) {
   return (
     <main className={css(name, className, 'container')} style={style}>
 
-      <p>Simple actions/Reducer:</p>
-
       <div className='d-flex '>
         <Button onClick={e => fx.increment(e)}>+</Button>
         <Button onClick={e => fx.decrement(e)}>-</Button>
