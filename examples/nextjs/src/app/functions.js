@@ -1,4 +1,4 @@
-import { getUser } from 'services/api'
+import { getUser, createUser, updateUser, deleteUser } from 'services/api'
 
 const initialState = {
   i18n: '',
@@ -24,11 +24,13 @@ function changeI18n ({ set, payload }) {
 }
 
 function setServices ({ set, show, hide }) {
+  const api = {
+    getUser, createUser, updateUser, deleteUser
+  }
+
   set({
     services: {
-      api: {
-        getUser
-      }
+      api
     }
   })
 }

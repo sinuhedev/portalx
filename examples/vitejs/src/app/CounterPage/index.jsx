@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useFx } from 'portalx'
 import functions from './functions'
 import { Counter, Counter2 } from 'components'
-import { css } from 'util'
+import { css } from 'utils'
 import './style.css'
 
 export default function ({ name, className, style }) {

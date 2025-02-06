@@ -1,23 +1,10 @@
 'use server'
 
+import http from './http'
+
 const { API } = process.env
 
-export async function getUser () {
-  const response = await fetch(API, { method: 'GET' })
-
-  const { ok, status } = response
-
-  let data
-  try {
-    data = await response.json()
-  } catch (e) {
-    console.error(e)
-    data = [{}]
-  }
-
-  return {
-    ok,
-    status,
-    data
-  }
-}
+export async function getUser (p) { return http.get(API + '/user/:id', p.path, p.body) }
+export async function createUser (p) { return http.post(API + '/user', p.path, p.body) }
+export async function updateUser (p) { return http.put(API + '/user/:id', p.path, p.body) }
+export async function deleteUser (p) { return http.delete(API + '/user/:id', p.path, p.body) }

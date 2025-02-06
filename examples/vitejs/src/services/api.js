@@ -1,4 +1,4 @@
-import { env } from 'util'
+import { env } from 'utils'
 import http from './http'
 
 const API = env.WEB_API

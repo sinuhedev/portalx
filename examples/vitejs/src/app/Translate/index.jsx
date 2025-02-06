@@ -3,7 +3,7 @@ import functions from './functions'
 import { useFx } from 'portalx'
 import './style.css'
 import { I18n } from 'components'
-import { css } from 'util'
+import { css } from 'utils'
 
 export default function Translate ({ name, className, style }) {
   const { state, fx } = useFx(functions)

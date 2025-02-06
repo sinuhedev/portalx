@@ -1,7 +1,11 @@
-const urlTemplate = (url, path) => url.match(/:\w+/g).reduce((acc, e) => {
-  const key = e.split(':')[1]
-  return acc.replaceAll(e, path[key] ?? '')
-}, url)
+function urlTemplate (url, path) {
+  const params = url.match(/:\w+/g) ?? []
+
+  return params.reduce((acc, e) => {
+    const key = e.split(':')[1]
+    return acc.replaceAll(e, path[key] ?? '')
+  }, url)
+}
 
 /**
  * get

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import { useFx } from 'portalx'
 import functions from './functions'
-import { env, css } from 'util'
+import { env, css } from 'utils'
 import './style.css'
 
 export default function Env ({ name, className, style }) {

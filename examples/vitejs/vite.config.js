@@ -24,7 +24,7 @@ export default defineConfig(({ mode }) => {
         components: CWD + '/src/components',
         containers: CWD + '/src/containers',
         services: CWD + '/src/services',
-        util: CWD + '/src/util'
+        utils: CWD + '/src/utils'
       }
     },
 

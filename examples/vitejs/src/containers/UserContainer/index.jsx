@@ -1,6 +1,6 @@
 import React from 'react'
 import { useFx } from 'portalx'
-import { css } from 'util'
+import { css } from 'utils'
 import functions from './functions'
 import './style.css'
 

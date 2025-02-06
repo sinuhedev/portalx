@@ -1,5 +1,5 @@
 import React from 'react'
-import { css } from 'util'
+import { css } from 'utils'
 import './style.css'
 
 export default function HttpNotFound ({ name, className, style }) {
