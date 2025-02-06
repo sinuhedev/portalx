@@ -3,11 +3,13 @@ import { useFx, css } from 'portalx'
 import i18nFile from 'assets/i18n'
 import './style.css'
 
-function i18n (value, args = [], locale) {
+const I18n = ({ value, args = [] }) => {
   if (!value) return ''
-  if (!i18nFile.locales.includes(locale))locale = i18nFile.defaultLocale
 
   try {
+    const { context } = useFx()
+
+    const locale = i18nFile.locales.includes(context.state.i18n) ? context.state.i18n : i18nFile.defaultLocale
     const localeIndex = i18nFile.locales.indexOf(locale)
 
     let text = value.split('.').reduce((ac, el) => ac[el], i18nFile)
@@ -25,11 +27,6 @@ function i18n (value, args = [], locale) {
     console.error('Error in [il8n] => ' + value)
     return value
   }
-}
-
-const I18n = ({ value, args = [] }) => {
-  const { context } = useFx()
-  return i18n(value, args, context.state.i18n)
 }
 
 const Translate = ({ className, style }) => {
