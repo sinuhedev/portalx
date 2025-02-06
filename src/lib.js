@@ -119,9 +119,9 @@ function useFx (functions = { initialState: {} }) {
   const context = use(Portalx)
 
   // Common actions
-  const commonActions = ['set', 'show', 'hide', 'change', 'reset'].reduce((ac, e) => {
-    ac[e] = payload => dispatch({ type: e, payload })
-    return ac
+  const commonActions = ['set', 'show', 'hide', 'change', 'reset'].reduce((acc, e) => {
+    acc[e] = payload => dispatch({ type: e, payload })
+    return acc
   }, {})
 
   // Actions

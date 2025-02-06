@@ -13,7 +13,8 @@ function createPage (name) {
     // index.jsx
     fs.writeFileSync(`${dirName}/index.jsx`,
 `import React, { useEffect } from 'react'
-import { useFx, css } from 'portalx'
+import { useFx } from 'portalx'
+import { css } from 'util'
 import functions from './functions'
 import './style.css'
 
@@ -85,7 +86,8 @@ function createContainer (name) {
     // index.jsx
     fs.writeFileSync(`${dirName}/index.jsx`,
 `import React, { useEffect } from 'react'
-import { useFx, css } from 'portalx'
+import { useFx } from 'portalx'
+import { css } from 'util'
 import functions from './functions'
 import './style.css'
 
@@ -128,7 +130,8 @@ function createNextPage (name) {
 `'use client'
 
 import { useEffect } from 'react'
-import { useFx, css } from 'portalx'
+import { useFx } from 'portalx'
+import { css } from 'util'
 import functions from './functions'
 import './style.css'
 
