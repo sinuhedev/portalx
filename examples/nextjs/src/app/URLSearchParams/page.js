@@ -5,7 +5,7 @@ import { useFx } from 'portalx'
 import functions from './functions'
 import Link from 'next/link'
 import { useSearchParams } from 'next/navigation'
-import { css } from 'lib'
+import { css } from 'utils'
 import './style.css'
 
 export default function URLSearchParams () {

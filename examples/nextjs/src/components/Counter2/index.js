@@ -1,6 +1,6 @@
 import React, { useEffect, useState, flushSync, useRef } from 'react'
 import './style.css'
-import { css, startViewTransition } from 'lib'
+import { css, startViewTransition } from 'utils'
 
 export default ({
   children,

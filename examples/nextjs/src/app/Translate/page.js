@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { useFx } from 'portalx'
 import functions from './functions'
 import { I18n } from 'components'
-import { css } from 'lib'
+import { css } from 'utils'
 import './style.css'
 
 export default function Translate () {

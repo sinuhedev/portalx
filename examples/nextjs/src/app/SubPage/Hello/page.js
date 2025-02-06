@@ -3,7 +3,7 @@
 import { useEffect } from 'react'
 import { useFx } from 'portalx'
 import functions from './functions'
-import { css } from 'lib'
+import { css } from 'utils'
 import './style.css'
 
 export default function SubPageHello () {
