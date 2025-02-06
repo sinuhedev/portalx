@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { useFx } from 'portalx'
 import functions from './functions'
 import { Counter, Counter2 } from 'components'
-import { css } from 'util'
+import { css } from '../../util'
 import './style.css'
 
 export default function CounterPage () {
