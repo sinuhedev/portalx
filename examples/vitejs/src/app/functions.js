@@ -1,5 +1,4 @@
-import API from 'services/api'
-import { http } from 'portalx'
+import api from 'services/api'
 
 const initialState = {
   page: { name: '', content: null },
@@ -51,32 +50,8 @@ async function getPage ({ payload, set }) {
 }
 
 function setServices ({ set, show, hide }) {
-  const headers = {}
-
-  const api = {}
-  for (const e in API.methods) {
-    const service = API.methods[e].match(/\S+/g)
-    const method = service[0].toLowerCase()
-    const url = API.url + service[1]
-
-    api[e] = async (payload = {}) => {
-      const path = payload?.path ?? {}
-      const body = payload?.body ?? {}
-      const loading = payload?.loading ?? true
-
-      if (loading) show('loading')
-
-      const response = await http[method](url, path, body, headers)
-
-      if (loading) hide('loading')
-
-      if (response.ok) return response
-      else throw response
-    }
-  }
-
   set({
-    services: { api }
+    services: { api: api() }
   })
 }
 
