@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { useFx } from 'portalx'
 import functions from './functions'
-import { css } from 'util'
+import { css } from 'utils'
 import './style.css'
 
 export default function MediaQuery ({ name, className, style, resize }) {

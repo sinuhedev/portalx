@@ -3,7 +3,7 @@ import './style.css'
 import { useFx } from 'portalx'
 import { Button } from 'components'
 import functions from './functions'
-import { css } from 'util'
+import { css } from 'utils'
 
 export default function Home ({ name, className, style }) {
   const { state, fx } = useFx(functions)

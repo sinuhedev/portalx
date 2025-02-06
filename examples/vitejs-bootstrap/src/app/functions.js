@@ -1,4 +1,4 @@
-import { env } from 'util'
+import { env } from 'utils'
 
 const initialState = {
   page: { name: '', content: null },

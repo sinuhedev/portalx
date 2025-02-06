@@ -2,7 +2,7 @@ import React, { useEffect, useRef } from 'react'
 import { useFx, Portalx } from 'portalx'
 import { Link } from 'components'
 import functions from './functions'
-import { useLocation, useResize } from 'util'
+import { useLocation, useResize } from 'utils'
 
 export default function App () {
   const portalx = useFx(functions)

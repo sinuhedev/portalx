@@ -1,6 +1,6 @@
 import React from 'react'
 import './style.css'
-import { css } from 'util'
+import { css } from 'utils'
 
 export default ({ children, href, value = {}, name, className, style, readOnly, disabled }) => {
   value = Object.keys(value).length ? '?' + new URLSearchParams(value).toString() : ''

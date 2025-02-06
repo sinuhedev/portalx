@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import './style.css'
-import { css } from 'util'
+import { css } from 'utils'
 
 export default ({ children, name, value, type, className, style, readOnly, disabled, onClick = () => {} }) => {
   return (
