@@ -2,9 +2,9 @@
 
 import { useEffect } from 'react'
 import './style.css'
-import { useFx, css } from 'portalx'
+import { useFx } from 'portalx'
 import functions from './functions'
-import { sum } from 'util'
+import { sum, css } from 'util'
 
 export default function Home () {
   const { state, initialState, fx, context } = useFx(functions)

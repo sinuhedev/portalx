@@ -1,17 +1,15 @@
 import React, { useEffect } from 'react'
 import './style.css'
-import { useFx, css } from 'portalx'
-import { Icon, I18n, Translate, Button } from 'components'
+import { useFx } from 'portalx'
+import { Button } from 'components'
 import functions from './functions'
+import { css } from 'util'
 
 export default function Home ({ name, className, style }) {
   const { state, initialState, fx, context } = useFx(functions)
 
   return (
     <main className={css(name, className, 'container')} style={style}>
-      <Icon value='globe' />
-      <Translate />
-      <I18n value='page.name' args={['Sinuhe', 'Maceda', 'Bouchan']} />
 
       <div>
         <p>Simple actions/Reducer:</p>

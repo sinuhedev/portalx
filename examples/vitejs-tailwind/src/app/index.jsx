@@ -1,7 +1,8 @@
 import React, { useEffect, useRef } from 'react'
-import { useFx, Portalx, startViewTransition, useLocation, useResize } from 'portalx'
-import { Link, Icons } from 'components'
+import { useFx, Portalx } from 'portalx'
+import { Link } from 'components'
 import functions from './functions'
+import { useLocation, useResize } from 'util'
 
 export default function App () {
   const portalx = useFx(functions)
@@ -16,7 +17,7 @@ export default function App () {
 
   // page
   useEffect(() => {
-    startViewTransition(() => fx.getPage(qs), page, 'fade')
+    fx.getPage(qs)
   }, [qs.hash])
 
   return (
@@ -47,7 +48,7 @@ export default function App () {
               resize={resize}
             />}
         </div>
-        <Icons />
+
       </Portalx>
     </>
   )

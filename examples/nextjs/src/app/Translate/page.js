@@ -1,9 +1,10 @@
 'use client'
 
 import { useEffect } from 'react'
-import { useFx, css } from 'portalx'
+import { useFx } from 'portalx'
 import functions from './functions'
 import { I18n } from 'components'
+import { css } from 'util'
 import './style.css'
 
 export default function Translate () {
