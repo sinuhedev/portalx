@@ -5,14 +5,14 @@ import { Button } from 'components'
 import functions from './functions'
 import { css } from 'utils'
 
-export default function Home ({ name, className, style }) {
+export default function Home ({ className, style }) {
   const { state, fx } = useFx(functions)
 
   useEffect(() => {
   }, [])
 
   return (
-    <main className={css(name, className, 'container')} style={style}>
+    <main className={css('Home', className, 'container')} style={style}>
 
       <div className='d-flex '>
         <Button onClick={e => fx.increment(e)}>+</Button>

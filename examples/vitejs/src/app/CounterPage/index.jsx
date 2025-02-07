@@ -5,11 +5,11 @@ import { Counter, Counter2 } from 'components'
 import { css } from 'utils'
 import './style.css'
 
-export default function ({ name, className, style }) {
+export default function CounterPage ({ className, style }) {
   const { state, fx } = useFx(functions)
 
   return (
-    <main className={css(name, className, '', 'class-test', {}, null, true, false, [], { 'css-false': false }, undefined, { 'css-true': true })} style={style}>
+    <main className={css('CounterPage', className, '', 'class-test', {}, null, true, false, [], { 'css-false': false }, undefined, { 'css-true': true })} style={style}>
       CounterPage
 
       <div className={css(null)} />

@@ -4,7 +4,7 @@ import functions from './functions'
 import { env, css } from 'utils'
 import './style.css'
 
-export default function Env ({ name, className, style }) {
+export default function Env ({ className, style }) {
   const { state, fx } = useFx(functions)
 
   // env
@@ -13,7 +13,7 @@ export default function Env ({ name, className, style }) {
   }, [])
 
   return (
-    <main className={css(name, className, '')} style={style}>
+    <main className={css('Env', className, '')} style={style}>
 
       <br />
       <br />

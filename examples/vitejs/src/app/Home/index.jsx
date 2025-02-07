@@ -4,7 +4,7 @@ import { useFx } from 'portalx'
 import functions from './functions'
 import { sum, css } from 'utils'
 
-export default function Home ({ name, className, style }) {
+export default function Home ({ className, style }) {
   const { state, initialState, fx, context } = useFx(functions)
 
   useEffect(() => {
@@ -12,7 +12,7 @@ export default function Home ({ name, className, style }) {
   }, [])
 
   return (
-    <main className={css(name, className, 'container')} style={style}>
+    <main className={css('Home', className, 'container')} style={style}>
       <div>
         <div>
           <p>set</p>

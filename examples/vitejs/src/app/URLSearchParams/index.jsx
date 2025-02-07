@@ -5,7 +5,7 @@ import { Link } from 'components'
 import { css } from 'utils'
 import './style.css'
 
-export default function URLSearchParams ({ name, className, style, qs }) {
+export default function URLSearchParams ({ className, style, qs }) {
   const { state, fx } = useFx(functions)
 
   useEffect(() => {
@@ -13,7 +13,7 @@ export default function URLSearchParams ({ name, className, style, qs }) {
   }, [qs])
 
   return (
-    <main className={css(name, className, '')} style={style}>
+    <main className={css('URLSearchParams', className, '')} style={style}>
       URLSearchParams
       <br />
       <br />

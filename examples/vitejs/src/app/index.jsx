@@ -11,7 +11,7 @@ export default function App () {
   const qs = useLocation()
   const resize = useResize()
 
-  const Page = state.page.content
+  const Page = state.page
   const page = useRef()
 
   // page
@@ -83,7 +83,6 @@ export default function App () {
         <div ref={page}>
           {Page &&
             <Page
-              name={state.page.name}
               className='m-2'
               style={{}}
               qs={qs}

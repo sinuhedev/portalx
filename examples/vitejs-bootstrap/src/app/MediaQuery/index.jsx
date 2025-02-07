@@ -4,11 +4,11 @@ import functions from './functions'
 import './style.css'
 import { css } from 'utils'
 
-export default function MediaQuery ({ name, className, style, resize }) {
+export default function MediaQuery ({ className, style, resize }) {
   const { state, fx } = useFx(functions)
 
   return (
-    <main className={css(name, className, '')} style={style}>
+    <main className={css('MediaQuery', className, '')} style={style}>
       <div>
         <section>CSS @container </section>
 

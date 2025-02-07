@@ -5,11 +5,11 @@ import './style.css'
 import { I18n } from 'components'
 import { css } from 'utils'
 
-export default function Translate ({ name, className, style }) {
+export default function Translate ({ className, style }) {
   const { state, fx } = useFx(functions)
 
   return (
-    <main className={css(name, className, '')} style={style}>
+    <main className={css('Translate', className, '')} style={style}>
       <I18n value='page.name' args={['Sinuhe', 'Maceda', 'Bouchan']} />
 
       <ul>

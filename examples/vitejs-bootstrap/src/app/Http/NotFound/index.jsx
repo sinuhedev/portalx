@@ -2,10 +2,10 @@ import React from 'react'
 import { css } from 'utils'
 import './style.css'
 
-export default function HttpNotFound ({ name, className, style }) {
+export default function HttpNotFound ({ className, style }) {
   return (
     <main
-      className={css(name, className, 'd-flex justify-content-center')}
+      className={css('HttpNotFound', className, 'd-flex justify-content-center')}
       style={style}
     >
       <div className='d-flex align-items-center'>

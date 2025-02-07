@@ -1,5 +1,5 @@
 const initialState = {
-  page: { name: '', content: null },
+  page: null,
   i18n: window.localStorage.getItem('i18n'),
   loading: false,
   //
@@ -18,7 +18,6 @@ async function getPage ({ payload, set }) {
   const { hash } = payload
 
   let page = ['#/', ''].includes(hash) ? 'Home' : hash.substring(2)
-  let name = page.replaceAll('/', '')
 
   try {
     const path = page.split('/')
@@ -37,10 +36,9 @@ async function getPage ({ payload, set }) {
   } catch (e) {
     console.error(e)
     page = await import('./Http/NotFound/index.jsx')
-    name = 'NotFound'
   }
 
-  set({ page: { name, content: page.default } })
+  set({ page: page.default })
 }
 
 function increment ({ state, set }) {

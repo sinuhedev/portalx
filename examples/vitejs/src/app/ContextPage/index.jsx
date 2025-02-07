@@ -4,7 +4,7 @@ import functions from './functions'
 import { css } from 'utils'
 import './style.css'
 
-export default function ContextPage ({ name, className, style }) {
+export default function ContextPage ({ className, style }) {
   const { state, fx, context } = useFx(functions)
 
   useEffect(() => {
@@ -12,7 +12,7 @@ export default function ContextPage ({ name, className, style }) {
   }, [])
 
   return (
-    <main className={css(name, className, '')} style={style}>
+    <main className={css('ContextPage', className, '')} style={style}>
 
       <br />
       <button onClick={e => context.fx.increment(e)}>increment</button>
