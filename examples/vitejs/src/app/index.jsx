@@ -14,11 +14,6 @@ export default function App () {
   const Page = state.page.content
   const page = useRef()
 
-  // services
-  useEffect(() => {
-    fx.setServices()
-  }, [])
-
   // page
   useEffect(() => {
     startViewTransition(() => fx.getPage(qs), page, 'fade')

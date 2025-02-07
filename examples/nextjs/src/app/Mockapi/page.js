@@ -17,7 +17,7 @@ export default function Mockapi () {
         <button
           onClick={() => {
             fx.reset(['users', 'user'])
-            fx.getUser()
+            fx.handlerUser()
           }}
         >
           Get users
@@ -26,7 +26,7 @@ export default function Mockapi () {
         <button
           onClick={() => {
             fx.reset(['users', 'user'])
-            fx.getUser(state.form.id)
+            fx.handlerUser(state.form.id)
           }}
         >
           Get user
@@ -35,7 +35,7 @@ export default function Mockapi () {
         <button
           onClick={() => {
             fx.reset(['users', 'user'])
-            fx.createUser()
+            fx.handlerCreateUser()
           }}
         >
           Create user
@@ -44,7 +44,7 @@ export default function Mockapi () {
         <button
           onClick={() => {
             fx.reset(['users', 'user'])
-            fx.updateUser(state.form.id)
+            fx.handlerUpdateUser(state.form.id)
           }}
         >
           Update user
@@ -53,7 +53,7 @@ export default function Mockapi () {
         <button
           onClick={() => {
             fx.reset(['users', 'user'])
-            fx.deleteUser(state.form.id)
+            fx.handlerDeleteUser(state.form.id)
           }}
         >
           Delete user

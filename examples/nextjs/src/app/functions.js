@@ -1,5 +1,3 @@
-import { getUser, createUser, updateUser, deleteUser } from 'services/api'
-
 const initialState = {
   i18n: '',
   loading: false,
@@ -23,18 +21,6 @@ function changeI18n ({ set, payload }) {
   window.localStorage.setItem('i18n', value)
 }
 
-function setServices ({ set, show, hide }) {
-  const api = {
-    getUser, createUser, updateUser, deleteUser
-  }
-
-  set({
-    services: {
-      api
-    }
-  })
-}
-
 function increment ({ state, set }) {
   set({ num: state.num + 1 })
 }
@@ -51,7 +37,6 @@ export default {
   initialState,
   init,
   changeI18n,
-  setServices,
   increment,
   decrement,
   zero

@@ -1,12 +1,7 @@
-import api from 'services/api'
-
 const initialState = {
   page: { name: '', content: null },
   i18n: window.localStorage.getItem('i18n'),
   loading: false,
-  services: {
-    api: {}
-  },
   //
   num: 0
 }
@@ -48,12 +43,6 @@ async function getPage ({ payload, set }) {
   set({ page: { name, content: page.default } })
 }
 
-function setServices ({ set, show, hide }) {
-  set({
-    services: { api: api() }
-  })
-}
-
 function increment ({ state, set }) {
   set({ num: state.num + 1 })
 }
@@ -70,7 +59,6 @@ export default {
   initialState,
   changeI18n,
   getPage,
-  setServices,
   increment,
   decrement,
   zero

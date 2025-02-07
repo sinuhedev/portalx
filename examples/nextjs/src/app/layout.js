@@ -14,11 +14,6 @@ function Layout ({ children }) {
     fx.init()
   }, [])
 
-  // services
-  useEffect(() => {
-    fx.setServices()
-  }, [])
-
   return (
     <html>
       <head>

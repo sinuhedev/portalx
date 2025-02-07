@@ -1,3 +1,5 @@
+import { getUser, createUser, updateUser, deleteUser } from 'services/api'
+
 const initialState = {
   users: {},
   user: {},
@@ -7,18 +9,18 @@ const initialState = {
   }
 }
 
-async function getUser ({ payload, set, api }) {
+async function handlerUser ({ payload, set, api }) {
   try {
-    const { data } = await api.getUser({ path: { id: payload } })
+    const { data } = await getUser({ path: { id: payload } })
     set({ users: data, user: {} })
   } catch (e) {
     console.error(e)
   }
 }
 
-async function createUser ({ state, set, api }) {
+async function handlerCreateUser ({ state, set, api }) {
   try {
-    const { data } = await api.createUser({
+    const { data } = await createUser({
       body: {
         username: state.form.name,
         profile: {
@@ -33,9 +35,9 @@ async function createUser ({ state, set, api }) {
   }
 }
 
-async function updateUser ({ payload, state, set, api }) {
+async function handlerUpdateUser ({ payload, state, set, api }) {
   try {
-    const { data } = await api.updateUser({
+    const { data } = await updateUser({
       path: { id: payload },
       body: {
         username: state.form.name,
@@ -51,9 +53,9 @@ async function updateUser ({ payload, state, set, api }) {
   }
 }
 
-async function deleteUser ({ payload, api }) {
+async function handlerDeleteUser ({ payload, api }) {
   try {
-    const { data } = await api.deleteUser({ path: { id: payload } })
+    const { data } = await deleteUser({ path: { id: payload } })
     console.info(data)
   } catch (e) {
     console.error(e)
@@ -62,8 +64,8 @@ async function deleteUser ({ payload, api }) {
 
 export default {
   initialState,
-  getUser,
-  createUser,
-  updateUser,
-  deleteUser
+  handlerUser,
+  handlerCreateUser,
+  handlerUpdateUser,
+  handlerDeleteUser
 }

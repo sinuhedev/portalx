@@ -133,8 +133,7 @@ function useFx (functions = { initialState: {} }) {
           state,
           payload,
           //
-          context,
-          ...context?.state?.services
+          context
         })
     }
     return ac

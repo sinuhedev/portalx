@@ -14,7 +14,7 @@ function createPage (name) {
     fs.writeFileSync(`${dirName}/index.jsx`,
 `import React, { useEffect } from 'react'
 import { useFx } from 'portalx'
-import { css } from 'util'
+import { css } from 'utils'
 import functions from './functions'
 import './style.css'
 
@@ -56,7 +56,7 @@ function createComponent (name) {
     fs.writeFileSync(`${dirName}/index.jsx`,
 `import React, { useEffect, useState } from 'react'
 import './style.css'
-import { css } from 'portalx'
+import { css } from 'utils'
 
 export default ({ children, name, value, type, className, style, readOnly, disabled, onClick = () => {} }) => {
   return (
@@ -87,7 +87,7 @@ function createContainer (name) {
     fs.writeFileSync(`${dirName}/index.jsx`,
 `import React, { useEffect } from 'react'
 import { useFx } from 'portalx'
-import { css } from 'util'
+import { css } from 'utils'
 import functions from './functions'
 import './style.css'
 
@@ -131,7 +131,7 @@ function createNextPage (name) {
 
 import { useEffect } from 'react'
 import { useFx } from 'portalx'
-import { css } from 'util'
+import { css } from 'utils'
 import functions from './functions'
 import './style.css'
 
@@ -173,7 +173,7 @@ function createNextComponent (name) {
     fs.writeFileSync(`${dirName}/index.js`,
 `import { useEffect, useState } from 'react'
 import './style.css'
-import { css } from 'portalx'
+import { css } from 'utils'
 
 export default ({ children, name, value, type, className, style, readOnly, disabled, onClick = () => {} }) => {
   return (
