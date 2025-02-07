@@ -18,7 +18,7 @@ import { css } from 'utils'
 import functions from './functions'
 import './style.css'
 
-export default function ${pageName} ({ name, className, style}) {
+export default function ${pageName} ({ name, className, style }) {
   const { state, fx } = useFx(functions)
 
   return (
@@ -192,7 +192,47 @@ export default ({ children, name, value, type, className, style, readOnly, disab
   }
 }
 
-function createNextContainer (name) {}
+function createNextContainer (name) {
+  const dirName = `./src/containers/${name}`
+
+  if (fs.existsSync(dirName)) { console.error(`Error: Can't create '${dirName}' container : File exists`) } else {
+    fs.mkdirSync(dirName, { recursive: true })
+
+    const containerName = name.replaceAll('/', '') + '-container'
+
+    // index.jsx
+    fs.writeFileSync(`${dirName}/index.jsx`,
+`import React, { useEffect } from 'react'
+import { useFx } from 'portalx'
+import { css } from 'utils'
+import functions from './functions'
+import './style.css'
+
+export default ({ children, name, value, type, className, style, readOnly, disabled, onClick = () => {} }) => {
+  const { state, fx } = useFx(functions)
+
+  return (
+    <article className={css('${containerName}', className, '')} style={style}>
+      ${containerName}
+    </article>
+  )
+}
+`)
+
+    // style.css
+    fs.writeFileSync(`${dirName}/style.css`,
+`.${containerName}  {
+}`)
+
+    // function.js
+    fs.writeFileSync(`${dirName}/functions.js`,
+`const initialState = {
+}
+
+export default { initialState }
+`)
+  }
+}
 
 /**
  * run template
