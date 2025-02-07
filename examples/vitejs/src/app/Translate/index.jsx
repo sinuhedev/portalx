@@ -1,4 +1,4 @@
-import React from 'react'
+import { useEffect } from 'react'
 import functions from './functions'
 import { useFx } from 'portalx'
 import './style.css'
