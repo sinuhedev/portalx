@@ -1,3 +1,5 @@
+'use server'
+
 function urlTemplate (url, path) {
   const params = url.match(/:\w+/g) ?? []
 
@@ -10,7 +12,7 @@ function urlTemplate (url, path) {
 /**
  * get
  */
-async function get (url = '', path = {}, body = {}, headers = {}) {
+export async function GET (url = '', path = {}, body = {}, headers = {}) {
   // url and path
   url = urlTemplate(url, path)
 
@@ -44,7 +46,7 @@ async function get (url = '', path = {}, body = {}, headers = {}) {
 /**
  * post
  */
-async function post (url = '', path = {}, body = {}, headers = {}) {
+export async function POST (url = '', path = {}, body = {}, headers = {}) {
   // url and path
   url = urlTemplate(url, path)
 
@@ -75,7 +77,7 @@ async function post (url = '', path = {}, body = {}, headers = {}) {
 /**
  * put
  */
-async function put (url = '', path = {}, body = {}, headers = {}) {
+export async function PUT (url = '', path = {}, body = {}, headers = {}) {
   // url and path
   url = urlTemplate(url, path)
 
@@ -106,7 +108,7 @@ async function put (url = '', path = {}, body = {}, headers = {}) {
 /**
  * delete
  */
-async function _delete (url = '', path = {}, body = {}, headers = {}) {
+export async function DELETE (url = '', path = {}, body = {}, headers = {}) {
   // url and path
   url = urlTemplate(url, path)
 
@@ -132,11 +134,4 @@ async function _delete (url = '', path = {}, body = {}, headers = {}) {
   }
 
   throw new Error(`ok: ${ok} , status: ${status} , statusText: ${statusText}`)
-}
-
-export default {
-  get,
-  post,
-  put,
-  delete: _delete
 }
