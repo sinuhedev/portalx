@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import { useFx } from 'portalx'
 import functions from './functions'
 import { Counter, Counter2 } from 'components'

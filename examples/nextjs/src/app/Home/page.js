@@ -1,6 +1,6 @@
 'use client'
 
-import { useEffect } from 'react'
+import React, { useEffect } from 'react'
 import './style.css'
 import { useFx } from 'portalx'
 import functions from './functions'
