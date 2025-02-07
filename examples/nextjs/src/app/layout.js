@@ -2,10 +2,9 @@
 
 import { useEffect, Suspense } from 'react'
 import 'theme/index.css'
-import Link from 'next/link'
 import { useFx, Portalx } from 'portalx'
 import functions from './functions'
-import { Icon, Icons, I18n, Translate } from 'components'
+import { Icon, Icons, I18n, Translate, Link } from 'components'
 
 function Layout ({ children }) {
   const portalx = useFx(functions)
@@ -70,7 +69,7 @@ function Layout ({ children }) {
             <Link href='/MockapiAndContainer' className='m-2'>
               MockapiAndContainers
             </Link>
-            <Link href='/URLSearchParams?id=20&user=Sinuhe' className='m-2'>
+            <Link href='/URLSearchParams' value={{ id: 20, user: 'Sinuhe' }} className='m-2'>
               URLSearchParams
             </Link>
             <Link href='/SubPage/Hello' className='m-2'>

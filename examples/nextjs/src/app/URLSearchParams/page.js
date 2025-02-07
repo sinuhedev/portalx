@@ -3,7 +3,7 @@
 import { useEffect } from 'react'
 import { useFx } from 'portalx'
 import functions from './functions'
-import Link from 'next/link'
+import { Link } from 'components'
 import { useSearchParams } from 'next/navigation'
 import { css } from 'utils'
 import './style.css'
@@ -18,27 +18,15 @@ export default function URLSearchParams () {
       <br />
       <br />
 
-      <Link href={{
-        pathname: '/URLSearchParams',
-        query: { }
-      }}
-      >
+      <Link href='/URLSearchParams'>
         Link
       </Link>
       <br />
-      <Link href={{
-        pathname: '/URLSearchParams',
-        query: { id: 4000 }
-      }}
-      >
+      <Link href='/URLSearchParams' value={{ id: 4000 }}>
         Link id=4000
       </Link>
       <br />
-      <Link href={{
-        pathname: '/URLSearchParams',
-        query: { user: 'Maceda', demo: 200 }
-      }}
-      >
+      <Link href='/URLSearchParams' value={{ user: 'Maceda', demo: 200 }}>
         Link user=Maceda demo=200
       </Link>
 

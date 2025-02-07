@@ -64,7 +64,7 @@ export default function App () {
           <Link href='#/MockapiAndContainer' className='m-2'>
             MockapiAndContainers
           </Link>
-          <Link href='#/URLSearchParams?id=20&user=Sinuhe' className='m-2'>
+          <Link href='#/URLSearchParams' value={{ id: 20, user: 'Sinuhe' }} className='m-2'>
             URLSearchParams
           </Link>
           <Link href='#/SubPage/Hello' className='m-2'>
