@@ -5,6 +5,7 @@ import React, { useEffect } from 'react'
  */
 const Icons = () => (
   <svg xmlns='http://www.w3.org/2000/svg' style={{ display: 'none' }}>
+
     <symbol id='camera'>
       <path d='M23 19a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h4l2-3h6l2 3h4a2 2 0 0 1 2 2z' />
       <circle cx='12' cy='13' r='4' />
@@ -67,9 +68,7 @@ const Icons = () => (
       <line x1='15' y1='12' x2='3' y2='12' />
     </symbol>
     <symbol id='maximize'>
-      <path
-        d='M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3'
-      />
+      <path d='M8 3H5a2 2 0 0 0-2 2v3m18 0V5a2 2 0 0 0-2-2h-3m0 18h3a2 2 0 0 0 2-2v-3M3 16v3a2 2 0 0 0 2 2h3' />
     </symbol>
     <symbol id='menu'>
       <line x1='3' y1='12' x2='21' y2='12' />
