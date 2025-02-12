@@ -17,8 +17,7 @@ function createPage (name, isNext, isType) {
 
 `
 : ''}import React, { useEffect } from 'react'
-import { useFx } from 'portalx'
-import { css } from 'utils'
+import { useFx, css } from 'portalx'
 import functions from './functions'
 import './style.css'
 
@@ -60,7 +59,7 @@ function createComponent (name, isNext, isType) {
     fs.writeFileSync(`${dirName}/index.jsx`,
 `import React, { useEffect } from 'react'
 import './style.css'
-import { css } from 'utils'
+import { css } from 'portalx'
 
 export default ({ children, name, value, type, className, style, readOnly, disabled, onClick = () => {} }) => {
   return (
@@ -90,8 +89,7 @@ function createContainer (name, isNext, isType) {
     // index.jsx
     fs.writeFileSync(`${dirName}/index.jsx`,
 `import React, { useEffect } from 'react'
-import { useFx } from 'portalx'
-import { css } from 'utils'
+import { useFx, css } from 'portalx'
 import functions from './functions'
 import './style.css'
 

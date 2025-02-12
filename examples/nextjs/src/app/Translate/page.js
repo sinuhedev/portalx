@@ -3,7 +3,7 @@
 import React, { useEffect } from 'react'
 import { useFx, css } from 'portalx'
 import functions from './functions'
-import { I18n } from 'components'
+import { I18n, TranslateComponent } from 'components'
 import './style.css'
 
 export default function Translate () {
@@ -26,6 +26,7 @@ export default function Translate () {
         <li>
           <I18n value='page.module.block.docker' />
         </li>
+        <li><TranslateComponent /></li>
       </ul>
     </main>
   )
