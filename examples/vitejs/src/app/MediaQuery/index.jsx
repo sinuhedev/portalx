@@ -3,11 +3,11 @@ import { useFx, css } from 'portalx'
 import functions from './functions'
 import './style.css'
 
-export default function MediaQuery ({ className, style, resize }) {
+export default function MediaQuery ({ resize }) {
   const { state, fx } = useFx(functions)
 
   return (
-    <main className={css('MediaQuery', className, '')} style={style}>
+    <main className={css('MediaQuery', '')}>
       <div>
         <section>CSS @container </section>
 

@@ -1,5 +1,5 @@
 import { env } from 'utils'
-import { GET, POST, PUT, DELETE } from './http'
+import { GET, POST, PUT, DELETE } from 'portalx'
 
 const API = env.WEB_API
 

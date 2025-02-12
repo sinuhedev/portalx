@@ -3,11 +3,11 @@ import { useFx, css } from 'portalx'
 import functions from './functions'
 import './style.css'
 
-export default function Mockapi ({ className, style }) {
+export default function Mockapi () {
   const { initialState, state, fx } = useFx(functions)
 
   return (
-    <main className={css('Mockapi', className, 'container')} style={style}>
+    <main className={css('Mockapi', 'container')}>
 
       <div>
 

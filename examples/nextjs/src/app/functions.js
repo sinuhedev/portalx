@@ -1,5 +1,8 @@
+import i18nFile from 'assets/i18n'
+
 const initialState = {
   i18n: '',
+  i18nFile,
   loading: false,
   services: {
     api: {}

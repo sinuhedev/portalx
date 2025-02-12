@@ -4,11 +4,11 @@ import functions from './functions'
 import { UserContainer } from 'containers'
 import './style.css'
 
-export default function MockapiAndContainer ({ className, style }) {
+export default function MockapiAndContainer () {
   const { initialState, state, fx } = useFx(functions)
 
   return (
-    <main className={css('MockapiAndContainer', className, '')} style={style}>
+    <main className={css('MockapiAndContainer', '')}>
       <UserContainer />
     </main>
   )

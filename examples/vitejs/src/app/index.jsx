@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react'
-import { useFx, Portalx, useLocation, useResize, startViewTransition } from 'portalx'
-import { Icon, Icons, I18n, Translate, Link } from 'components'
+import { useFx, Portalx, useLocation, useResize, startViewTransition, I18n, Link, Icon } from 'portalx'
+import { Translate, Icons } from 'components'
 import functions from './functions'
 
 export default function App () {
@@ -82,14 +82,13 @@ export default function App () {
         <div ref={page}>
           {Page &&
             <Page
-              className='m-2'
-              style={{}}
               qs={qs}
               resize={resize}
             />}
         </div>
 
         <Icons />
+
       </Portalx>
     </>
   )

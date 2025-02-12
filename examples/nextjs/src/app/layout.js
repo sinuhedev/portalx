@@ -2,9 +2,9 @@
 
 import { useEffect, Suspense } from 'react'
 import 'theme/index.css'
-import { useFx, Portalx } from 'portalx'
+import { useFx, Portalx, Icon, I18n } from 'portalx'
 import functions from './functions'
-import { Icon, Icons, I18n, Translate, Link } from 'components'
+import { Link, Icons, Translate } from 'components'
 
 function Layout ({ children }) {
   const portalx = useFx(functions)
@@ -23,8 +23,6 @@ function Layout ({ children }) {
       <body className=''>
 
         <Portalx value={portalx}>
-
-          <Icons />
 
           <div style={{ display: 'flex', gap: '20px' }}>
 
@@ -90,6 +88,7 @@ function Layout ({ children }) {
 
         </Portalx>
 
+        <Icons />
       </body>
     </html>
   )

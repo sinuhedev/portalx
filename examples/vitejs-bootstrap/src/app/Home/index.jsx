@@ -4,14 +4,14 @@ import { useFx, css } from 'portalx'
 import { Button } from 'components'
 import functions from './functions'
 
-export default function Home ({ className, style }) {
+export default function Home () {
   const { state, fx } = useFx(functions)
 
   useEffect(() => {
   }, [])
 
   return (
-    <main className={css('Home', className, 'container')} style={style}>
+    <main className={css('Home', 'container')}>
 
       <div className='d-flex '>
         <Button onClick={e => fx.increment(e)}>+</Button>

@@ -3,11 +3,11 @@ import { useFx, css } from 'portalx'
 import functions from './functions'
 import './style.css'
 
-export default function SubPageHello ({ className, style }) {
+export default function SubPageHello () {
   const { state, fx } = useFx(functions)
 
   return (
-    <main className={css('SubPageHello', className, '')} style={style}>
+    <main className={css('SubPageHello', '')}>
       SubPageHello
     </main>
   )

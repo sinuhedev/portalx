@@ -1,8 +1,7 @@
-import { Icons, Icon } from './Icon'
+import Icons from './Icons'
 import Counter from './Counter'
 import Counter2 from './Counter2'
-import Link from './Link'
-import { I18n, Translate } from './I18n'
+import Translate from './Translate'
 import TranslateComponent from './TranslateComponent'
 
-export { Icons, Icon, Counter, Counter2, Link, I18n, Translate, TranslateComponent }
+export { Counter, Counter2, Translate, TranslateComponent, Icons }

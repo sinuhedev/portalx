@@ -40,8 +40,6 @@ export default function App () {
         <div ref={page}>
           {Page &&
             <Page
-              className='m-2'
-              style={{}}
               qs={qs}
               resize={resize}
             />}

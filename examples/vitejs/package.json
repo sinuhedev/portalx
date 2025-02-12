@@ -9,6 +9,7 @@
 		"clean": "rm -fr .coverage node_modules out package-lock.json",
 		"make": "npm run clean && npm install",
 		"build": "vite build --mode",
+		"serve": "vite preview",
 		"page": "portalx page",
 		"component": "portalx component",
 		"container": "portalx container",

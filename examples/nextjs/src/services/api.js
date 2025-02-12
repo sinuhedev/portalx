@@ -1,6 +1,6 @@
 'use server'
 
-import { GET, POST, PUT, DELETE } from './http'
+import { GET, POST, PUT, DELETE } from 'portalx'
 
 const { API } = process.env
 

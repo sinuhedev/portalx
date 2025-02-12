@@ -2,12 +2,9 @@ import React, { useEffect } from 'react'
 import { css } from 'portalx'
 import './style.css'
 
-export default function HttpNotFound ({ className, style }) {
+export default function HttpNotFound () {
   return (
-    <main
-      className={css('HttpNotFound', className, 'd-flex justify-content-center')}
-      style={style}
-    >
+    <main className={css('HttpNotFound', 'd-flex justify-content-center')}>
       <div className='d-flex align-items-center'>
         <div className='d-flex flex-column'>
           <div className='text-center'>

@@ -1,10 +1,9 @@
 import React, { useEffect } from 'react'
-import { useFx, css } from 'portalx'
+import { useFx, css, Link } from 'portalx'
 import functions from './functions'
-import { Link } from 'components'
 import './style.css'
 
-export default function URLSearchParams ({ className, style, qs }) {
+export default function URLSearchParams ({ qs }) {
   const { state, fx } = useFx(functions)
 
   useEffect(() => {
@@ -12,7 +11,7 @@ export default function URLSearchParams ({ className, style, qs }) {
   }, [qs])
 
   return (
-    <main className={css('URLSearchParams', className, '')} style={style}>
+    <main className={css('URLSearchParams', '')}>
       URLSearchParams
       <br />
       <br />

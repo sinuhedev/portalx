@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
 import functions from './functions'
-import { useFx, css } from 'portalx'
+import { useFx, css, I18n } from 'portalx'
 import './style.css'
-import { I18n, TranslateComponent } from 'components'
+import { TranslateComponent } from 'components'
 
-export default function Translate ({ className, style }) {
+export default function Translate () {
   const { state, fx } = useFx(functions)
 
   return (
-    <main className={css('Translate', className, '')} style={style}>
+    <main className={css('Translate', '')}>
       <I18n value='page.name' args={['Sinuhe', 'Maceda', 'Bouchan']} />
 
       <ul>

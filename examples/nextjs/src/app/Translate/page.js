@@ -1,9 +1,9 @@
 'use client'
 
 import React, { useEffect } from 'react'
-import { useFx, css } from 'portalx'
+import { useFx, css, I18n } from 'portalx'
 import functions from './functions'
-import { I18n, TranslateComponent } from 'components'
+import { TranslateComponent } from 'components'
 import './style.css'
 
 export default function Translate () {

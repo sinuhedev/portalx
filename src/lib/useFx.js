@@ -1,3 +1,5 @@
+'use client'
+
 import { useReducer, createContext, use } from 'react'
 
 /**

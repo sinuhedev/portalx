@@ -3,8 +3,8 @@
 import React, { useEffect } from 'react'
 import { useFx, css } from 'portalx'
 import functions from './functions'
-import { Link } from 'components'
 import { useSearchParams } from 'next/navigation'
+import { Link } from 'components'
 import './style.css'
 
 export default function URLSearchParams () {
