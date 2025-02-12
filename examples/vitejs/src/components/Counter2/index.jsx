@@ -1,6 +1,6 @@
 import { useEffect, useState, flushSync, useRef } from 'react'
 import './style.css'
-import { startViewTransition, css } from 'utils'
+import { startViewTransition, css } from 'portalx'
 
 export default ({
   children,

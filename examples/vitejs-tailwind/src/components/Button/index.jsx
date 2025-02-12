@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './style.css'
-import { css } from 'utils'
+import { css } from 'portalx'
 
 export default ({ children, name, value, type, className, style, readOnly, disabled, onClick = () => {} }) => {
   return (

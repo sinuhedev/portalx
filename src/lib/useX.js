@@ -50,4 +50,33 @@ function useResize () {
   return resize
 }
 
-export { useResize }
+/**
+ * useLocation
+ */
+function useLocation () {
+  const getLocation = () => {
+    const hashAndQueryString = window.location.hash.split('?')
+
+    const queryString = Object.fromEntries(
+      new URLSearchParams(hashAndQueryString[1])
+    )
+
+    return {
+      hash: hashAndQueryString[0],
+      ...queryString
+    }
+  }
+
+  const [path, setPath] = useState(getLocation())
+
+  useEffect(() => {
+    window.addEventListener('popstate', () => setPath(getLocation()))
+    return () => {
+      window.removeEventListener('popstate', () => setPath(getLocation()))
+    }
+  }, [])
+
+  return path
+}
+
+export { useResize, useLocation }

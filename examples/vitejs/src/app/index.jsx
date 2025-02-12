@@ -1,7 +1,6 @@
 import React, { useEffect, useRef } from 'react'
-import { useFx, Portalx } from 'portalx'
+import { useFx, Portalx, useLocation, useResize, startViewTransition } from 'portalx'
 import { Icon, Icons, I18n, Translate, Link } from 'components'
-import { useLocation, useResize, startViewTransition } from 'utils'
 import functions from './functions'
 
 export default function App () {

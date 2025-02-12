@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react'
 import './style.css'
-import { css } from 'utils'
+import { css } from 'portalx'
 
 export default ({ children, href, value = {}, name, className, style, readOnly, disabled }) => {
   value = Object.keys(value).length ? '?' + new URLSearchParams(value).toString() : ''

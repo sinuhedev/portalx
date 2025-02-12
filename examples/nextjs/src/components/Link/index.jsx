@@ -1,5 +1,5 @@
 import React from 'react'
-import { css } from 'utils'
+import { css } from 'portalx'
 import Link from 'next/link'
 import './style.css'
 

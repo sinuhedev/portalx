@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 import './style.css'
-import { useFx } from 'portalx'
+import { useFx, css } from 'portalx'
 import { Button } from 'components'
 import functions from './functions'
-import { css } from 'utils'
 
 export default function Home ({ className, style }) {
   const { state, initialState, fx, context } = useFx(functions)

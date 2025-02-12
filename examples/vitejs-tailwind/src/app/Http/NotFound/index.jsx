@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react'
-import { css } from 'utils'
+import { css } from 'portalx'
 import './style.css'
 
 export default function HttpNotFound ({ className, style }) {

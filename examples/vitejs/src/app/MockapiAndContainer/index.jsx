@@ -1,8 +1,7 @@
 import React, { useEffect } from 'react'
-import { useFx } from 'portalx'
+import { useFx, css } from 'portalx'
 import functions from './functions'
 import { UserContainer } from 'containers'
-import { css } from 'utils'
 import './style.css'
 
 export default function MockapiAndContainer ({ className, style }) {

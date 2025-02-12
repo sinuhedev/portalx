@@ -1,10 +1,9 @@
 'use client'
 
 import React, { useEffect } from 'react'
-import { useFx } from 'portalx'
+import { useFx, css } from 'portalx'
 import functions from './functions'
 import { Counter, Counter2 } from 'components'
-import { css } from 'utils'
 import './style.css'
 
 export default function CounterPage () {

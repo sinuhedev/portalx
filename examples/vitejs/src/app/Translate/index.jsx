@@ -1,9 +1,8 @@
 import React, { useEffect } from 'react'
 import functions from './functions'
-import { useFx } from 'portalx'
+import { useFx, css } from 'portalx'
 import './style.css'
 import { I18n } from 'components'
-import { css } from 'utils'
 
 export default function Translate ({ className, style }) {
   const { state, fx } = useFx(functions)

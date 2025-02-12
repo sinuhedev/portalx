@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react'
-import { useFx } from 'portalx'
-import { css } from 'utils'
+import { useFx, css } from 'portalx'
 import i18nFile from 'assets/i18n'
 import './style.css'
 

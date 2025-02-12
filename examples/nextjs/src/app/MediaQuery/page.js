@@ -1,8 +1,7 @@
 'use client'
 
-import { useFx } from 'portalx'
+import { useFx, useResize, css } from 'portalx'
 import functions from './functions'
-import { useResize, css } from 'utils'
 import './style.css'
 
 export default function MediaQuery () {
