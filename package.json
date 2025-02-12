@@ -16,7 +16,7 @@
 		"url": "git+https://github.com/sinuhedev/portalx.git"
 	},
 	"type": "module",
-	"main": "src/lib.js",
+	"main": "src/lib/index.js",
 	"bin": {
 		"portalx": "src/bin.js"
 	},
@@ -27,9 +27,7 @@
 		"start": "echo 'go to examples'",
 		"clean": "rm -fr node_modules package-lock.json",
 		"make": "npm run clean && npm install",
-		"eslint": "standard src",
-		"test": "echo 'test'",
-		"test:portalx": "src/bin/index.js"
+		"eslint": "standard src"
 	},
 	"peerDependencies": {
 		"react": "^19.0.0",

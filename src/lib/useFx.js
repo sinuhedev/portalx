@@ -3,22 +3,6 @@ import { useReducer, createContext, use } from 'react'
 /**
  * set*
  */
-function setMerge (target, source) {
-  // in array return all source
-  if (Array.isArray(target)) return source
-
-  const isObject = obj => obj && typeof obj === 'object'
-  const output = { ...target }
-
-  // merge
-  Object.keys(source).forEach(key => {
-    if (isObject(target[key]) && isObject(source[key])) {
-      output[key] = setMerge(target[key], source[key])
-    } else output[key] = structuredClone(source[key])
-  })
-
-  return output
-}
 
 function setValue (state, payload, value) {
   const paths = payload.split('.')
@@ -48,6 +32,23 @@ function setValue (state, payload, value) {
   stateRef[finalPath] = value
 
   return stateClone
+}
+
+function setMerge (target, source) {
+  // in array return all source
+  if (Array.isArray(target)) return source
+
+  const isObject = obj => obj && typeof obj === 'object'
+  const output = { ...target }
+
+  // merge
+  Object.keys(source).forEach(key => {
+    if (isObject(target[key]) && isObject(source[key])) {
+      output[key] = setMerge(target[key], source[key])
+    } else output[key] = structuredClone(source[key])
+  })
+
+  return output
 }
 
 /**

@@ -2,8 +2,8 @@
 	"name": "vitejs-tailwind",
 	"description": "vitejs-tailwind",
 	"version": "0.0.0",
-	"private": true,
 	"type": "module",
+	"private": true,
 	"scripts": {
 		"start": "vite --mode development",
 		"clean": "rm -fr .coverage node_modules out package-lock.json",
