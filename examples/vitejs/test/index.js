@@ -1,6 +1,5 @@
 import { test } from 'vitest'
-import { env } from 'portalx'
-import { sum } from 'utils'
+import { env, sum } from 'utils'
 
 let a
 
