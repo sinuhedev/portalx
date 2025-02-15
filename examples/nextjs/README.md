@@ -1,6 +1,6 @@
 # nextjs
 
-To start
+## To start
 ```sh
 npm start
 npm test
@@ -8,7 +8,7 @@ npm run build
 npm run serve
 ```
 
-Env 
+## Env 
  * .env.development
  * .env.production
  * .env.test
