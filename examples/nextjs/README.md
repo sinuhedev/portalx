@@ -6,6 +6,7 @@ Open http://localhost:3000 to view it in the browser.
 
 ```sh
 npm start
+node --run start
 npm test
 npm run build
 npm run serve
