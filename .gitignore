@@ -3,6 +3,7 @@ out
 
 .coverage
 .next
-.env*
+.env
+.env.*
 .swc
 .vercel

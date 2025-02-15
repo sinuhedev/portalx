@@ -1,6 +1,9 @@
 # nextjs
 
 ## To start
+
+Open http://localhost:3000 to view it in the browser.
+
 ```sh
 npm start
 npm test
@@ -8,7 +11,8 @@ npm run build
 npm run serve
 ```
 
-## Env 
+## Env
+
  * .env.development
  * .env.production
  * .env.test
@@ -16,6 +20,6 @@ npm run serve
 ```
 API=https://65fd14fb9fc4425c653119c5.mockapi.io/api/v1
 
-NEXT_PUBLIC_TITLE=production-nextjs
+NEXT_PUBLIC_TITLE=ENV-nextjs
 ```
 
