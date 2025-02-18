@@ -19,6 +19,11 @@ function Layout ({ children }) {
       <head>
         <title>{process.env.NEXT_PUBLIC_TITLE}</title>
         <link rel='shortcut icon' href='logo.svg' />
+        <meta
+          name='version'
+          content={`version=${process.env.VERSION}, env=${process.env.NODE_ENV}, release-date=${new Date()}, git-hash=${process.env.GIT_HASH}`}
+        />
+        <meta name='viewport' content='width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0' />
       </head>
       <body className=''>
 

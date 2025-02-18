@@ -54,10 +54,8 @@ export default defineConfig(({ mode }) => {
         transformIndexHtml (html) {
           let gitHash = ''
           try {
-            gitHash = (execSync('git rev-parse --short HEAD') + '').replace(/\n|\r/g, '')
-          } catch (e) {
-            console.error(e)
-          }
+            gitHash = execSync('git rev-parse --short HEAD 2> /dev/null')
+          } catch (e) { }
 
           return html.replaceAll('%VERSION%', `version=${version}, env=${mode}, release-date=${new Date()}, git-hash=${gitHash}`)
         }
