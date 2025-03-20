@@ -22,14 +22,14 @@
   },
   "devDependencies": {
     "@vitejs/plugin-react": "^4.3.4",
-    "@vitest/coverage-v8": "^3.0.8",
+    "@vitest/coverage-v8": "^3.0.9",
     "jsdom": "^26.0.0",
     "vitest": "^3.0.4"
   },
   "dependencies": {
-    "next": "^15.2.1",
+    "next": "^15.2.3",
+    "portalx": "file:../..",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0",
-    "portalx": "file:../.."
+    "react-dom": "^19.0.0"
   }
 }
