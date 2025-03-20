@@ -1,4 +1,4 @@
-# react-fx1
+# portalx
 
 ## Create fast web applications
 
@@ -9,4 +9,4 @@ npm i
 cd examples
 ```
 
-[npm](https://www.npmjs.com/package/react-fx1)
+[npm](https://www.npmjs.com/package/portalx)
