@@ -1,15 +1,15 @@
 import React from 'react'
-import { useFx, ReactFx } from 'portalx'
+import { useFx, Portalx } from 'portalx'
 import { Pages, Translate, Icon, Link, I18n } from 'components'
 import functions from './functions'
 
 export default function App () {
-  const reactFx = useFx(functions)
-  const { state, fx } = reactFx
+  const portalx = useFx(functions)
+  const { state, fx } = portalx
 
   return (
     <>
-      <ReactFx value={reactFx}>
+      <Portalx value={portalx}>
         <header style={{ display: 'flex', gap: '20px' }}>
           <Icon value='globe' />
 
@@ -72,7 +72,7 @@ export default function App () {
 
         <Pages className='m-2' />
 
-      </ReactFx>
+      </Portalx>
     </>
   )
 }

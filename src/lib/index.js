@@ -1,9 +1,9 @@
-import { useFx, ReactFx } from './useFx'
+import { useFx, Portalx } from './useFx'
 import { css, startViewTransition } from './utils'
 import { GET, POST, PUT, DELETE } from './http'
 
 export {
-  useFx, ReactFx,
+  useFx, Portalx,
   css, startViewTransition,
   GET, POST, PUT, DELETE
 }

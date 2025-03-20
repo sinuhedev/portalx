@@ -1,14 +1,14 @@
 'use client'
 
 import { useEffect } from 'react'
-import { useFx, ReactFx } from 'portalx'
+import { useFx, Portalx } from 'portalx'
 import functions from './functions'
 import { Link, Icon, Translate, I18n, Icons } from 'components'
 import 'assets/theme/index.css'
 
 function Layout ({ children }) {
-  const reactfx = useFx(functions)
-  const { state, fx } = reactfx
+  const portalx = useFx(functions)
+  const { state, fx } = portalx
 
   useEffect(() => {
     fx.init()
@@ -28,7 +28,7 @@ function Layout ({ children }) {
 
       <body>
 
-        <ReactFx value={reactfx}>
+        <Portalx value={portalx}>
 
           <header className='m-2' style={{ display: 'flex', gap: '20px' }}>
             <Icon value='globe' />
@@ -91,7 +91,7 @@ function Layout ({ children }) {
             {children}
           </main>
 
-        </ReactFx>
+        </Portalx>
 
         <Icons />
       </body>
