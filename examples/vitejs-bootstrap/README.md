@@ -21,7 +21,7 @@ node --run start
  * .env.production
  * .env.test
  
-```
+```env
 WEB_TITLE=ENV-vite
 WEB_API=https://65fd14fb9fc4425c653119c5.mockapi.io/api/v1
 ```
