@@ -1,4 +1,4 @@
-import { useEffect, useState, flushSync, useRef } from 'react'
+import { useRef } from 'react'
 import './style.css'
 import { startViewTransition, css } from 'portalx'
 
@@ -12,25 +12,27 @@ export default ({
   readOnly,
   disabled,
   I18n,
+  animation = 'count',
   onChange
 }) => {
-  const self = useRef()
+  const ref = useRef()
 
   return (
     <article
       className={css('Counter-component', className)}
       style={style}
       name={name}
+
     >
       <button
         onClick={e => {
-          startViewTransition(() => onChange(e), self, 'count')
+          startViewTransition(onChange(e), ref, animation)
         }}
       >
         Increment
       </button>
 
-      <label ref={self}>{value}</label>
+      <label ref={ref}>{value}</label>
     </article>
   )
 }

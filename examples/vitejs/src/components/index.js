@@ -1,7 +1,9 @@
-import Icons from './Icons'
 import Counter from './Counter'
-import Counter2 from './Counter2'
-import Translate from './Translate'
-import TranslateComponent from './TranslateComponent'
+import Translation from './Translation'
+//
+import Pages from './Pages'
+import Link from './Link'
+import Icon from './Icon'
+import { Translate, I18n } from './Translate'
 
-export { Counter, Counter2, Translate, TranslateComponent, Icons }
+export { Pages, Counter, Translate, Translation, Icon, Link, I18n }

@@ -13,7 +13,7 @@ export default function ContextPage () {
   }, [])
 
   return (
-    <main className={css('ContextPage', '')}>
+    <section className={css('ContextPage', '')}>
       <br />
       <button onClick={e => context.fx.increment(e)}>increment</button>
       {'  '}
@@ -22,6 +22,6 @@ export default function ContextPage () {
       <button onClick={() => context.fx.zero({ value: 0 })}>zero</button>
       {'  '}
       {context.state.num}
-    </main>
+    </section>
   )
 }

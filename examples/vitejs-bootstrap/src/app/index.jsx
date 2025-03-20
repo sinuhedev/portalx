@@ -1,52 +1,65 @@
-import React, { useEffect, useRef } from 'react'
-import { useFx, Portalx, useLocation, useResize } from 'portalx'
-import { Link } from 'components'
+import React from 'react'
+import './style.css'
+import { useFx, css } from 'portalx'
+import { Button } from 'components'
 import functions from './functions'
 
 export default function App () {
-  const portalx = useFx(functions)
-  const { state, fx } = portalx
-
-  // hooks
-  const qs = useLocation()
-  const resize = useResize()
-
-  const Page = state.page
-  const page = useRef()
-
-  // page
-  useEffect(() => {
-    fx.getPage(qs)
-  }, [qs.hash])
+  const { state, fx } = useFx(functions)
 
   return (
-    <>
-      <Portalx value={portalx}>
-        <div className='mx-5 my-3'>
-          <Link href='/' className='m-2'>
-            /
-          </Link>
-          <Link href='#/Home' className='m-2'>
-            Home
-          </Link>
-          <Link href='#/MediaQuery' className='m-2'>
-            MediaQuery
-          </Link>
+    <section className={css('App', 'container d-flex flex-column')}>
 
-          <Link href='#/NO' className='m-2'>
-            NO
-          </Link>
+      <div className='d-flex '>
+        <Button onClick={e => fx.increment(e)}>+</Button>
+        <Button onClick={e => fx.decrement(e)}>-</Button>
+      </div>
 
+      <div style={{ display: 'flex' }}>
+        <pre style={{ margin: '0 50px 0 50px' }}>
+          state = {JSON.stringify(state, undefined, 2)}
+        </pre>
+      </div>
+
+      <div>
+        <section>CSS @container </section>
+
+        <ul>
+          <li className='landscape'>landscape</li>
+          <li className='portrait'>portrait</li>
+          <li><br /></li>
+          <li className='xs'>XS</li>
+          <li className='sm'>SM</li>
+          <li className='md'>MD</li>
+          <li className='lg'>LG</li>
+          <li className='xl'>XL</li>
+          <li className='xxl'>XXL</li>
+        </ul>
+
+      </div>
+
+      <br />
+      <br />
+      <br />
+
+      <div className='container text-center'>
+        <div className='row'>
+          <div className='col-6'>col-6</div>
+          <div className='col-6'>col-6</div>
         </div>
+      </div>
 
-        <div ref={page}>
-          {Page &&
-            <Page
-              qs={qs}
-              resize={resize}
-            />}
+      <br />
+      <br />
+      <br />
+
+      <div className='container text-center'>
+        <div className='row'>
+          <div className='col-sm-6'>col-sm-6</div>
+          <div className='col-sm-6'>col-sm-6</div>
         </div>
-      </Portalx>
-    </>
+      </div>
+
+    </section>
   )
 }

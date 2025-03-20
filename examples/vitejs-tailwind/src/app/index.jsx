@@ -1,51 +1,61 @@
-import React, { useEffect, useRef } from 'react'
-import { useFx, Portalx, useLocation, useResize } from 'portalx'
-import { Link } from 'components'
+import React from 'react'
+import { useFx, css } from 'portalx'
 import functions from './functions'
+import { Button } from 'components'
+import './style.css'
 
 export default function App () {
-  const portalx = useFx(functions)
-  const { state, fx } = portalx
-
-  // hooks
-  const qs = useLocation()
-  const resize = useResize()
-
-  const Page = state.page
-  const page = useRef()
-
-  // page
-  useEffect(() => {
-    fx.getPage(qs)
-  }, [qs.hash])
+  const { state, fx } = useFx(functions)
 
   return (
-    <>
-      <Portalx value={portalx}>
-        <div className='m-5'>
-          <Link href='/' className='m-2'>
-            /
-          </Link>
-          <Link href='#/Home' className='m-2'>
-            Home
-          </Link>
-          <Link href='#/MediaQuery' className='m-2'>
-            MediaQuery
-          </Link>
-          <Link href='#/NO' className='m-2'>
-            NO
-          </Link>
-        </div>
+    <main className={css('App', 'container m-5')}>
 
-        <div ref={page}>
-          {Page &&
-            <Page
-              qs={qs}
-              resize={resize}
-            />}
-        </div>
+      <div>
+        <Button onClick={e => fx.increment(e)}>+</Button>
+        <Button onClick={e => fx.decrement(e)}>-</Button>
+      </div>
 
-      </Portalx>
-    </>
+      <div style={{ display: 'flex' }}>
+        <pre style={{ margin: '0 50px 0 50px' }}>
+          state = {JSON.stringify(state, undefined, 2)}
+        </pre>
+      </div>
+
+      <div>
+        <section>CSS @container </section>
+
+        <ul>
+          <li className='landscape'>landscape</li>
+          <li className='portrait'>portrait</li>
+          <li><br /></li>
+          <li className='screen-xs'>XS</li>
+          <li className='screen-sm'>SM</li>
+          <li className='screen-md'>MD</li>
+          <li className='screen-lg'>LG</li>
+          <li className='screen-xl'>XL</li>
+          <li className='screen-2xl'>2XL</li>
+        </ul>
+
+      </div>
+
+      <br />
+      <br />
+      <br />
+
+      <div className='grid grid-cols-12'>
+        <div className='col-span-6'>col-span-6</div>
+        <div className='col-span-6'>col-span-6</div>
+      </div>
+
+      <br />
+      <br />
+      <br />
+
+      <div className='grid grid-cols-12'>
+        <div className='col-span-12 md:col-span-6'>col-span-12 md:col-span-6</div>
+        <div className='col-span-12 md:col-span-6'>col-span-12 md:col-span-6</div>
+      </div>
+
+    </main>
   )
 }

@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
-import { useFx, css, Link } from 'portalx'
+import { useFx, css } from 'portalx'
+import { Link } from 'components'
 import functions from './functions'
 import './style.css'
 
@@ -11,7 +12,7 @@ export default function URLSearchParams ({ qs }) {
   }, [qs])
 
   return (
-    <main className={css('URLSearchParams', '')}>
+    <section className={css('URLSearchParams', '')}>
       URLSearchParams
       <br />
       <br />
@@ -27,6 +28,6 @@ export default function URLSearchParams ({ qs }) {
       <pre style={{ margin: '0 50px 0 50px' }}>
         {JSON.stringify(qs, undefined, 2)}
       </pre>
-    </main>
+    </section>
   )
 }

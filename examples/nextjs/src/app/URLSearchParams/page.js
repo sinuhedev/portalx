@@ -12,7 +12,7 @@ export default function URLSearchParams () {
   const searchParams = useSearchParams()
 
   return (
-    <main className={css('URLSearchParams', '')}>
+    <section className={css('URLSearchParams', '')}>
       URLSearchParams
       <br />
       <br />
@@ -42,6 +42,6 @@ export default function URLSearchParams () {
         <li>{'demo: ' + searchParams.get('demo')}</li>
       </ul>
 
-    </main>
+    </section>
   )
 }

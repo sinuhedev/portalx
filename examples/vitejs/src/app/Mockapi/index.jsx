@@ -7,7 +7,7 @@ export default function Mockapi () {
   const { initialState, state, fx } = useFx(functions)
 
   return (
-    <main className={css('Mockapi', 'container')}>
+    <section className={css('Mockapi', 'container')}>
 
       <div>
 
@@ -93,6 +93,6 @@ export default function Mockapi () {
           </pre>
         </article>
       </section>
-    </main>
+    </section>
   )
 }

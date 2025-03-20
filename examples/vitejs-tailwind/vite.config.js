@@ -30,7 +30,9 @@ export default defineConfig(({ mode }) => {
         components: CWD + '/src/components',
         containers: CWD + '/src/containers',
         services: CWD + '/src/services',
-        utils: CWD + '/src/utils'
+        utils: CWD + '/src/utils',
+        //
+        theme: CWD + '/src/assets/theme/theme.css'
       }
     },
 
@@ -54,29 +56,13 @@ export default defineConfig(({ mode }) => {
         transformIndexHtml (html) {
           let gitHash = ''
           try {
-            gitHash = execSync('git rev-parse --short HEAD 2> /dev/null')
+            gitHash = execSync('git rev-parse --short HEAD 2> /dev/null').toString()
           } catch (e) { }
 
           return html.replaceAll('%VERSION%', `version=${version}, env=${mode}, release-date=${new Date()}, git-hash=${gitHash}`)
         }
       }
-    ],
-
-    test: {
-      root: './',
-      watch: false,
-      environment: 'jsdom',
-      include: ['test/**/*.js', 'test/**/*.jsx'],
-      coverage: {
-        all: true,
-        reportsDirectory: '.coverage',
-        include: ['src/**/*.js', 'src/**/*.jsx'],
-        exclude: [
-          'src/index.jsx',
-          'src/assets/i18n'
-        ]
-      }
-    }
-
+    ]
+    
   }
 })

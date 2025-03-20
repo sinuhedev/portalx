@@ -109,7 +109,7 @@ function useFxReducer (initialState) {
 /**
  * Create context
  */
-const Portalx = createContext()
+const ReactFx = createContext()
 
 /**
  * useFx
@@ -119,7 +119,7 @@ function useFx (functions = { initialState: {} }) {
   const [state, dispatch] = useFxReducer(functions.initialState)
 
   // context
-  const context = use(Portalx)
+  const context = use(ReactFx)
 
   // Common actions
   const commonActions = ['set', 'show', 'hide', 'change', 'reset'].reduce((acc, e) => {
@@ -152,4 +152,4 @@ function useFx (functions = { initialState: {} }) {
   })
 }
 
-export { useFx, Portalx }
+export { useFx, ReactFx }

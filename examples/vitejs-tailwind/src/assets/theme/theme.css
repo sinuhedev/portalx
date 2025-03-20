@@ -1,0 +1,28 @@
+@import "tailwindcss";
+
+@layer theme, base, components, utilities;
+
+@theme {
+  --font-sans: "Roboto";
+  --primary: #17344b;
+  --secondary: #353a42;
+  --body-bg: black;
+  --body-color: #a8a8a8;
+}
+
+@layer base {
+  body {
+    background-color: theme(body-bg);
+    color: theme(body-color);
+  }
+}
+
+/**
+ * Media query
+ */
+@custom-variant screen-xs (@media (width < theme(breakpoint-sm)));
+@custom-variant screen-sm (@media (width >=theme(breakpoint-sm)) and (width < theme(breakpoint-md)));
+@custom-variant screen-md (@media (width >=theme(breakpoint-md)) and (width < theme(breakpoint-lg)));
+@custom-variant screen-lg (@media (width >=theme(breakpoint-lg)) and (width < theme(breakpoint-xl)));
+@custom-variant screen-xl (@media (width >=theme(breakpoint-xl)) and (width < theme(breakpoint-2xl)));
+@custom-variant screen-2xl (@media (width >=theme(breakpoint-2xl)));

@@ -14,7 +14,7 @@ export default function Home () {
   }, [])
 
   return (
-    <main className={css('Home', 'container')}>
+    <section className={css('Home', 'container')}>
       <div>
         <div>
           <p>set</p>
@@ -179,6 +179,6 @@ export default function Home () {
           </pre>
         </div>
       </div>
-    </main>
+    </section>
   )
 }

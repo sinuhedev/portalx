@@ -9,8 +9,8 @@ export default function SubPageHello () {
   const { state, fx } = useFx(functions)
 
   return (
-    <main className={css('SubPageHello', '')}>
-      SubPageHello
-    </main>
+    <section className={css('SubPageHello', '')}>
+      SubPage / Hello
+    </section>
   )
 }

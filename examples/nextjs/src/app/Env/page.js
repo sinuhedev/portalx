@@ -14,11 +14,11 @@ export default function Env () {
   }, [])
 
   return (
-    <main className={css('Env', '')}>
+    <section className={css('Env', '')}>
       Env
 
       <h1>{process.env.NEXT_PUBLIC_TITLE}</h1>
 
-    </main>
+    </section>
   )
 }

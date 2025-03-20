@@ -10,9 +10,9 @@ export default function MockapiAndContainer () {
   const { state, fx } = useFx(functions)
 
   return (
-    <main className={css('MockapiAndContainer', '')}>
+    <section className={css('MockapiAndContainer', '')}>
       MockapiAndContainer
       <UserContainer />
-    </main>
+    </section>
   )
 }

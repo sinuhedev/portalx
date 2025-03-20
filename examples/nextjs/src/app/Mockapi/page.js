@@ -1,7 +1,7 @@
 'use client'
 
 import React, { useEffect } from 'react'
-import { useFx ,css} from 'portalx'
+import { useFx, css } from 'portalx'
 import functions from './functions'
 import './style.css'
 
@@ -9,7 +9,7 @@ export default function Mockapi () {
   const { initialState, state, fx } = useFx(functions)
 
   return (
-    <main className={css('Mockapi', 'container')}>
+    <section className={css('Mockapi', 'container')}>
       <div>
         <button onClick={() => fx.reset(['users', 'user'])}>Reset</button>
 
@@ -90,6 +90,6 @@ export default function Mockapi () {
           </pre>
         </article>
       </section>
-    </main>
+    </section>
   )
 }

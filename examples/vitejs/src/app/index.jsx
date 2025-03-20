@@ -1,29 +1,20 @@
-import React, { useEffect, useRef } from 'react'
-import { useFx, Portalx, useLocation, useResize, startViewTransition, I18n, Link, Icon } from 'portalx'
-import { Translate, Icons } from 'components'
+import React from 'react'
+import { useFx, ReactFx } from 'portalx'
+import { Pages, Translate, Icon, Link, I18n } from 'components'
 import functions from './functions'
 
 export default function App () {
-  const portalx = useFx(functions)
-  const { state, fx } = portalx
-  // hooks
-  const qs = useLocation()
-  const resize = useResize()
-
-  const Page = state.page
-  const page = useRef()
-
-  // page
-  useEffect(() => {
-    startViewTransition(() => fx.getPage(qs), page, 'fade')
-  }, [qs.hash])
+  const reactFx = useFx(functions)
+  const { state, fx } = reactFx
 
   return (
     <>
-      <Portalx value={portalx}>
-        <div style={{ display: 'flex', gap: '20px' }}>
+      <ReactFx value={reactFx}>
+        <header style={{ display: 'flex', gap: '20px' }}>
           <Icon value='globe' />
-          <Translate />
+
+          <Translate value={state.i18nLocale} onChange={e => fx.changeI18n(e)} />
+
           <I18n value='page.name' args={['Sinuhe', 'Maceda', 'Bouchan']} />
 
           <button onClick={e => fx.increment(e)}>increment</button>
@@ -35,61 +26,53 @@ export default function App () {
           {state.num}
           {'  '}
           {state.loading ? <span> Loading... </span> : <span> View.. </span>}
-        </div>
+        </header>
 
-        <br />
-
-        <div>
-          <Link href='/' className='m-2'>
+        <aside className='m-2'>
+          <Link href='/' className='mr-2'>
             /
           </Link>
-          <Link href='#/Home' className='m-2'>
+          <Link href='#/' className='mr-2'>
             Home
           </Link>
-          <Link href='#/Env' className='m-2'>
+          <Link href='#/Env' className='mr-2'>
             Env
           </Link>
-          <Link href='#/ContextPage' className='m-2'>
+          <Link href='#/ContextPage' className='mr-2'>
             ContextPage
           </Link>
-          <Link href='#/Mockapi' className='m-2'>
+          <Link href='#/Mockapi' className='mr-2'>
             Mockapi
           </Link>
-          <Link href='#/MockapiAndContainer' className='m-2'>
+          <Link href='#/MockapiAndContainer' className='mr-2'>
             MockapiAndContainers
           </Link>
-          <Link href='#/URLSearchParams' value={{ id: 20, user: 'Sinuhe' }} className='m-2'>
+          <Link href='#/URLSearchParams' value={{ id: 20, user: 'Sinuhe' }} className='mr-2'>
             URLSearchParams
           </Link>
-          <Link href='#/SubPage/Hello' className='m-2'>
+          <Link href='#/SubPage/Hello' className='mr-2'>
             SubPage/Hello
           </Link>
-          <Link href='#/Translate' className='m-2'>
+          <Link href='#/Translate' className='mr-2'>
             Translate
           </Link>
-          <Link href='#/CounterPage' className='m-2'>
+          <Link href='#/CounterPage' className='mr-2'>
             CounterPage
           </Link>
-          <Link href='#/MediaQuery' className='m-2'>
+          <Link href='#/Image' className='mr-2'>
+            Image
+          </Link>
+          <Link href='#/MediaQuery' className='mr-2'>
             MediaQuery
           </Link>
-          <Link href='#/NO' className='m-2'>
+          <Link href='#/NO' className='mr-2'>
             NO
           </Link>
+        </aside>
 
-        </div>
+        <Pages className='m-2' />
 
-        <div ref={page}>
-          {Page &&
-            <Page
-              qs={qs}
-              resize={resize}
-            />}
-        </div>
-
-        <Icons />
-
-      </Portalx>
+      </ReactFx>
     </>
   )
 }

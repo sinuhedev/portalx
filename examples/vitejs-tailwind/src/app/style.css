@@ -1,0 +1,55 @@
+@import 'theme';
+
+.App {
+	background-color: theme(secondary);
+
+
+	@media (orientation: landscape) {
+		.landscape {
+			background-color: theme(primary);
+		}
+	}
+
+	@media (orientation: portrait) {
+		.portrait {
+			background-color: theme(primary);
+		}
+	}
+
+	@variant screen-xs {
+		.screen-xs {
+			background-color: theme(primary);
+		}
+	}
+
+	@variant screen-sm {
+		.screen-sm {
+			background-color: theme(primary);
+		}
+	}
+
+	@variant screen-md {
+		.screen-md {
+			background-color: theme(primary);
+		}
+	}
+
+	@variant screen-lg {
+		.screen-lg {
+			background-color: theme(primary);
+		}
+	}
+
+	@variant screen-xl {
+		.screen-xl {
+			background-color: theme(primary);
+		}
+	}
+
+	@variant screen-2xl {
+		.screen-2xl {
+			background-color: theme(primary);
+		}
+	}
+
+}

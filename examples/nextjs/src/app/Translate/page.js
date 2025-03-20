@@ -1,16 +1,16 @@
 'use client'
 
 import React, { useEffect } from 'react'
-import { useFx, css, I18n } from 'portalx'
+import { useFx, css } from 'portalx'
 import functions from './functions'
-import { TranslateComponent } from 'components'
+import { Translation, I18n } from 'components'
 import './style.css'
 
 export default function Translate () {
   const { state, fx } = useFx(functions)
 
   return (
-    <main className={css('Translate', '')}>
+    <section className={css('Translate', '')}>
       <I18n value='page.name' args={['Sinuhe', 'Maceda', 'Bouchan']} />
 
       <ul>
@@ -26,8 +26,8 @@ export default function Translate () {
         <li>
           <I18n value='page.module.block.docker' />
         </li>
-        <li><TranslateComponent /></li>
+        <li><Translation /></li>
       </ul>
-    </main>
+    </section>
   )
 }

@@ -13,7 +13,7 @@ export default function Env () {
   }, [])
 
   return (
-    <main className={css('Env', '')}>
+    <section className={css('Env', '')}>
 
       <br />
       <br />
@@ -23,6 +23,6 @@ export default function Env () {
           env = {JSON.stringify(env, undefined, 2)}
         </pre>
       </div>
-    </main>
+    </section>
   )
 }

@@ -11,13 +11,13 @@ function createPage (name, isNext, isType) {
     const pageName = name.replaceAll('/', '')
 
     // index.jsx
-    fs.writeFileSync(`${dirName}/index.jsx`,
+    fs.writeFileSync(`${dirName}/${isNext ? 'page.jsx' : 'index.jsx'}`,
 `${isNext
 ? `'use client'
 
 `
 : ''}import React, { useEffect } from 'react'
-import { useFx, css } from 'portalx'
+import { useFx, css } from 'react-fx1'
 import functions from './functions'
 import './style.css'
 
@@ -25,9 +25,9 @@ export default function ${pageName} () {
   const { state, fx } = useFx(functions)
 
   return (
-    <main className={css(${pageName}, '')}>
+    <section className={css('${pageName}', '')}>
       ${pageName}
-    </main>
+    </section>
   )
 }
 `)
@@ -59,9 +59,9 @@ function createComponent (name, isNext, isType) {
     fs.writeFileSync(`${dirName}/index.jsx`,
 `import React, { useEffect } from 'react'
 import './style.css'
-import { css } from 'portalx'
+import { css } from 'react-fx1'
 
-export default ({ children, name, value, type, className, style, readOnly, disabled, onClick = () => {} }) => {
+export default ({ name, value, className, style }) => {
   return (
     <article className={css('${componentName}', className)} style={style} name={name}>
       ${componentName}
@@ -89,11 +89,11 @@ function createContainer (name, isNext, isType) {
     // index.jsx
     fs.writeFileSync(`${dirName}/index.jsx`,
 `import React, { useEffect } from 'react'
-import { useFx, css } from 'portalx'
+import { useFx, css } from 'react-fx1'
 import functions from './functions'
 import './style.css'
 
-export default ({ children, name, value, type, className, style, readOnly, disabled, onClick = () => {} }) => {
+export default ({ name, value, className, style }) => {
   const { state, fx } = useFx(functions)
 
   return (
@@ -152,6 +152,6 @@ switch (CMD) {
     break
 
   default:
-    console.info('portalx')
+    console.info('react-fx1')
     break
 }

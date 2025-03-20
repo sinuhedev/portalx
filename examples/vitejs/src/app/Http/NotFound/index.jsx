@@ -4,7 +4,7 @@ import './style.css'
 
 export default function HttpNotFound () {
   return (
-    <main className={css('HttpNotFound', 'd-flex justify-content-center')}>
+    <section className={css('HttpNotFound', 'd-flex justify-content-center')}>
       <div className='d-flex align-items-center'>
         <div className='d-flex flex-column'>
           <div className='text-center'>
@@ -12,6 +12,6 @@ export default function HttpNotFound () {
           </div>
         </div>
       </div>
-    </main>
+    </section>
   )
 }

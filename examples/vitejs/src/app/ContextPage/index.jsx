@@ -3,7 +3,7 @@ import { useFx, css } from 'portalx'
 import functions from './functions'
 import './style.css'
 
-export default function ContextPage ({ }) {
+export default function ContextPage () {
   const { state, fx, context } = useFx(functions)
 
   useEffect(() => {
@@ -11,7 +11,7 @@ export default function ContextPage ({ }) {
   }, [])
 
   return (
-    <main className={css('ContextPage', '')}>
+    <section className={css('ContextPage', '')}>
 
       <br />
       <button onClick={e => context.fx.increment(e)}>increment</button>
@@ -22,6 +22,6 @@ export default function ContextPage ({ }) {
       {'  '}
       {context.state.num}
 
-    </main>
+    </section>
   )
 }

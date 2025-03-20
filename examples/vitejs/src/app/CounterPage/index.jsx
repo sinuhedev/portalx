@@ -1,14 +1,14 @@
 import React, { useEffect } from 'react'
 import { useFx, css } from 'portalx'
 import functions from './functions'
-import { Counter, Counter2 } from 'components'
+import { Counter } from 'components'
 import './style.css'
 
 export default function CounterPage () {
   const { state, fx } = useFx(functions)
 
   return (
-    <main className={css('CounterPage', '', 'class-test', {}, null, true, false, [], { 'css-false': false }, undefined, { 'css-true': true })}>
+    <section className={css('CounterPage', '', 'class-test', {}, null, true, false, [], { 'css-false': false }, undefined, { 'css-true': true })}>
       CounterPage
 
       <div className={css(null)} />
@@ -25,12 +25,13 @@ export default function CounterPage () {
       />
       <br />
       <br />
-      <Counter2
+      <Counter
         value={state.count2}
+        animation='count2'
         onChange={() => {
           fx.set({ count2: state.count2 + 10 })
         }}
       />
-    </main>
+    </section>
   )
 }

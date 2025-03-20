@@ -3,11 +3,11 @@ import { useFx, css } from 'portalx'
 import functions from './functions'
 import './style.css'
 
-export default function MediaQuery ({ resize }) {
+export default function MediaQuery () {
   const { state, fx } = useFx(functions)
 
   return (
-    <main className={css('MediaQuery', '')}>
+    <section className={css('MediaQuery', '')}>
       <div>
         <section>CSS @container </section>
 
@@ -24,12 +24,6 @@ export default function MediaQuery ({ resize }) {
 
       </div>
 
-      <div>
-        <pre style={{ margin: '0 50px 0 50px' }}>
-          resize = {JSON.stringify(resize, undefined, 2)}
-        </pre>
-      </div>
-
-    </main>
+    </section>
   )
 }

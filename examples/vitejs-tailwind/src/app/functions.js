@@ -1,36 +1,17 @@
 const initialState = {
-  page: null
+  channel: 7
 }
 
-async function getPage ({ payload, set }) {
-  const { hash } = payload
+function increment ({ state, set }) {
+  set({ channel: state.channel + 1 })
+}
 
-  let page = ['#/', ''].includes(hash) ? 'Home' : hash.substring(2)
-
-  try {
-    const path = page.split('/')
-
-    switch (path.length) {
-      case 1:
-        page = await import(`./${path[0]}/index.jsx`)
-        break
-      case 2:
-        page = await import(`./${path[0]}/${path[1]}/index.jsx`)
-        break
-      case 3:
-        page = await import(`./${path[0]}/${path[1]}/${path[2]}/index.jsx`)
-        break
-    }
-  } catch (e) {
-    console.error(e)
-    page = await import('./Http/NotFound/index.jsx')
-  }
-
-  set({ page: page.default })
+function decrement ({ state, set }) {
+  set({ channel: state.channel - 1 })
 }
 
 export default {
   initialState,
-  getPage
-
+  increment,
+  decrement
 }

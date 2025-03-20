@@ -6,5 +6,6 @@ function sum (a, b) {
 
 export {
   env,
+
   sum
 }
