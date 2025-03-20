@@ -1,6 +1,7 @@
 import { useRef } from 'react'
 import './style.css'
-import { startViewTransition, css } from 'portalx'
+import { css } from 'portalx'
+import { startViewTransition } from 'utils'
 
 export default ({
   children,

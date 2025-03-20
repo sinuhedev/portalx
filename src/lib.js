@@ -3,6 +3,22 @@
 import { useReducer, createContext, use } from 'react'
 
 /**
+ * css
+ */
+const css = (...classNames) => (
+  classNames.filter(e => e).reduce((accumulator, currentValue) => {
+    if (typeof currentValue === 'string') {
+      return accumulator + currentValue + ' '
+    } else if (!Array.isArray(currentValue) && typeof currentValue === 'object') {
+      for (const e in currentValue) {
+        if (currentValue[e]) return accumulator + e + ' '
+      }
+    }
+    return accumulator
+  }, '').trim()
+)
+
+/**
  * set*
  */
 
@@ -152,4 +168,4 @@ function useFx (functions = { initialState: {} }) {
   })
 }
 
-export { useFx, Portalx }
+export { css, useFx, Portalx }

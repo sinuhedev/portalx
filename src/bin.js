@@ -17,7 +17,7 @@ function createPage (name, isNext, isType) {
 
 `
 : ''}import React, { useEffect } from 'react'
-import { useFx, css } from 'react-fx1'
+import { useFx, css } from 'poortalx'
 import functions from './functions'
 import './style.css'
 
@@ -59,11 +59,11 @@ function createComponent (name, isNext, isType) {
     fs.writeFileSync(`${dirName}/index.jsx`,
 `import React, { useEffect } from 'react'
 import './style.css'
-import { css } from 'react-fx1'
+import { css } from 'poortalx'
 
-export default ({ name, value, className, style }) => {
+export default ({ className, style }) => {
   return (
-    <article className={css('${componentName}', className)} style={style} name={name}>
+    <article className={css('${componentName}', className)} style={style} >
       ${componentName}
     </article>
   )
@@ -89,11 +89,11 @@ function createContainer (name, isNext, isType) {
     // index.jsx
     fs.writeFileSync(`${dirName}/index.jsx`,
 `import React, { useEffect } from 'react'
-import { useFx, css } from 'react-fx1'
+import { useFx, css } from 'poortalx'
 import functions from './functions'
 import './style.css'
 
-export default ({ name, value, className, style }) => {
+export default ({ className, style }) => {
   const { state, fx } = useFx(functions)
 
   return (
@@ -152,6 +152,6 @@ switch (CMD) {
     break
 
   default:
-    console.info('react-fx1')
+    console.info('poortalx')
     break
 }

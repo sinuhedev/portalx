@@ -4,7 +4,7 @@ import { useEffect } from 'react'
 import { useFx, Portalx } from 'portalx'
 import functions from './functions'
 import { Link, Icon, Translate, I18n, Icons } from 'components'
-import 'assets/theme/index.css'
+import 'theme/index.css'
 
 function Layout ({ children }) {
   const portalx = useFx(functions)

@@ -16,7 +16,7 @@
 	"keywords": [
 		"react"
 	],
-	"main": "src/lib/index.js",
+	"main": "src/lib.js",
 	"bin": {
 		"portalx": "src/bin.js"
 	},

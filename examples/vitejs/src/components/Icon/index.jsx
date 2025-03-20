@@ -1,10 +1,10 @@
 import React from 'react'
+import icons from 'assets/icon/icons.svg?url'
 
 export default ({
   value,
-  width,
+  width = 24,
   height,
-  size = 16,
   viewBox = '0 0 24 24',
   fill = 'none',
   stroke = 'currentColor',
@@ -15,8 +15,8 @@ export default ({
 }) => (
   <svg
     xmlns='http://www.w3.org/2000/svg'
-    width={width ?? size}
-    height={height ?? size}
+    width={width}
+    height={height}
     viewBox={viewBox}
     fill={fill}
     stroke={stroke}
@@ -25,6 +25,6 @@ export default ({
     strokeLinejoin={strokeLinejoin}
     {...props}
   >
-    <use href={`assets/icon/icons.svg#${value}`} />
+    <use href={`${icons}#${value}`} />
   </svg>
 )
