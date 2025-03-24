@@ -27,7 +27,7 @@
     "vitest": "^3.0.4"
   },
   "dependencies": {
-    "next": "^15.2.3",
+    "next": "^15.2.4",
     "portalx": "file:../..",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"
