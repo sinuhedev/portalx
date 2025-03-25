@@ -24,6 +24,7 @@ export default function CounterPage () {
 
       <Counter
         value={state.count}
+        animation='count'
         onChange={() => {
           fx.set({ count: state.count + 1 })
         }}
