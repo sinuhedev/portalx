@@ -15,91 +15,87 @@
 	}
 }
 
-/* fade */
+/**
+ * fade 
+ */
 
-@keyframes fadeIn {
+@keyframes fade {
 	0% {
-		opacity: 0;
+		opacity: var(--start, 1);
 	}
 
 	100% {
-		opacity: 1;
+		opacity: var(--end, 1);
 	}
 }
 
-@keyframes fadeOut {
-	0% {
-		opacity: 1;
-	}
-
-	100% {
-		opacity: 0;
-	}
-}
-
-
+::view-transition-new(fade),
 ::view-transition-old(fade) {
-	animation: fadeOut 0.3s;
+	animation: fade ease 0.3s;
 }
 
 ::view-transition-new(fade) {
-	animation: fadeIn 0.3s;
+	--start: 0;
 }
 
-/* count */
+::view-transition-old(fade) {
+	--end: 0;
+}
 
-@keyframes scale {
+/**
+ * count 
+ */
+
+@keyframes count {
 	0% {
-		scale: 1 var(--scale-start, 1);
+		scale: 1 var(--start, 1);
 	}
 
 	100% {
-		scale: 1 var(--scale-end, 1);
+		scale: 1 var(--end, 1);
 	}
 }
 
 ::view-transition-new(count),
 ::view-transition-old(count) {
-	animation: scale 0.25s;
-	height: 100%;
-	width: 100%;
+	animation: count 0.25s;
 }
 
 ::view-transition-new(count) {
-	--scale-start: 0;
+	--start: 0;
 	transform-origin: 50% 0;
 }
 
 ::view-transition-old(count) {
-	--scale-end: 0;
+	--end: 0;
 	transform-origin: 50% 100%;
 }
 
-/* count2 */
+/**
+ * count2 
+ */
 
-@keyframes scale {
+@keyframes count2 {
 	0% {
-		scale: 1 var(--scale-start, 1);
+		scale: 1 var(--start, 1);
 	}
 
 	100% {
-		scale: 1 var(--scale-end, 1);
+		scale: 1 var(--end, 1);
 	}
 }
 
 ::view-transition-new(count2),
 ::view-transition-old(count2) {
-	animation: scale 0.25s;
-	height: 100%;
-	width: 100%;
+	animation: count2 0.25s;
 }
 
 ::view-transition-new(count2) {
-	--scale-start: 0;
+	--start: 0;
 	transform-origin: 10% 1000;
 }
 
 ::view-transition-old(count2) {
-	--scale-end: 0;
+	--end: 0;
 	transform-origin: 10% 0%;
 }

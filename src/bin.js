@@ -17,7 +17,7 @@ function createPage (name, isNext, isType) {
 
 `
 : ''}import React, { useEffect } from 'react'
-import { useFx, css } from 'poortalx'
+import { useFx, css } from 'portalx'
 import functions from './functions'
 import './style.css'
 
@@ -59,11 +59,11 @@ function createComponent (name, isNext, isType) {
     fs.writeFileSync(`${dirName}/index.jsx`,
 `import React, { useEffect } from 'react'
 import './style.css'
-import { css } from 'poortalx'
+import { css } from 'portalx'
 
 export default ({ className, style }) => {
   return (
-    <article className={css('${componentName}', className)} style={style} >
+    <article className={css('${componentName}', className)} style={style}>
       ${componentName}
     </article>
   )
@@ -89,7 +89,7 @@ function createContainer (name, isNext, isType) {
     // index.jsx
     fs.writeFileSync(`${dirName}/index.jsx`,
 `import React, { useEffect } from 'react'
-import { useFx, css } from 'poortalx'
+import { useFx, css } from 'portalx'
 import functions from './functions'
 import './style.css'
 
@@ -152,6 +152,6 @@ switch (CMD) {
     break
 
   default:
-    console.info('poortalx')
+    console.info('portalx')
     break
 }
