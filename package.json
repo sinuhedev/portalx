@@ -1,7 +1,7 @@
 {
 	"name": "portalx",
 	"description": "Create fast web applications",
-	"version": "0.19.6",
+	"version": "0.19.7",
 	"type": "module",
 	"license": "MIT",
 	"author": {
