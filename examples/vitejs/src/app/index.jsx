@@ -1,4 +1,4 @@
-import React, { useEffect, useState, lazy } from 'react'
+import React, { useEffect, useState, useRef, lazy } from 'react'
 import { useFx, Portalx } from 'portalx'
 import { Translate, Icon, I18n, Menu } from 'components'
 import functions from './functions'
@@ -11,6 +11,7 @@ export default function App () {
   const [Page, setPage] = useState()
   const qs = useQueryString()
   const resize = useResize()
+  const ref = useRef()
 
   useEffect(() => {
     const hash = ['', '#/'].includes(qs.hash) ? '#/Home' : qs.hash
@@ -30,7 +31,7 @@ export default function App () {
       }
     })
 
-    startViewTransition(setPage(page), document.body, 'fade')
+    startViewTransition(setPage(page), ref.current, 'fade')
   }, [qs.hash])
 
   return (
@@ -55,7 +56,7 @@ export default function App () {
 
       <Menu className='m-2' />
 
-      <main className='m-2'>
+      <main ref={ref} className='m-2'>
         {Page && <Page qs={qs} resize={resize} />}
       </main>
 
