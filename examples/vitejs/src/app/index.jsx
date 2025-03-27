@@ -1,6 +1,6 @@
-import React, { useEffect, useState, useRef, lazy } from 'react'
+import React, { useEffect, useState, lazy } from 'react'
 import { useFx, Portalx } from 'portalx'
-import { Translate, Icon, Link, I18n, Menu } from 'components'
+import { Translate, Icon, I18n, Menu } from 'components'
 import functions from './functions'
 import { useQueryString, useResize, startViewTransition } from 'utils'
 
@@ -9,7 +9,6 @@ export default function App () {
   const { state, fx } = portalx
 
   const [Page, setPage] = useState()
-  const ref = useRef()
   const qs = useQueryString()
   const resize = useResize()
 
@@ -31,7 +30,7 @@ export default function App () {
       }
     })
 
-    startViewTransition(setPage(page), ref, 'fade')
+    startViewTransition(setPage(page), document.body, 'fade')
   }, [qs.hash])
 
   return (
@@ -56,7 +55,7 @@ export default function App () {
 
       <Menu className='m-2' />
 
-      <main ref={ref} className='m-2'>
+      <main className='m-2'>
         {Page && <Page qs={qs} resize={resize} />}
       </main>
 

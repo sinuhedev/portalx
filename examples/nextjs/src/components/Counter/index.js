@@ -26,7 +26,7 @@ export default ({
     >
       <button
         onClick={e => {
-          startViewTransition(onChange(e), ref, animation)
+          startViewTransition(onChange(e), ref.current, animation)
         }}
       >
         Increment

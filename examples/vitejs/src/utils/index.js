@@ -47,14 +47,12 @@ function useResize () {
   return resize
 }
 
-async function startViewTransition (fun = () => {}, ref = null, viewTransitionName = '') {
+async function startViewTransition (fun = () => {}, ref, animation) {
   if (!document.startViewTransition) return fun()
 
-  if (ref && ref.current) {
-    ref.current.style.viewTransitionName = viewTransitionName
-    await document.startViewTransition(fun).finished
-    ref.current.style.viewTransitionName = ''
-  }
+  ref.style.viewTransitionName = animation
+  await document.startViewTransition(fun).finished
+  ref.style.viewTransitionName = ''
 }
 
 function sum (a, b) {
